@@ -7,6 +7,7 @@ import * as sessionActions from "../../store/session";
 
 function SignupFormPage(){
     const currentDay = new Date()
+    const monthNow = (currentDay.getMonth())
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
     const [firstName,setFirstName] = useState('')
@@ -14,7 +15,7 @@ function SignupFormPage(){
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const [birthday,setBirthday] = useState('dummy')
-    const [month,setMonth] = useState(currentDay.getMonth().toString())
+    const [month,setMonth] = useState(monthNow+1)
     const [day,setDay] = useState(currentDay.getDate().toString())
     const [year,setYear] = useState(currentDay.getFullYear().toString())
     const [gender,setGender] = useState('')
@@ -25,6 +26,8 @@ function SignupFormPage(){
 
     const monthsArr = Object.keys(months)
 
+    const monthsThirty = [4,6,9,11]
+
     const days = Array.from({length:31},(x,i)=>i+1);
 
     const years = Array.from({length:100},(x,i)=>i+currentDay.getFullYear()-99);
@@ -32,18 +35,42 @@ function SignupFormPage(){
 
 
 
+
+
     if (sessionUser) return <Redirect to="/"/>;
 
     const handleSubmit = (e) =>{
+        setErrors([]);
         e.preventDefault();
-             setErrors([]);
-             dispatch(sessionActions.signup({firstName,lastName,email,password,birthday,gender}))
-             .catch(async(res)=>{
-                 const data = await res.json();
-                 if (data.errors) setErrors(data.errors);
-                 debugger
-             });
-    };
+        if (monthsThirty.includes(month)){
+            if (parseInt(day)>30) return setErrors(['Invalid Date'])
+        }else if (month === 2){
+            if(parseInt(year)%4 === 0){
+                if (parseInt(day)>29) return setErrors(['Invalid Date'])
+            }else{
+                if (parseInt(day)>28) return setErrors(['Invalid Date'])
+            }
+        
+        }
+        if(parseInt(year) > currentDay.getFullYear()-13){
+            return setErrors(['Does not meet age requirement'])}
+        if(parseInt(year) === currentDay.getFullYear()-13){
+            if (month > (currentDay.getMonth()+1)){ 
+                return setErrors(['Does not meet age requirement'])
+            }else if (month === (currentDay.getMonth()+1)){
+                if (parseInt(day)>currentDay.getDate()) return setErrors(['Does not meet age requirement'])
+            }
+        } 
+            dispatch(sessionActions.signup({firstName,lastName,email,password,birthday,gender}))
+            .catch(async(res)=>{
+                const data = await res.json();
+                if (data.errors) setErrors(data.errors);
+            
+            });
+            
+        }
+        
+    
 
     return(
         <form className = 'signup' onSubmit = {handleSubmit}>
@@ -63,10 +90,11 @@ function SignupFormPage(){
            
                 <input type = "password" value = {password} onChange = {(e)=>setPassword(e.target.value)}
                 placeholder = 'Password'required/>
+
                 <div className = 'birthday_data' name = 'birthday'>
                 <label htmlFor = 'birthday'>Birthday</label>
                     <div>
-                        <select id="month" defaultValue = {monthsArr[month]}
+                        <select id="month" defaultValue = {monthsArr[monthNow]}
                         onChange= {(e)=>setMonth(monthsArr.indexOf(e.target.value)+1)} >
                             {monthsArr.map(displayMonth=>
                                 <option key = {displayMonth}>{displayMonth}</option>
@@ -88,6 +116,24 @@ function SignupFormPage(){
                                 )}
                         </select>
                             
+                </div>
+                <label htmlFor="gender">Gender</label>
+                <div className = 'gender_data'>
+                    <label>
+                        <input type = 'radio' name = 'gender'value = {'male'} 
+                         onChange={(e)=>setGender(e.target.value)}/>
+                        Male
+                    </label>
+                    <label>
+                        <input type = 'radio' name = 'gender' value = {'female'}
+                        onChange={(e)=>setGender(e.target.value)}/>
+                        Female
+                    </label>
+                    <label>
+                        <input type = 'radio' name = 'gender' value = {'custom'}
+                        onChange={(e)=>setGender(e.target.value)}/>
+                        Custom
+                    </label>
                 </div>
 
                 

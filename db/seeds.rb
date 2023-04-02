@@ -36,7 +36,7 @@ ApplicationRecord.transaction do
         first_name:name,
         last_name:'planet',
         birthday:Date.today-rand(4745..36500),
-        gender: ['male','female','other'].sample
+        gender: ['male','female','custom'].sample
       }) 
     end
   

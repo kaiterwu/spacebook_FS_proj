@@ -65,6 +65,7 @@ class ApplicationController < ActionController::API
 
     def snake_case_params
         params.deep_transform_keys!(&:underscore)
+        # params.deep_transform_keys!{|key|key.underscore}
     end
 
     def attach_authenticity_token
