@@ -13,7 +13,7 @@ function SignupFormPage(){
     const [lastName,setLastName] = useState('')
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const [birthday,setBirthday] = useState('')
+    const [birthday,setBirthday] = useState('dummy')
     const [month,setMonth] = useState(currentDay.getMonth().toString())
     const [day,setDay] = useState(currentDay.getDate().toString())
     const [year,setYear] = useState(currentDay.getFullYear().toString())
@@ -37,7 +37,6 @@ function SignupFormPage(){
     const handleSubmit = (e) =>{
         e.preventDefault();
              setErrors([]);
-             setBirthday(`${year}-${month}-${day}`)
              dispatch(sessionActions.signup({firstName,lastName,email,password,birthday,gender}))
              .catch(async(res)=>{
                  const data = await res.json();
@@ -67,31 +66,28 @@ function SignupFormPage(){
                 <div className = 'birthday_data' name = 'birthday'>
                 <label htmlFor = 'birthday'>Birthday</label>
                     <div>
-                        <select id="month" defaultValue = {monthsArr[currentDay.getMonth()]}
-                        onChange= {(e)=>setMonth(e.target.value)} >
+                        <select id="month" defaultValue = {monthsArr[month]}
+                        onChange= {(e)=>setMonth(monthsArr.indexOf(e.target.value)+1)} >
                             {monthsArr.map(displayMonth=>
-                                <option key = {displayMonth} value = {monthsArr.indexOf(displayMonth)+1}>{displayMonth}</option>
+                                <option key = {displayMonth}>{displayMonth}</option>
                             )}
                         </select>
                     </div>
                     <div>
-                        <select id="day" defaultValue = {currentDay.getDate()}
+                        <select id="day" defaultValue = {day}
                         onChange = {(e)=>setDay(e.target.value)}>
                             {days.map(displayDay=>
                                     <option key = {displayDay}>{displayDay}</option>
                                 )}
                         </select>
                     </div>
-                        <select id="year" defaultValue = {currentDay.getFullYear()}
+                        <select id="year" defaultValue = {year}
                         onChange = {(e)=>setYear(e.target.value)}>
                             {years.map(displayYear=>
                                   <option key = {displayYear}>{displayYear}</option>
                                 )}
                         </select>
-                    <div>
-                        
-                    </div>
-
+                            
                 </div>
 
                 
@@ -99,7 +95,7 @@ function SignupFormPage(){
             
             
 
-            <button type = "submit">Sign Up</button>
+            <button type = "submit" onClick={()=>setBirthday(`${year}-${month}-${day}`)}>Sign Up</button>
         </form>
     );
 }   
