@@ -29,7 +29,7 @@ ApplicationRecord.transaction do
   
     # More users
     10.times do 
-      name = Faker::Space.uniqueq
+      name = Faker::Space.unique
       User.create!({
         email: Faker::Internet.unique.email(name:name),
         password: 'password',
