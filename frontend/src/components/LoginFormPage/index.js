@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import SignupFormModal from '../SignupFormModal';
 import './LoginForm.css';
 
 function LoginFormPage(){
@@ -25,19 +26,33 @@ function LoginFormPage(){
     }
     // debugger
     return(
+        <>
+        <div className='LoginPage'>
+        <div className = "headings">
+        <h1>Spacebook</h1>
+        <p>Connect with planets and stars around the Universe with Spacebook. </p>
+
+        </div>
         <form className="login" onSubmit = {handleSubmit}>
         <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
-     
+         
             <input type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
              placeholder = 'Email' required/>
+
     
+        
             <input type = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}
             placeholder = "Password" required/>
+        
   
-        <button type="submit">Log In</button>
-    </form>
+        <button id="submit" type="submit">Log In</button>
+        <SignupFormModal/>
+        </form>
+        <div className='footer'></div>
+        </div>
+        </>
     );
 }
 

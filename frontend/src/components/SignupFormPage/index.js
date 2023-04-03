@@ -89,7 +89,7 @@ function SignupFormPage(){
                 placeholder = 'Email'required/>
            
                 <input type = "password" value = {password} onChange = {(e)=>setPassword(e.target.value)}
-                placeholder = 'Password'required/>
+                placeholder = 'New Password'required/>
 
                 <div className = 'birthday_data' name = 'birthday'>
                 <label htmlFor = 'birthday'>Birthday</label>

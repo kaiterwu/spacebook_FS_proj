@@ -1,0 +1,41 @@
+.signup {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding:10%;
+    width: 80vw;
+    height:50vw;
+    border: black solid 0px;
+    border-radius:1%;
+    box-shadow: 0px 4px 8px 2px  grey;
+    
+    
+}
+
+.signup input,button {
+    border:grey solid 1px;
+    border-radius: 4%;
+}
+
+.signup input{
+    width: 50%;
+    height: 10%;
+    padding: 1%;
+
+}
+
+
+
+.signup button{
+    background-color: blue;
+    color:white;
+    width:50%;
+    height: 15%;
+}
+
+.signup button:hover{
+    background-color: white;
+    color: blue;
+}
+
