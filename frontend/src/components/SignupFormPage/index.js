@@ -79,7 +79,7 @@ function SignupFormPage(){
 
         <div className="signupHeaders">
             <div id = 'bigSign'>Sign up</div>
-            <div id = 'smallsign'>It's quick and easy</div>
+            <div id = 'smallsign'>It's quick and easy.</div>
         </div>
         <form className = 'signup' onSubmit = {handleSubmit}>
             <ul>

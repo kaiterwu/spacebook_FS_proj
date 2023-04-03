@@ -3,12 +3,14 @@
     flex-direction: column;
     align-items: center;
     /* padding:10%; */
-    width:430px;
+    /* width:400px; */
     height:400px;
     row-gap:12px;
     /* border: black solid 0px; */
     /* border-radius:1%; */
     /* box-shadow: 0px 4px 8px 2px  grey; */
+    margin:none;
+    padding:none;
     
     
 }
@@ -31,27 +33,33 @@
     display:flex;
     flex-direction: column;
     justify-content:center;
-    margin-left:12px;
+    align-self: flex-start;
+    margin-left:35px;
+    /* border: 1px solid 50px; */
     
 }
 .signupWindow{
     display:flex;
     flex-direction:column;
+    align-items: center;
+    
 }
 .names{
     display:flex;
     column-gap:10px;
     margin-top:-20px;
+    border-top:1px solid rgb(226, 226, 226);
+    padding-top:20px;
 }
 .names input{
     /* width:400px; */
-    height:40px;
-    width:190px;
+    height:32px;
+    width:168px;
 }
 
 #emailInput,#passInput{
-    width:400px;
-    height:40px;
+    width:350px;
+    height:32px;
 }
 
 #emailInput,#passInput,.names input{
@@ -79,7 +87,7 @@
 
 .birthday_data select{
     height:30px;
-    width:130px;
+    width:114px;
     border-radius:5px;
     border:solid rgb(200, 200, 200) 1px;
 }
@@ -94,7 +102,7 @@
     border:solid rgb(200, 200, 200) 1px;
     /* border-radius:4px; */
     height:30px;
-    width:130px;
+    width:114px;
     display:flex;
     align-items:center;
     justify-content:space-around;

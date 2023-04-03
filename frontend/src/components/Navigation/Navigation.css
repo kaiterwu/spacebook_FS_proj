@@ -1,0 +1,28 @@
+#profilebutton{
+    border-radius: 100%;
+    width:80px;
+    height:80px;
+    font-size:30px;
+    align-self:flex-end;
+    
+}
+
+.profile-dropdown li{
+    border:1px solid grey;
+    color:black;
+    padding:10px;
+    font-size:12px;
+    width:80px;
+    list-style-type:none;
+
+}
+
+.profile{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.dropdowns{
+    display:flex;
+    flex-direction: column;
+}
