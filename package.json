@@ -1,5 +1,31 @@
 {
   "dependencies": {
     "react-router-dom": "^5.3.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "name": "spacebook_fs_proj",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaiterwu/spacebook_FS_proj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaiterwu/spacebook_FS_proj/issues"
+  },
+  "homepage": "https://github.com/kaiterwu/spacebook_FS_proj#readme",
+  "engines": {
+    "node": "16.x"
   }
 }

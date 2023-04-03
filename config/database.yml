@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: spacebook_fs_proj_production
-  username: spacebook_fs_proj
-  password: <%= ENV["SPACEBOOK_FS_PROJ_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
