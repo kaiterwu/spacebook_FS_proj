@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 const ProfileButton = ({user}) => {
     const dispatch = useDispatch();
     const [showMenu,setShowMenu] = useState(false)
-    const history = useHistory()
+    let history = useHistory()
 
     const openMenu = () => {
         if (showMenu) return;
@@ -29,7 +29,12 @@ const ProfileButton = ({user}) => {
 
     const logout = (e) =>{
         e.preventDefault();
+        history.push('/')
         dispatch(sessionActions.logout());
+    }
+
+    const handleClick = ()=>{ 
+      history.replace(`/users/${user.id}`)
     }
 
     return (
@@ -42,7 +47,7 @@ const ProfileButton = ({user}) => {
           </button>
           {showMenu && (
             <ul className="profile-dropdown">
-              <li id ="firstli">{`${user.firstName}`}</li>
+              <li id ="firstli" onClick={handleClick}>{`${user.firstName}`}</li>
               <li>{user.email}</li>
               <li id ="logout'" onClick={logout}>Logout</li>
             </ul>

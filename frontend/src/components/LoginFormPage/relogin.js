@@ -9,22 +9,29 @@ const ReloginForm = ()=>{
     const sessionUser = useSelector(state => state.session.user);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    // const [errors, setErrors] = useState([]);
-
+    const [errors, setErrors] = useState([`The email you entered isn’t connected to an account. Find your account and log in`]);
+    
     if (sessionUser) return <Redirect to="/"/>;
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setErrors([]);
+        setErrors([]);
          dispatch(sessionActions.login({email,password}))
         .catch(async (res) =>{
-            // const data = await res.json();
-            // if (data.errors) setErrors(data.errors);
+            const data = await res.json();
+            if (data.errors) {
+                setErrors(data.errors);
+            
+            }
+        
+                
         });
     }
     const handleDemoClick = (e)=>{
         e.preventDefault()
         dispatch(sessionActions.login({email:'test@test.com',password:'password'}))
     }
+
+    
 
     return(
         <>
@@ -43,12 +50,12 @@ const ReloginForm = ()=>{
                 <div className='emailErrors'>
                 <input id ='erroremail' type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
                 placeholder = 'Email' required/>
-                <p>▲ The email you entered isn’t connected to an account.<br/> <b>Find your account and log in.</b></p>
+                    {errors.map(error => <p key={error}>▲{error}</p>)}
                 </div>
 
         
             
-                <input type = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}
+                <input id='rePassword' type = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}
                 placeholder = "Password" required/>
             
     

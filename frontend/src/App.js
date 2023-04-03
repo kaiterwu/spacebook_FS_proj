@@ -38,6 +38,9 @@ function App() {
       <Route path='/relogin'>
         <ReloginForm/>
       </Route>
+      <Route path = '/users/:id'>
+        TESTING
+      </Route>
     </Switch>
     </>
 

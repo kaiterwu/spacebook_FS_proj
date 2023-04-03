@@ -15,7 +15,7 @@ const Navigation = ()=>{
     if(sessionUser){
         sessionLinks = (
             <div className = 'navlink'>
-            <div id='logo' onClick={history.push('/')}>S</div>
+            <div id='logo' onClick={()=>history.replace('/')}>S</div>
             <ProfileButton id ='profile' user = {sessionUser}/>
             </div>
         )
