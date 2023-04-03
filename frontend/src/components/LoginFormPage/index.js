@@ -11,7 +11,7 @@ function LoginFormPage(){
     const sessionUser = useSelector(state => state.session.user);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const history = useHistory()
     
     if (sessionUser) return <Redirect to="/"/>;
@@ -19,7 +19,7 @@ function LoginFormPage(){
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        // setErrors([]);
          dispatch(sessionActions.login({email,password}))
         .catch(async (res) =>{
             const data = await res.json();
@@ -45,7 +45,7 @@ function LoginFormPage(){
         <div class = 'formwindow'>
         <form className="login" onSubmit = {handleSubmit}>
         <ul className = 'loginErrors'>
-            {errors.map(error => <li key={error}>▲{error}</li>)}
+            {/* {errors.map(error => <li key={error}>▲{error}</li>)} */}
         </ul>
          
             <input type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css'
+import { useHistory } from "react-router";
 
 const ProfileButton = ({user}) => {
     const dispatch = useDispatch();
     const [showMenu,setShowMenu] = useState(false)
+    const history = useHistory()
 
     const openMenu = () => {
         if (showMenu) return;
@@ -40,11 +42,9 @@ const ProfileButton = ({user}) => {
           </button>
           {showMenu && (
             <ul className="profile-dropdown">
-              <li>{`Welcome ${user.firstName}`}</li>
+              <li id ="firstli">{`${user.firstName}`}</li>
               <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
+              <li id ="logout'" onClick={logout}>Logout</li>
             </ul>
           )}
         </div>

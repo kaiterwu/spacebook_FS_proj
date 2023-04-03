@@ -9,12 +9,12 @@ const ReloginForm = ()=>{
     const sessionUser = useSelector(state => state.session.user);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
 
     if (sessionUser) return <Redirect to="/"/>;
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        // setErrors([]);
          dispatch(sessionActions.login({email,password}))
         .catch(async (res) =>{
             // const data = await res.json();
