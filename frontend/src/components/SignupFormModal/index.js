@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SignupFormPage from '../SignupFormPage'; 
-import './SignupModal.css'
 
 
 function SignupFormModal() {
@@ -11,6 +10,8 @@ function SignupFormModal() {
     e.preventDefault();
     setShowModal(true);
   }
+
+
 
   return (
     <>

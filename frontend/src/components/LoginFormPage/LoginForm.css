@@ -10,12 +10,16 @@ body{
     display:flex;
     justify-content:space-evenly;
     align-items:center;
+    margin-top:40px;
 }
 
 .login{
     display:flex;
     flex-direction:column;
     row-gap:15px;
+    border-bottom:1px solid rgb(210, 210, 210);
+    padding-bottom: 20px;
+   
 }
 .formwindow {
 
@@ -40,18 +44,21 @@ body{
     align-items:center;
     margin-top:5%;
     margin-right:100px;
+    
 }
 
 #otherButtons{
     display:flex;
-    column-gap: 10px;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items:center;
 
 }
 
 #demo{
     background-color: #42b72a;
     color:white;
-    width:150px;
+    width:160px;
     height:36px;
     font-size: 16px;
     border:none;
@@ -62,6 +69,7 @@ body{
 
 
 .loginwindow p,.loginwindow b{
+    padding-top:20px;
     font-size:12px;
     font-family:Arial, Helvetica, sans-serif
 }
@@ -87,16 +95,19 @@ body{
 }
 
 .headings{
-    margin-top:60px;
+   margin-bottom:20px;
     width:450px;
     margin-right:50px;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .headings h1{
     color:#1877f2;
     font-size:45px;
+    font-weight:bolder;
 }
 .headings p{
+    margin-top:10px;
     font-size:25px;
 }
 
@@ -127,6 +138,14 @@ body{
     text-align: center;
  }
 
-ul li{
-    color:red
+.loginErrors li{
+    margin-top:10px;
+    color:red;
+    font-family: arial;
+    font-size: 10px;
+    font-style:italic;
+}
+
+.loginErrors{
+    height:20px;
 }

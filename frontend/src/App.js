@@ -3,6 +3,7 @@ import {Redirect, Route,Switch} from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
 import { useSelector } from 'react-redux';
+import ReloginForm from './components/LoginFormPage/relogin';
 // import BenchIndexPage from './components/BenchIndexPage';
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
     </Route>
       <Route path="/login">
         <LoginFormPage />
+      </Route>
+      <Route path='/relogin'>
+        <ReloginForm/>
       </Route>
     </Switch>
     </>

@@ -4,7 +4,7 @@
     align-items: center;
     /* padding:10%; */
     /* width:400px; */
-    height:400px;
+    height:350px;
     row-gap:12px;
     /* border: black solid 0px; */
     /* border-radius:1%; */
@@ -21,7 +21,8 @@
 
 #bigSign{
     font-size:30px;
-    font-weight:bolder
+    font-weight:bolder;
+    padding-bottom:10px;
 }
 #smallsign{
     font-size:12px;
@@ -36,6 +37,7 @@
     align-self: flex-start;
     margin-left:35px;
     /* border: 1px solid 50px; */
+    padding-bottom:0px;
     
 }
 .signupWindow{
@@ -49,7 +51,7 @@
     column-gap:10px;
     margin-top:-20px;
     border-top:1px solid rgb(226, 226, 226);
-    padding-top:20px;
+    padding-top:10px;
 }
 .names input{
     /* width:400px; */
@@ -114,6 +116,17 @@
     margin-left:12px;
     font-size:10px;
     color:rgb(92, 92, 92)
+}
+
+.signupErrors li{
+    font-size:10px;
+    color:red;
+    font-style:italic
+}
+
+.signupErrors{
+    margin-bottom:10px;
+    height:20px;
 }
 
 

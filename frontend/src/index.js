@@ -8,6 +8,7 @@ import * as sessionActions from './store/session'
 import csrfFetch from './store/csrf';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
+import './index.css'
 
 const store = configureStore();
 

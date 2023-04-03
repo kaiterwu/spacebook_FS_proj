@@ -33,10 +33,6 @@ function SignupFormPage(){
     const years = Array.from({length:100},(x,i)=>i+currentDay.getFullYear()-99);
 
 
-
-
-
-
     if (sessionUser) return <Redirect to="/"/>;
 
     const handleSubmit = (e) =>{
@@ -67,7 +63,8 @@ function SignupFormPage(){
                 if (data.errors) setErrors(data.errors);
             
             });
-            
+            dispatch(sessionActions.login({email:email,password:password}))
+     
         }
 
         
@@ -82,8 +79,8 @@ function SignupFormPage(){
             <div id = 'smallsign'>It's quick and easy.</div>
         </div>
         <form className = 'signup' onSubmit = {handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
+            <ul className= 'signupErrors'>
+                {errors.map(error => <li key={error}>▲{error}</li>)}
             </ul>
                 <div className="names">
                 <input type = "text" value = {firstName} onChange = {(e)=>setFirstName(e.target.value)}
