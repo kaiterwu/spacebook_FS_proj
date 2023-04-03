@@ -1,0 +1,119 @@
+.signup {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding:10%; */
+    /* width:400px; */
+    height:400px;
+    row-gap:12px;
+    /* border: black solid 0px; */
+    /* border-radius:1%; */
+    /* box-shadow: 0px 4px 8px 2px  grey; */
+    margin:none;
+    padding:none;
+    
+    
+}
+.signupWindow *{
+    font-size:15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bigSign{
+    font-size:30px;
+    font-weight:bolder
+}
+#smallsign{
+    font-size:12px;
+    color:rgb(97, 97, 97)
+    
+}
+
+.signupHeaders{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-self: flex-start;
+    margin-left:35px;
+    /* border: 1px solid 50px; */
+    
+}
+.signupWindow{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    
+}
+.names{
+    display:flex;
+    column-gap:10px;
+    margin-top:-20px;
+    border-top:1px solid rgb(226, 226, 226);
+    padding-top:20px;
+}
+.names input{
+    /* width:400px; */
+    height:32px;
+    width:168px;
+}
+
+#emailInput,#passInput{
+    width:350px;
+    height:32px;
+}
+
+#emailInput,#passInput,.names input{
+    background-color: rgb(238, 237, 237);
+    border:solid 1px rgb(176, 176, 176);
+    border-radius:5px;
+    
+}
+
+
+.signup button{
+    background-color: #42b72a;
+    color:white;
+    width:160px;
+    height:36px;
+    font-size: 16px;
+    border:none;
+}
+
+.birthday_data{
+    display:flex;
+    flex-direction: row;
+    column-gap:10px;
+}
+
+.birthday_data select{
+    height:30px;
+    width:114px;
+    border-radius:5px;
+    border:solid rgb(200, 200, 200) 1px;
+}
+
+.gender_data{
+    display:flex;
+    flex-direction: row;
+    column-gap:10px;
+}
+
+.gender_data label{
+    border:solid rgb(200, 200, 200) 1px;
+    /* border-radius:4px; */
+    height:30px;
+    width:114px;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    border-radius:5px;
+}
+
+#bday,#gend{
+    align-self:flex-start;
+    margin-left:12px;
+    font-size:10px;
+    color:rgb(92, 92, 92)
+}
+
+

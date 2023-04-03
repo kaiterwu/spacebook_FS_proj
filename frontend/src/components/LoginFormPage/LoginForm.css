@@ -1,0 +1,132 @@
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+body{
+    background-color:#f0f2f5;
+}
+
+.LoginPage{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
+.login{
+    display:flex;
+    flex-direction:column;
+    row-gap:15px;
+}
+.formwindow {
+
+    display:flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content:none;
+    align-items: center;
+    width: 350px;
+    height:320px;
+    border: black solid 0px;
+    border-radius:6px;
+    box-shadow: 0px 4px 8px 2px  rgb(205, 205, 205);
+    row-gap:15px;
+    flex-shrink: 0%;
+   
+}
+
+.loginwindow{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top:5%;
+    margin-right:100px;
+}
+
+#otherButtons{
+    display:flex;
+    column-gap: 10px;
+
+}
+
+#demo{
+    background-color: #42b72a;
+    color:white;
+    width:150px;
+    height:36px;
+    font-size: 16px;
+    border:none;
+
+}
+
+
+
+
+.loginwindow p,.loginwindow b{
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+
+.login input,button {
+    border:grey solid 1px;
+    border-radius: 5px;
+}
+
+.login input{
+    width: 320px;
+    height: 42px;
+    border:rgb(209, 209, 209) solid 1px;
+    border-radius: 5px;
+    font-size:15px;
+    /* padding-left:50px; */
+    /* margin-left:50px; */
+    box-sizing: border-box;
+    padding-left: 20px;
+    
+
+}
+
+.headings{
+    margin-top:60px;
+    width:450px;
+    margin-right:50px;
+}
+
+.headings h1{
+    color:#1877f2;
+    font-size:45px;
+}
+.headings p{
+    font-size:25px;
+}
+
+
+#submit{
+    background-color: #1877f2;
+    color:white;
+    width:320px;
+    height: 42px;
+    border-radius:6px;
+    font-size:20px;
+    border:none;
+}
+
+.login button:hover{
+    background-color: white;
+    color:blue;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:12vw;
+    background-color: white;
+    color: white;
+    text-align: center;
+ }
+
+ul li{
+    color:red
+}
