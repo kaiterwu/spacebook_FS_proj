@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
-// import './SignupForm.css';
+import './SignupForm.css';
 
 function SignupFormPage(){
     const currentDay = new Date()
@@ -69,15 +69,23 @@ function SignupFormPage(){
             });
             
         }
+
         
     
 
     return(
+        <>
+        <div className = 'signupWindow'>
+
+        <div className="signupHeaders">
+            <div id = 'bigSign'>Sign up</div>
+            <div id = 'smallsign'>It's quick and easy</div>
+        </div>
         <form className = 'signup' onSubmit = {handleSubmit}>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-                <div>
+                <div className="names">
                 <input type = "text" value = {firstName} onChange = {(e)=>setFirstName(e.target.value)}
                 placeholder = 'First name'required/>
 
@@ -86,13 +94,13 @@ function SignupFormPage(){
 
                 </div>
                 <input type = "text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
-                placeholder = 'Email'required/>
+                placeholder = 'Email'required id = 'emailInput'/>
            
                 <input type = "password" value = {password} onChange = {(e)=>setPassword(e.target.value)}
-                placeholder = 'New Password'required/>
+                placeholder = 'New Password'required id = 'passInput'/>
 
+                <label id ='bday' htmlFor = 'birthday'>Birthday</label>
                 <div className = 'birthday_data' name = 'birthday'>
-                <label htmlFor = 'birthday'>Birthday</label>
                     <div>
                         <select id="month" defaultValue = {monthsArr[monthNow]}
                         onChange= {(e)=>setMonth(monthsArr.indexOf(e.target.value)+1)} >
@@ -117,32 +125,28 @@ function SignupFormPage(){
                         </select>
                             
                 </div>
-                <label htmlFor="gender">Gender</label>
+                <label id ='gend' htmlFor="gender">Gender</label>
                 <div className = 'gender_data'>
                     <label>
+                        Male
                         <input type = 'radio' name = 'gender'value = {'male'} 
                          onChange={(e)=>setGender(e.target.value)}/>
-                        Male
                     </label>
                     <label>
+                        Female
                         <input type = 'radio' name = 'gender' value = {'female'}
                         onChange={(e)=>setGender(e.target.value)}/>
-                        Female
                     </label>
                     <label>
+                        Custom
                         <input type = 'radio' name = 'gender' value = {'custom'}
                         onChange={(e)=>setGender(e.target.value)}/>
-                        Custom
                     </label>
                 </div>
-
-                
-           
-            
-            
-
             <button type = "submit" onClick={()=>setBirthday(`${year}-${month}-${day}`)}>Sign Up</button>
         </form>
+        </div>
+        </>
     );
 }   
 

@@ -1,41 +1,111 @@
 .signup {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    padding:10%;
-    width: 80vw;
-    height:50vw;
-    border: black solid 0px;
-    border-radius:1%;
-    box-shadow: 0px 4px 8px 2px  grey;
+    /* padding:10%; */
+    width:430px;
+    height:400px;
+    row-gap:12px;
+    /* border: black solid 0px; */
+    /* border-radius:1%; */
+    /* box-shadow: 0px 4px 8px 2px  grey; */
     
     
 }
-
-.signup input,button {
-    border:grey solid 1px;
-    border-radius: 4%;
+.signupWindow *{
+    font-size:15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.signup input{
-    width: 50%;
-    height: 10%;
-    padding: 1%;
-
+#bigSign{
+    font-size:30px;
+    font-weight:bolder
+}
+#smallsign{
+    font-size:12px;
+    color:rgb(97, 97, 97)
+    
 }
 
+.signupHeaders{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-left:12px;
+    
+}
+.signupWindow{
+    display:flex;
+    flex-direction:column;
+}
+.names{
+    display:flex;
+    column-gap:10px;
+    margin-top:-20px;
+}
+.names input{
+    /* width:400px; */
+    height:40px;
+    width:190px;
+}
+
+#emailInput,#passInput{
+    width:400px;
+    height:40px;
+}
+
+#emailInput,#passInput,.names input{
+    background-color: rgb(238, 237, 237);
+    border:solid 1px rgb(176, 176, 176);
+    border-radius:5px;
+    
+}
 
 
 .signup button{
-    background-color: blue;
+    background-color: #42b72a;
     color:white;
-    width:50%;
-    height: 15%;
+    width:160px;
+    height:36px;
+    font-size: 16px;
+    border:none;
 }
 
-.signup button:hover{
-    background-color: white;
-    color: blue;
+.birthday_data{
+    display:flex;
+    flex-direction: row;
+    column-gap:10px;
 }
+
+.birthday_data select{
+    height:30px;
+    width:130px;
+    border-radius:5px;
+    border:solid rgb(200, 200, 200) 1px;
+}
+
+.gender_data{
+    display:flex;
+    flex-direction: row;
+    column-gap:10px;
+}
+
+.gender_data label{
+    border:solid rgb(200, 200, 200) 1px;
+    /* border-radius:4px; */
+    height:30px;
+    width:130px;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    border-radius:5px;
+}
+
+#bday,#gend{
+    align-self:flex-start;
+    margin-left:12px;
+    font-size:10px;
+    color:rgb(92, 92, 92)
+}
+
 

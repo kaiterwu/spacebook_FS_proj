@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SignupFormPage from '../SignupFormPage'; 
+import './SignupModal.css'
 
 
 function SignupFormModal() {
@@ -13,12 +14,14 @@ function SignupFormModal() {
 
   return (
     <>
+    <div className='signupModal'>
       <button id="create-button" onClick={handleClick}>Create a new account</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal className = 'signup' onClose={() => setShowModal(false)}>
           <SignupFormPage/>
         </Modal>
       )}
+    </div>
     </>
   );
 }

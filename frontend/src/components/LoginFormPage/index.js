@@ -24,6 +24,11 @@ function LoginFormPage(){
             if (data.errors) setErrors(data.errors);
         });
     }
+
+    const handleDemoClick = (e)=>{
+        e.preventDefault()
+        dispatch(sessionActions.login({email:'test@test.com',password:'password'}))
+    }
     // debugger
     return(
         <>
@@ -31,8 +36,10 @@ function LoginFormPage(){
         <div className = "headings">
         <h1>Spacebook</h1>
         <p>Connect with planets and stars around the Universe with Spacebook. </p>
-
         </div>
+        <div className='loginwindow'>
+
+        <div class = 'formwindow'>
         <form className="login" onSubmit = {handleSubmit}>
         <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
@@ -48,8 +55,16 @@ function LoginFormPage(){
         
   
         <button id="submit" type="submit">Log In</button>
-        <SignupFormModal/>
         </form>
+        <div id ='otherButtons'>
+
+        <button id ='demo' onClick={handleDemoClick}>Demo User</button>
+        <SignupFormModal/>
+        </div>
+
+        </div>
+        <p> <b>Create a page</b> for any astral body. </p>
+        </div>
         <div className='footer'></div>
         </div>
         </>
