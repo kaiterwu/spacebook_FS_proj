@@ -15,6 +15,14 @@ export const removeUser = () => ({
     
 });
 
+export const getUser = userId => state =>{
+    if (state.users){
+        return state.users[userId]
+    }else{
+        return null
+    }
+}
+
 const storeCSRFToken = response =>{
     const csrfToken = response.headers.get("X-CSRF-Token")
     if (csrfToken) sessionStorage.setItem("X-CSRF-Token",csrfToken);
@@ -51,6 +59,13 @@ export const login = user => async dispatch => {
     return res
 }
 
+export const fetchUser = userId => async(dispatch)=>{
+    const res = await csrfFetch (`api/users/${userId}`)
+    const user = await res.json()
+        dispatch(receiveUser(user))
+        return res 
+}
+
 export const signup = user => async dispatch =>{
     const {firstName,lastName,email,password,gender,birthday} = user;
     // debugger
@@ -74,6 +89,33 @@ export const signup = user => async dispatch =>{
     dispatch(receiveUser(data.user))
     return res
 }
+
+export const editUser = user => async dispatch =>{
+    const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;
+    // debugger
+    const res = await csrfFetch(`/api/users/${user.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+        user:{
+            
+            firstName,
+            lastName,
+            email,
+            password,
+            gender,
+            birthday,
+            aboutMe
+
+        }
+        })
+    });
+    
+    let userData = await res.json()
+    // storeCurrentUser(data.user)
+    dispatch(receiveUser(userData))
+    return res
+}
+
 
 export const logout = () => async dispatch =>{
     const res = await csrfFetch('api/session',{

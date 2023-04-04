@@ -4,6 +4,7 @@ import LoginFormPage from './components/LoginFormPage';
 import Navigation from './components/Navigation';
 import { useSelector } from 'react-redux';
 import ReloginForm from './components/LoginFormPage/relogin';
+import ProfilePage from './components/ProfilePage/index.js'
 // import BenchIndexPage from './components/BenchIndexPage';
 
 function App() {
@@ -38,9 +39,7 @@ function App() {
       <Route path='/relogin'>
         <ReloginForm/>
       </Route>
-      <Route path = '/users/:id'>
-        TESTING
-      </Route>
+      <Route path = '/users/:userId' component = {ProfilePage}/>
     </Switch>
     </>
 

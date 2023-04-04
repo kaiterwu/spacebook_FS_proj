@@ -29,12 +29,12 @@ ApplicationRecord.transaction do
   
     # More users
     10.times do 
-      name = Faker::Space.unique
+      name = Faker::Space.unique()
       User.create!({
         email: Faker::Internet.unique.email(name:name),
         password: 'password',
-        first_name:name,
-        last_name:'planet',
+        first_name: Faker::Name.first_name,
+        last_name:Faker::Space.planet,
         birthday:Date.today-rand(4745..36500),
         gender: ['male','female','custom'].sample
       }) 
