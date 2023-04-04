@@ -126,17 +126,17 @@ function SignupFormPage(){
                 <div className = 'gender_data'>
                     <label>
                         Male
-                        <input type = 'radio' name = 'gender'value = {'male'} 
+                        <input type = 'radio' name = 'gender'value = {'Male'} 
                          onChange={(e)=>setGender(e.target.value)}/>
                     </label>
                     <label>
                         Female
-                        <input type = 'radio' name = 'gender' value = {'female'}
+                        <input type = 'radio' name = 'gender' value = {'Female'}
                         onChange={(e)=>setGender(e.target.value)}/>
                     </label>
                     <label>
                         Custom
-                        <input type = 'radio' name = 'gender' value = {'custom'}
+                        <input type = 'radio' name = 'gender' value = {'Custom'}
                         onChange={(e)=>setGender(e.target.value)}/>
                     </label>
                 </div>

@@ -1,6 +1,6 @@
 
 import { useSelector,useDispatch } from "react-redux"
-import { fetchUser,getUser } from "../../store/session"
+import { fetchUser,getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
 
@@ -9,15 +9,18 @@ const ProfilePage = ()=>{
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
-    // const history = useHistory()
-
+    console.log('rendering profile page')
     useEffect(()=>{
         dispatch(fetchUser(userId))
-    },[dispatch,userId])
+    },[userId,dispatch])
 
     return(
         <>
-            <p>{user}</p>
+            <p>{user?.user.email}</p>
+            <p>{user?.user.birthday}</p>
+            <p>{user?.user.firstName}</p>
+            <p>{user?.user.lastName}</p>
+            <p>{user?.user.gender}</p>
         </>
     )
 }

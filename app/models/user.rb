@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..255 }, allow_nil: true
   validates :first_name,:last_name, length:{in: 1..255}
   #Instead of date  validation in backend, restrict drop down options on date? 
-  validates :gender ,inclusion:{in: ['male','female','custom'],message: 'Please choose one of the provided options'}
+  validates :gender ,inclusion:{in: ['Male','Female','Custom'],message: 'Please choose one of the provided options'}
 
   before_validation :ensure_session_token
 

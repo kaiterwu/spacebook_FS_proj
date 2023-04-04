@@ -22,7 +22,7 @@ ApplicationRecord.transaction do
       first_name: 'test',
       last_name: 'me',
       birthday: Date.parse('01-01-2001'),
-      gender: 'male'
+      gender: 'Male'
 
       
     )
@@ -36,7 +36,7 @@ ApplicationRecord.transaction do
         first_name: Faker::Name.first_name,
         last_name:Faker::Space.planet,
         birthday:Date.today-rand(4745..36500),
-        gender: ['male','female','custom'].sample
+        gender: ['Male','Female','Custom'].sample
       }) 
     end
   
