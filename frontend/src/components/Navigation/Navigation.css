@@ -48,7 +48,7 @@
     /* border-top-right-radius:10px; */
     /* border-top-left-radius:10px; */
     border-radius:10px;
-    cursor:default;
+    cursor:pointer;
     
 }
 .navlink{
@@ -91,5 +91,9 @@
     font-weight:500px;
     background-color: black;
 
+}
+
+#logo:hover{
+    cursor:pointer;
 }
 
