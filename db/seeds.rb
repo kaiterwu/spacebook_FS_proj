@@ -22,7 +22,8 @@ ApplicationRecord.transaction do
       first_name: 'Test',
       last_name: 'Wong',
       birthday: Date.parse('01-01-2001'),
-      gender: 'Male'
+      gender: 'Male',
+      about_me:Faker::JapaneseMedia::StudioGhibli.quote+ "\n" + Faker::JapaneseMedia::StudioGhibli.quote
 
       
     )

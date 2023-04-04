@@ -41,10 +41,10 @@
     border-radius:10px;
     background-color: white;
    
-    height:200px;
+    /* height:200px; */
     right:35px;
     top:50px;
-    box-shadow:0 4px 4px 4px rgb(238, 238, 238);
+    box-shadow:0 0.5px 0.5px 0.5px rgb(212, 212, 212);
    
 }
 
@@ -63,10 +63,12 @@
     align-items: center;
     background-color: white;
     /* position: relative ;  */
-    left: 0;
-    bottom: 0;
+    top:0;
     width: 100%;
     height:56px;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 10;
     
 }
 
@@ -95,7 +97,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:white;
     font-weight:500px;
-    background-color: black;
+    background-color: #1877f2;
 
 }
 
@@ -104,5 +106,11 @@
 }
 h1:hover{
     cursor:default;
+}
+
+#firstli{
+    border:1px solid rgb(213 213 213);
+    border-radius:10px;
+    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
 }
 

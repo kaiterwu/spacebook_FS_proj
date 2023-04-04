@@ -27,9 +27,9 @@ export const getUser = userId => state =>{
 
 export const fetchUser = userId => async(dispatch)=>{
     const res = await csrfFetch (`/api/users/${userId}`)
-    const user = await res.json()
+    const data = await res.json()
     // debugger
-        dispatch(receiveProfile(user))
+        dispatch(receiveProfile(data.user))
         return res 
         // debugger 
 }
@@ -70,7 +70,7 @@ export const editUser = user => async dispatch =>{
 const usersReducer = (state={},action)=>{
     switch(action.type){
         case RECEIVE_USER:
-            return {...state,[action.user.user.id]:action.user}
+            return {...state,[action.user.id]:action.user}
         case RECEIVE_USERS:
             return{...action.users}
         default:

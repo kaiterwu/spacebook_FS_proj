@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 // import { fetchUsers } from '../../store/users';
 
 
-// import './Navigation.css';
+import './Navigation.css';
 
 const Navigation = ()=>{
     const sessionUser = useSelector(state =>state.session.user);

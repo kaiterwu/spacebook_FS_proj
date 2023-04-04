@@ -18,7 +18,6 @@ function App() {
   }else{
     splashPage = (
       <>
-      {/* <div id = 'logo'>TEST</div> */}
     <Redirect to = '/'/>
     </>
     )
@@ -31,6 +30,7 @@ function App() {
     <Navigation/>
     <Switch>
     <Route exact path ='/'>
+    SPLASH PAGE
       {splashPage}
     </Route>
       <Route path="/login">
