@@ -49,5 +49,11 @@ table {
 }
 
 button:hover{
-	cursor:pointer
+	cursor:pointer;
+}
+
+button:active{
+	
+	/* transition:ease-in-out; */
+	transform: scale(0.95);
 }

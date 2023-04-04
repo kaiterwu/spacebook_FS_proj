@@ -9,7 +9,7 @@ const ReloginForm = ()=>{
     const sessionUser = useSelector(state => state.session.user);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [errors, setErrors] = useState([`The email you entered isn’t connected to an account. Find your account and log in`]);
+    const [errors, setErrors] = useState([`The email you entered isn’t connected to an account. Find your account and log in.`]);
     
     if (sessionUser) return <Redirect to="/"/>;
     const handleSubmit = (e) => {

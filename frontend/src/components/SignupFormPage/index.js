@@ -39,22 +39,22 @@ function SignupFormPage(){
         setErrors([]);
         e.preventDefault();
         if (monthsThirty.includes(month)){
-            if (parseInt(day)>30) return setErrors(['Invalid Date'])
+            if (parseInt(day)>30) return setErrors(['Invalid Date.'])
         }else if (month === 2){
             if(parseInt(year)%4 === 0){
-                if (parseInt(day)>29) return setErrors(['Invalid Date'])
+                if (parseInt(day)>29) return setErrors(['Invalid Date.'])
             }else{
-                if (parseInt(day)>28) return setErrors(['Invalid Date'])
+                if (parseInt(day)>28) return setErrors(['Invalid Date.'])
             }
         
         }
         if(parseInt(year) > currentDay.getFullYear()-13){
-            return setErrors(['Does not meet age requirement'])}
+            return setErrors(['Does not meet age requirement.'])}
         if(parseInt(year) === currentDay.getFullYear()-13){
             if (month > (currentDay.getMonth()+1)){ 
-                return setErrors(['Does not meet age requirement'])
+                return setErrors(['Does not meet age requirement.'])
             }else if (month === (currentDay.getMonth()+1)){
-                if (parseInt(day)>currentDay.getDate()) return setErrors(['Does not meet age requirement'])
+                if (parseInt(day)>currentDay.getDate()) return setErrors(['Does not meet age requirement.'])
             }
         } 
             dispatch(sessionActions.signup({firstName,lastName,email,password,birthday,gender}))

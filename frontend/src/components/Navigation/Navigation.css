@@ -1,3 +1,8 @@
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 #profilebutton{
     border-radius: 100%;
     width:40px;
@@ -49,6 +54,7 @@
     /* border-top-left-radius:10px; */
     border-radius:10px;
     cursor:pointer;
+    animation:fadeIn 0.25s
     
 }
 .navlink{
@@ -95,5 +101,8 @@
 
 #logo:hover{
     cursor:pointer;
+}
+h1:hover{
+    cursor:default;
 }
 
