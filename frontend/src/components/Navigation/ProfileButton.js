@@ -34,7 +34,8 @@ const ProfileButton = ({user}) => {
     }
 
     const handleClick = ()=>{ 
-      history.replace(`/users/${user.id}`)
+      // debugger
+      history.push(`/users/${user.id}`)
     }
 
     return (

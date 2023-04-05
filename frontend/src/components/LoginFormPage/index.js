@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import FormModal from '../FormModal';
 import './LoginForm.css';
 import { useHistory } from 'react-router-dom';
+import { fetchUser } from '../../store/users';
 
 function LoginFormPage(){
     const dispatch = useDispatch();

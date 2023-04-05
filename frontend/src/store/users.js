@@ -61,13 +61,14 @@ export const editUser = user => async dispatch =>{
         })
         
     });
+
     let userData = await res.json()
     // debugger
-    // storeCurrentUser(data.user)
     dispatch(receiveProfile(userData.user))
+    dispatch(receiveUser(userData.user))
     storeCurrentUser(userData.user)
-    dispatch(receiveUser)(userData.user)
     restoreSession()
+    
     return res
 }
 

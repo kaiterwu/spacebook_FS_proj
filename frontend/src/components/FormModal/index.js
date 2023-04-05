@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,createContext } from 'react';
 import { Modal } from '../../context/Modal';
 import SignupFormPage from '../FormPage'; 
 import { useParams } from 'react-router-dom';
-// import EditProfile from '../ProfilePage/editProfile';
 
+
+const ModalContext = createContext()
+export {ModalContext}
 
 function FormModal() {
-  const [showModal, setShowModal] = useState(false);
+   const [showModal, setShowModal] = useState(false);
   const {userId} = useParams()
 
   const handleClick = (e)=>{
@@ -31,7 +33,7 @@ function FormModal() {
       <button id={buttonId} onClick={handleClick}>{buttonText}</button>
       {showModal && (
         <Modal className = 'signup' onClose={() => setShowModal(false)}>
-          <SignupFormPage/>
+          <SignupFormPage setShowModal = {setShowModal} />
         </Modal>
       )}
     </div>

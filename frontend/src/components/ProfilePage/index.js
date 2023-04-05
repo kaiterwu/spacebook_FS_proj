@@ -8,7 +8,7 @@ import FormModal from "../FormModal"
 
 const getBirthday = (str)=>{
     let date = new Date(str)
-    return date.toString().slice(4,15)
+    return date.toUTCString().slice(4,16)
 }
 const ProfilePage = ()=>{
     const dispatch = useDispatch()

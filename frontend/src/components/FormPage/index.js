@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 // import { fetchUser,getUser } from "../../store/users";
 import * as sessionActions from "../../store/session";
-import { editUser, fetchUser } from "../../store/users";
+import { editUser } from "../../store/users";
 // import { Redirect } from "react-router-dom";
 import './SignupForm.css';
 
 
-function SignupFormPage(){
+function SignupFormPage(props){
     let bigSign,smallSign,passInput,buttonText,defaultDay,defaultMonth,defaultYear
+
     const currentDay = new Date()
-    const monthNow = (currentDay.getMonth())
+    const monthNow = (currentDay.getUTCMonth())
     const dispatch = useDispatch()
     let sessionUser = useSelector(state => state.session.user)
     if (!sessionUser){
@@ -25,9 +26,9 @@ function SignupFormPage(){
         }
     }
     const userDate = new Date(sessionUser.birthday)
-    const birthMonth = userDate.getMonth()
-    const birthDay = userDate.getDate().toString()
-    const birthYear = userDate.getFullYear().toString()
+    const birthMonth = userDate.getUTCMonth()
+    const birthDay = userDate.getUTCDate().toString()
+    const birthYear = userDate.getUTCFullYear().toString()
     const history = useHistory()
     const {userId} = useParams()
     const [firstName,setFirstName] = useState(sessionUser.firstName)
@@ -39,9 +40,9 @@ function SignupFormPage(){
 
 
 
-    const currentMonth = monthNow+1
-    const currentDayDay = currentDay.getDate().toString()
-    const currentYear = currentDay.getFullYear().toString()
+    const currentMonth = monthNow
+    const currentDayDay = currentDay.getUTCDate().toString()
+    const currentYear = currentDay.getUTCFullYear().toString()
 
     if (!userId){
         bigSign = 'Sign up'
@@ -62,7 +63,9 @@ function SignupFormPage(){
         defaultYear = birthYear
     }
 
-    
+
+
+   
 
     const [month,setMonth] = useState(defaultMonth+1)
     const [day,setDay] = useState(defaultDay)
@@ -79,7 +82,7 @@ function SignupFormPage(){
     
     const days = Array.from({length:31},(x,i)=>i+1);
     
-    const years = Array.from({length:100},(x,i)=>i+currentDay.getFullYear()-99);
+    const years = Array.from({length:100},(x,i)=>i+currentDay.getUTCFullYear()-99);
     
     // let loggedIn = useSelector(state => state.session.user)
     // if (loggedIn && !userId){return <Redirect to="/"/>};
@@ -111,13 +114,13 @@ function SignupFormPage(){
             }
         
         }
-        if(parseInt(year) > currentDay.getFullYear()-13){
+        if(parseInt(year) > currentDay.getUTCFullYear()-13){
             return setErrors(['Does not meet age requirement.'])}
-        if(parseInt(year) === currentDay.getFullYear()-13){
-            if (month > (currentDay.getMonth()+1)){ 
+        if(parseInt(year) === currentDay.getUTCFullYear()-13){
+            if (month > (currentDay.getUTCMonth()+1)){ 
                 return setErrors(['Does not meet age requirement.'])
-            }else if (month === (currentDay.getMonth()+1)){
-                if (parseInt(day)>currentDay.getDate()) return setErrors(['Does not meet age requirement.'])
+            }else if (month === (currentDay.getUTCMonth()+1)){
+                if (parseInt(day)>currentDay.getUTCDate()) return setErrors(['Does not meet age requirement.'])
             }
         } 
             if(!userId){
@@ -129,23 +132,22 @@ function SignupFormPage(){
                 });
                 //  dispatch(sessionActions.login({email:email,password:password}))
                 // if (loggedIn) history.push('/')
+                
 
             }else{
                 sessionUser = {...sessionUser,firstName,lastName,email,gender,birthday,aboutMe}
-                // debugger
                 dispatch(editUser(sessionUser))
                 .catch(async(res)=>{
                     const data = await res.json();
                     if (data.errors) return setErrors(data.errors);
                 
                 });
-                // debugger
+                
             }
-            if (userId) history.go(0)
+           props.setShowModal(false)
+           
         }
-        // useEffect(()=>{
-        //     fetchUser(userId)
-        // },[firstName,lastName,email,gender,birthDay,aboutMe])
+       
     return(
         <>
         <div className = 'signupWindow'>
