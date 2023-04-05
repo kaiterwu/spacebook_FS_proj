@@ -4,6 +4,7 @@ import { fetchUser,getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
 import './ProfilePage.css'
+import FormModal from "../FormModal"
 
 const getBirthday = (str)=>{
     let date = new Date(str)
@@ -13,6 +14,17 @@ const ProfilePage = ()=>{
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
+    const sessionUser = useSelector(state =>state.session.user);
+    let editButton;
+    let commentButton;
+    // debugger
+    if (sessionUser.id === parseInt(userId)){
+        editButton = <FormModal/>
+        commentButton = <div id = 'createPost'>
+        <i className="fa-solid fa-user-circle" />
+        <button>What's on your mind?</button>
+    </div>
+    }
     // debugger
     console.log('rendering profile page')
     useEffect(()=>{
@@ -24,33 +36,37 @@ const ProfilePage = ()=>{
 
         <section className="topHalf">
             <div className ='Photo'>
-
+                
             </div>
             <div className ='nameButtons'>
             <div className = 'photoName'>
-            <div id = 'profilephoto'></div>
+            <div id = 'profilephoto'> <i className="fa-solid fa-user-circle" /></div>
             <p id = 'profileName'>{user?.firstName} {user?.lastName}</p>
             </div>
-            <button id = "editProfile">✎ Edit Profile</button>
+            {editButton}
             </div>
         </section>
         <section className = 'bottomHalf'>
             <div className = 'bio'>
                 <div id = 'aboutMe'>
-                    <h2>About Me</h2>
+                    <h2><i class="fa-regular fa-address-card"></i> About Me</h2>
                    <p>{user?.aboutMe}</p> 
                 </div>
                 <div id = "basicInfo">
                     <h2>Basic Info</h2>
-                    <div>Email</div>
+                    <div><i class="fa-regular fa-envelope"></i> Email</div>
                     <p>{user?.email}</p>
-                    <div>Birthday</div>
+                    <div><i class="fa-solid fa-cake-candles"></i> Birthday</div>
                     <p>{getBirthday(user?.birthday)}</p>
-                    <div>Gender</div>
+                    <div><i class="fa-solid fa-transgender"></i>Gender</div>
                     <p>{user?.gender}</p>
                 </div>
             </div>
-            <div className = 'postsIndex'>
+            <div className = 'posts'>
+                    {commentButton}
+                <div className= 'postsContainer'>
+
+                </div>
 
             </div>
         </section>

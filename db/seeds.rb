@@ -37,7 +37,8 @@ ApplicationRecord.transaction do
         first_name: Faker::Name.first_name,
         last_name:Faker::Space.planet,
         birthday:Date.today-rand(4745..36500),
-        gender: ['Male','Female','Custom'].sample
+        gender: ['Male','Female','Custom'].sample,
+        about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
       }) 
     end
   

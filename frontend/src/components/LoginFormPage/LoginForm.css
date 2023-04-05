@@ -65,6 +65,10 @@ body{
 
 }
 
+#demo:hover{
+    background-color: #33a41f;
+  }
+
 
 
 
@@ -122,10 +126,11 @@ body{
     border:none;
 }
 
-.login button:hover{
-    background-color: white;
-    color:blue;
+#submit:hover{
+    background-color: #1460c3;
 }
+
+
 
 .footer {
     position: fixed;

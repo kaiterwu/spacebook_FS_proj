@@ -44,6 +44,8 @@
     font-family:Arial, Helvetica, sans-serif;
     padding:1vw;
     background-color: rgb(218, 218, 218);
+    width:16vw;
+    border-radius:10px;
 }
 
 #editProfile:hover{
@@ -59,6 +61,10 @@
     position:absolute;
     z-index: 0;
     background-color: white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10vw;
     
 }
 
@@ -72,15 +78,19 @@
 
 
 .bottomHalf{
+    
     height:100vw;
+    display:flex;
+    justify-content: space-between;
+    margin: 0px 10vw;
 }
 
 .bio{
     margin-top:2vw;
-    margin-left:10vw;
+    /* margin-left:10vw; */
     width: 30vw;
     border:1px solid rgb(213, 213, 213);
-    min-height: 50vw;
+    max-height: 45vw;
     border-radius:10px;
     background-color: white;
     box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
@@ -106,13 +116,15 @@
     font-size:1.2vw;
     font-weight:none;
     /* word-spacing:5px; */
-    line-height:2.5vw;
+    line-height:2vw;
     padding-top:2vw;
     
 }
 
 #aboutMe h2{
     font-weight:bolder;
+    border-bottom:1px solid rgb(225, 225, 225);
+    padding-bottom:10px;
 }
 
 #basicInfo{
@@ -122,10 +134,14 @@
     border:1px solid rgb(213, 213, 213);
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
     border-radius:10px;
+    min-height:18vw;
+  
 
 }
 
 #basicInfo h2{
+    border-bottom:1px solid rgb(225, 225, 225);
+    padding-bottom:10px;
     font-size:2vw;
     font-weight:bolder;
     margin-bottom:2vw;
@@ -142,7 +158,63 @@
 #basicInfo p{
     padding-left:1vw;
     padding-top:1vw;
-    font-size:10px;
+    font-size:1vw;
     color:black;
+    margin-left:0.8vw;
     /* border-bottom:1px solid rgb(213, 213, 213); */
+}
+.posts{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width:47vw;
+}
+#createPost{
+    margin-top:2vw;
+    background-color: white;
+    width:inherit;
+    height:6vw;
+    border-radius:10px;
+    background-color: white;
+    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#createPost button{
+    width:88%;
+    /* margin: 0 1vw; */
+    height:60%;
+    border:none;
+    display:flex;
+    align-items:center;
+    border-radius:10px;
+    background-color:rgb(228, 228, 228);
+    color:grey;
+    
+    font-size:1.5vw;
+}
+
+#createPost button:hover{
+    background-color: rgb(216, 216, 216);
+}
+#createPost button:active{
+    transform:none;
+}
+
+#createPost i{
+    margin-right:0.5vw;
+    font-size:3vw;
+}
+
+.postsContainer{
+    margin-top:2vw;
+    background-color: white;
+    width:inherit;
+    height:40vw;
+    border-radius:10px;
+    background-color: white;
+    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
+
 }

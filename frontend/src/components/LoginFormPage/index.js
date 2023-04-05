@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import SignupFormModal from '../SignupFormModal';
+import FormModal from '../FormModal';
 import './LoginForm.css';
 import { useHistory } from 'react-router-dom';
 
@@ -62,7 +62,7 @@ function LoginFormPage(){
         <div id ='otherButtons'>
 
         <button id ='demo' onClick={handleDemoClick}>Demo User</button>
-        <SignupFormModal/>
+        <FormModal/>
         </div>
 
         </div>

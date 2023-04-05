@@ -73,14 +73,14 @@ function SignupFormPage(){
     return(
         <>
         <div className = 'signupWindow'>
-
+            
         <div className="signupHeaders">
             <div id = 'bigSign'>Sign up</div>
             <div id = 'smallsign'>It's quick and easy.</div>
         </div>
         <form className = 'signup' onSubmit = {handleSubmit}>
             <ul className= 'signupErrors'>
-                {errors.map(error => <li key={error}>▲{error}</li>)}
+                {errors.map(error => <li key={error}><i class="fa-solid fa-triangle-exclamation"></i> {error}</li>)}
             </ul>
                 <div className="names">
                 <input type = "text" value = {firstName} onChange = {(e)=>setFirstName(e.target.value)}
