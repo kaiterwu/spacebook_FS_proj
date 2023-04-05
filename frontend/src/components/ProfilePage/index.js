@@ -49,16 +49,16 @@ const ProfilePage = ()=>{
         <section className = 'bottomHalf'>
             <div className = 'bio'>
                 <div id = 'aboutMe'>
-                    <h2><i class="fa-regular fa-address-card"></i> About Me</h2>
+                    <h2><i className="fa-regular fa-address-card"></i> About Me</h2>
                    <p>{user?.aboutMe}</p> 
                 </div>
                 <div id = "basicInfo">
                     <h2>Basic Info</h2>
-                    <div><i class="fa-regular fa-envelope"></i> Email</div>
+                    <div><i className="fa-regular fa-envelope"></i> Email</div>
                     <p>{user?.email}</p>
-                    <div><i class="fa-solid fa-cake-candles"></i> Birthday</div>
+                    <div><i className="fa-solid fa-cake-candles"></i> Birthday</div>
                     <p>{getBirthday(user?.birthday)}</p>
-                    <div><i class="fa-solid fa-transgender"></i>Gender</div>
+                    <div><i className="fa-solid fa-transgender"></i>Gender</div>
                     <p>{user?.gender}</p>
                 </div>
             </div>

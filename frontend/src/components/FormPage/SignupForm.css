@@ -15,7 +15,7 @@
     
     
 }
-.signupWindow input,select{
+.signupWindow input,select,#aboutMeText{
     font-size:15px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -60,12 +60,17 @@
     width:168px;
 }
 
+#aboutMeText{
+    width:350px;
+    height:96px;
+}
+
 #emailInput,#passInput{
     width:350px;
     height:32px;
 }
 
-#emailInput,#passInput,.names input{
+#emailInput,#passInput,.names input,#aboutMeText{
     background-color: rgb(238, 237, 237);
     border:solid 1px rgb(176, 176, 176);
     border-radius:5px;

@@ -42,7 +42,7 @@ function LoginFormPage(){
         </div>
         <div className='loginwindow'>
 
-        <div class = 'formwindow'>
+        <div className = 'formwindow'>
         <form className="login" onSubmit = {handleSubmit}>
         <ul className = 'loginErrors'>
             {/* {errors.map(error => <li key={error}>▲{error}</li>)} */}

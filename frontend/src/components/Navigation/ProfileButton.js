@@ -49,7 +49,7 @@ const ProfileButton = ({user}) => {
             <ul className="profile-dropdown">
               <li id ="firstli" onClick={handleClick}> <i className="fa-solid fa-user-circle" /> {`${user.firstName}`}</li>
               {/* <li>{user.email}</li> */}
-              <li id ="logout'" onClick={logout}>Logout <i class="fa-solid fa-door-open"></i></li>
+              <li id ="logout'" onClick={logout}>Logout <i className="fa-solid fa-door-open"></i></li>
             </ul>
           )}
         </div>
