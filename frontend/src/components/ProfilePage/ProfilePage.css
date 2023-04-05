@@ -90,7 +90,7 @@
     /* margin-left:10vw; */
     width: 30vw;
     border:1px solid rgb(213, 213, 213);
-    max-height: 45vw;
+    max-height: 50vw;
     border-radius:10px;
     background-color: white;
     box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
@@ -100,7 +100,7 @@
     margin:20px;
 }
 #aboutMe{
-    margin:10px;
+    margin:1vw;
     padding:10px;
     border:1px solid rgb(213, 213, 213);
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
@@ -129,12 +129,12 @@
 
 #basicInfo{
     
-    margin:10px;
-    padding:10px;
+    margin:1vw;
+    padding:1vw;
     border:1px solid rgb(213, 213, 213);
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
     border-radius:10px;
-    min-height:18vw;
+    max-height:20vw;
   
 
 }

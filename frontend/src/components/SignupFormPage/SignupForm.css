@@ -4,7 +4,8 @@
     align-items: center;
     /* padding:10%; */
     /* width:400px; */
-    min-height:34vw;
+    min-height:30vw;
+    /* max-height:36vw; */
     row-gap:12px;
     /* border: black solid 0px; */
     /* border-radius:1%; */
