@@ -4,14 +4,19 @@
     align-items: center;
     /* padding:10%; */
     /* width:400px; */
-    min-height:30vw;
+    /* min-height:30vw; */
     /* max-height:36vw; */
     row-gap:12px;
     /* border: black solid 0px; */
     /* border-radius:1%; */
     /* box-shadow: 0px 4px 8px 2px  grey; */
-    margin:none;
-    padding:none;
+    /* margin:0 15px; */
+    padding-left:15px;
+    padding-right:15px;
+    border-top:1px solid rgb(226, 226, 226);
+    /* padding-top:-10px; */
+    margin-top:15px;
+    margin-bottom:15px;
     
     
 }
@@ -23,7 +28,7 @@
 #bigSign{
     font-size:30px;
     font-weight:bolder;
-    padding-bottom:10px;
+    padding-bottom:5px;
 }
 #smallsign{
     font-size:12px;
@@ -36,7 +41,7 @@
     flex-direction: column;
     justify-content:center;
     align-self: flex-start;
-    margin-left:35px;
+    margin-left:15px;
     /* border: 1px solid 50px; */
     padding-bottom:0px;
     
@@ -51,29 +56,29 @@
     display:flex;
     column-gap:10px;
     margin-top:-20px;
-    border-top:1px solid rgb(226, 226, 226);
-    padding-top:10px;
+    /* border-top:1px solid rgb(226, 226, 226); */
+    /* padding-top:10px; */
 }
 .names input{
     /* width:400px; */
     height:32px;
-    width:168px;
+    width:157px;
 }
 
 #aboutMeText{
-    width:350px;
+    width:330px;
     height:96px;
 }
 
 #emailInput,#passInput{
-    width:350px;
+    width:330px;
     height:32px;
 }
 
 #emailInput,#passInput,.names input,#aboutMeText{
     background-color: rgb(238, 237, 237);
     border:solid 1px rgb(176, 176, 176);
-    border-radius:5px;
+    border-radius:4px;
     
 }
 
@@ -99,7 +104,7 @@
 
 .birthday_data select{
     height:30px;
-    width:114px;
+    width:105px;
     border-radius:5px;
     border:solid rgb(200, 200, 200) 1px;
 }
@@ -114,24 +119,34 @@
     border:solid rgb(200, 200, 200) 1px;
     /* border-radius:4px; */
     height:30px;
-    width:114px;
+    width:104px;
     display:flex;
     align-items:center;
-    justify-content:space-around;
+    justify-content:space-between;
     border-radius:5px;
+}
+
+.gender_data label input{
+    margin-right:10px;
+}
+
+.gender_data label div{
+    margin-left:6px;
 }
 
 #bday,#gend{
     align-self:flex-start;
-    margin-left:12px;
+    /* margin-left:2px; */
     font-size:10px;
-    color:rgb(92, 92, 92)
+    color:rgb(92, 92, 92);
+    margin-bottom:-10px;
 }
 
 .signupErrors li{
-    font-size:10px;
+    font-size:12px;
     color:red;
-    font-style:italic
+    font-style:italic;
+    margin-bottom:5px;
 }
 
 .signupErrors{

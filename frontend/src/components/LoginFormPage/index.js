@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -6,6 +6,7 @@ import FormModal from '../FormModal';
 import './LoginForm.css';
 import { useHistory } from 'react-router-dom';
 import { fetchUser } from '../../store/users';
+import { getUser } from '../../store/users';
 
 function LoginFormPage(){
     const dispatch = useDispatch();
@@ -15,6 +16,12 @@ function LoginFormPage(){
     // const [errors, setErrors] = useState([]);
     const history = useHistory()
     
+    useEffect(()=>{
+        dispatch(fetchUser(1))
+    },[dispatch])
+
+    const user = useSelector(getUser(1))
+
     if (sessionUser) return <Redirect to="/"/>;
     // debugger
     
@@ -31,9 +38,8 @@ function LoginFormPage(){
 
     const handleDemoClick = (e)=>{
         e.preventDefault()
-        dispatch(sessionActions.login({email:'test@test.com',password:'password'}))
+        dispatch(sessionActions.login({email:user.email,password:'password'}))
     }
-    // debugger
     return(
         <>
         <div className='LoginPage'>
@@ -45,24 +51,22 @@ function LoginFormPage(){
 
         <div className = 'formwindow'>
         <form className="login" onSubmit = {handleSubmit}>
-        <ul className = 'loginErrors'>
-            {/* {errors.map(error => <li key={error}>▲{error}</li>)} */}
-        </ul>
+       
          
             <input type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
-             placeholder = 'Email' required/>
+             placeholder = 'Email' />
 
     
         
             <input type = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}
-            placeholder = "Password" required/>
+            placeholder = "Password" />
         
   
         <button id="submit" type="submit">Log In</button>
         </form>
         <div id ='otherButtons'>
 
-        <button id ='demo' onClick={handleDemoClick}>Demo User</button>
+        <button id ='demo' onClick={handleDemoClick}>Demo Log In</button>
         <FormModal/>
         </div>
 

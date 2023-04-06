@@ -20,7 +20,7 @@ function FormModal() {
   let buttonId;
 
   if (!userId){
-    buttonText = 'Create a new account'
+    buttonText = 'Create new account'
     buttonId = 'create-button'
   }else{
     buttonText = <span><i className="fa-solid fa-pen-to-square"></i> Edit Profile</span>

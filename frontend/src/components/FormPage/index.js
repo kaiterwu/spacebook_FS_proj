@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 // import { fetchUser,getUser } from "../../store/users";
 import * as sessionActions from "../../store/session";
 import { editUser } from "../../store/users";
@@ -12,7 +12,7 @@ function SignupFormPage(props){
     let bigSign,smallSign,passInput,buttonText,defaultDay,defaultMonth,defaultYear
 
     const currentDay = new Date()
-    const monthNow = (currentDay.getUTCMonth())
+    const monthNow = (currentDay.getMonth())
     const dispatch = useDispatch()
     let sessionUser = useSelector(state => state.session.user)
     if (!sessionUser){
@@ -29,7 +29,6 @@ function SignupFormPage(props){
     const birthMonth = userDate.getUTCMonth()
     const birthDay = userDate.getUTCDate().toString()
     const birthYear = userDate.getUTCFullYear().toString()
-    const history = useHistory()
     const {userId} = useParams()
     const [firstName,setFirstName] = useState(sessionUser.firstName)
     const [lastName,setLastName] = useState(sessionUser.lastName)
@@ -41,8 +40,8 @@ function SignupFormPage(props){
 
 
     const currentMonth = monthNow
-    const currentDayDay = currentDay.getUTCDate().toString()
-    const currentYear = currentDay.getUTCFullYear().toString()
+    const currentDayDay = currentDay.getDate().toString()
+    const currentYear = currentDay.getFullYear().toString()
 
     if (!userId){
         bigSign = 'Sign up'
@@ -136,18 +135,20 @@ function SignupFormPage(props){
 
             }else{
                 sessionUser = {...sessionUser,firstName,lastName,email,gender,birthday,aboutMe}
-                dispatch(editUser(sessionUser))
+                dispatch(editUser(sessionUser)).then(()=>{props.setShowModal(false)})
                 .catch(async(res)=>{
                     const data = await res.json();
                     if (data.errors) return setErrors(data.errors);
-                
+                   
                 });
+                // if (!errors===[]) return;
                 
+                // props.setShowModal(false)
             }
-           props.setShowModal(false)
-           
+            
         }
-       
+        
+        // debugger
     return(
         <>
         <div className = 'signupWindow'>
@@ -202,17 +203,17 @@ function SignupFormPage(props){
                 <label id ='gend' htmlFor="gender">Gender</label>
                 <div className = 'gender_data'>
                     <label>
-                        Male
-                        <input type = 'radio' name = 'gender' value = {'Male'} 
-                         onChange={(e)=>setGender(e.target.value)} checked = {maleChecked}/>
-                    </label>
-                    <label>
-                        Female
+                        <div>Female</div>
                         <input type = 'radio' name = 'gender' value = {'Female'}
                         onChange={(e)=>setGender(e.target.value)} checked = {femaleChecked}/>
                     </label>
                     <label>
-                        Custom
+                        <div>Male</div>
+                        <input type = 'radio' name = 'gender' value = {'Male'} 
+                         onChange={(e)=>setGender(e.target.value)} checked = {maleChecked}/>
+                    </label>
+                    <label>
+                        <div>Custom</div>
                         <input type = 'radio' name = 'gender' value = {'Custom'}
                         onChange={(e)=>setGender(e.target.value)} checked = {customChecked}/>
                     </label>
