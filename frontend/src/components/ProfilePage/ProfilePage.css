@@ -13,20 +13,12 @@
     height:45vw;
     display:flex;
     flex-direction:column;
-    background-image:linear-gradient(rgb(155, 255, 255),white,white);
+    background-image:linear-gradient(rgb(148, 148, 148),white,white);
     border-bottom:1px solid rgb(213, 213, 213);
     
     
 }
 
-.Photo{
-    height:30vw;
-    background-color: aqua;
-    margin: 0px 9vw;    
-    border-bottom-left-radius: 6.5px;
-    border-bottom-right-radius:6.5px;
-   
-}
 
 .nameButtons{
     /* width:inherit; */
@@ -59,28 +51,14 @@
     /* animation:fadeIn 0.25s */
 }
 
-#profilephoto{
-    border:1px solid rgb(213 213 213);
-    height:10vw;
-    width: 10vw;
-    border-radius: 100%;
-    margin-right:2vw;
-    position:absolute;
-    z-index: 0;
-    background-color: white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:10vw;
-    
-}
 
 #profileName {
-    margin-top:2vw;
+    /* margin-top:2vw; */
     font-size:2.5vw;
-    position:relative;
-    left:11.5vw;
-    top:1vw;
+    /* position:absolute; */
+    font-weight:bolder;
+    /* margin-left:-1vw; */
+    margin-bottom:6vw;
 }
 
 
@@ -142,8 +120,8 @@
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
     border-radius:10px;
     max-height:20vw;
-  
-
+    
+    
 }
 
 #basicInfo h2{
@@ -159,7 +137,7 @@
     color:grey;
     margin-top: 1vw;
     font-weight:bolder;
-   
+    
 }
 
 #basicInfo p{
@@ -225,6 +203,68 @@
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     border:1px solid rgb(213, 213, 213);
+    
+    
+}
 
+#avatar{
+    
+    /* border-radius:50%; */
+    max-width: 30vw;
+    max-height:20vw;
+    z-index:-10;
+    position:relative;
+    /* margin:auto; */
+    
+}
+#profilephoto{
+    border:0.3vw solid white;
+    height:12vw;
+    width: 12vw;
+    border-radius: 100%;
+    margin-right:2vw;
+    position:relative;
+    z-index: 0;
+    background-color: white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10vw;
+    overflow:hidden;
+    position:relative;
+    bottom:3vw;
+    left:1.5vw;
+    
+    
+}
 
+#profileinfo{
+    display:flex;
+    align-items:center;
+    /* column-gap:-10vw; */
+    
+}
+
+.mainphoto{
+    font-size:12vw;
+}
+.coverPhoto{
+    height:30vw;
+    background-color: rgb(205, 205, 205);
+    margin: 0px 9vw;    
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius:6.5px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    overflow:hidden;
+   
+}
+
+.coverimage{
+    font-size:32vw;
+}
+
+#coverphoto{
+    height:54vw;
 }

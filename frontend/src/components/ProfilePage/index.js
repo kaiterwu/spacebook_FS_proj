@@ -30,36 +30,48 @@ const ProfilePage = ()=>{
     useEffect(()=>{
         dispatch(fetchUser(userId))
     },[userId,dispatch])
+    let profilePhoto;
+    let coverPhoto;
+    
+    if (!user) return null 
+    // debugger
+    if (user.avatar){
+        profilePhoto = <img id = "avatar" src = {user.avatar}/>
+        coverPhoto = <img id = 'coverphoto' src = {user.cover}/>
+    }else{
+        profilePhoto = <i className="fa-solid fa-user-circle mainphoto" />
+        coverPhoto = <i class="fa-solid fa-panorama coverimage"></i>
+    }
     return(
         <>
         <div id = 'profilepage'>
 
         <section className="topHalf">
-            <div className ='Photo'>
-                
+            <div className ='coverPhoto'>
+                {coverPhoto}
             </div>
             <div className ='nameButtons'>
-            <div className = 'photoName'>
-            <div id = 'profilephoto'> <i className="fa-solid fa-user-circle" /></div>
-            <p id = 'profileName'>{user?.firstName} {user?.lastName}</p>
-            </div>
-            {editButton}
+                <div id = 'profileinfo'>
+                    <div id = 'profilephoto'> {profilePhoto}</div>
+                    <p id = 'profileName'>{user.firstName} {user.lastName}</p>
+                </div>
+                {editButton}
             </div>
         </section>
         <section className = 'bottomHalf'>
             <div className = 'bio'>
                 <div id = 'aboutMe'>
                     <h2><i className="fa-regular fa-address-card"></i> About Me</h2>
-                   <p>{user?.aboutMe}</p> 
+                   <p>{user.aboutMe}</p> 
                 </div>
                 <div id = "basicInfo">
                     <h2>Basic Info</h2>
                     <div><i className="fa-regular fa-envelope"></i> Email</div>
-                    <p>{user?.email}</p>
+                    <p>{user.email}</p>
                     <div><i className="fa-solid fa-cake-candles"></i> Birthday</div>
                     <p>{getBirthday(user?.birthday)}</p>
                     <div><i className="fa-solid fa-transgender"></i>Gender</div>
-                    <p>{user?.gender}</p>
+                    <p>{user.gender}</p>
                 </div>
             </div>
             <div className = 'posts'>
