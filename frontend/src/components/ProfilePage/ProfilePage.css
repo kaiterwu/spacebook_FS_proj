@@ -99,7 +99,7 @@
     max-height: 50vw;
     border-radius:10px;
     background-color: white;
-    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
 }
 
 #basicInfo{
@@ -146,7 +146,7 @@
 }
 
 #basicInfo h2{
-    border-bottom:1px solid rgb(225, 225, 225);
+    border-bottom:1px solid rgb(228, 228, 228);
     padding-bottom:10px;
     font-size:2vw;
     font-weight:bolder;
@@ -182,7 +182,8 @@
     height:6vw;
     border-radius:10px;
     background-color: white;
-    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
+    border:1px solid rgb(213, 213, 213);
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     display:flex;
     justify-content: center;
     align-items:center;
@@ -221,6 +222,8 @@
     height:40vw;
     border-radius:10px;
     background-color: white;
-    box-shadow: 0 0.5px 0.5px 0.5px rgb(172, 172, 172);
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
+    border:1px solid rgb(213, 213, 213);
+
 
 }
