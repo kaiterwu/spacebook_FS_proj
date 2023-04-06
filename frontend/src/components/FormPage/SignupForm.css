@@ -88,8 +88,9 @@
     color:white;
     width:160px;
     height:36px;
-    font-size: 16px;
+    font-size: 15px;
     border:none;
+    font-weight:bolder;
 }
 
 .signup button:hover{
