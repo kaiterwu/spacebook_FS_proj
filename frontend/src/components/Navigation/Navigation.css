@@ -51,7 +51,7 @@
 }
 
 .profile-dropdown li:hover{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(238, 238, 238);
     /* border-top-right-radius:10px; */
     /* border-top-left-radius:10px; */
     border-radius:10px;
@@ -123,7 +123,7 @@ h1:hover{
 .fa-door-open{
     border-radius:100%;
     padding:0.5vw;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(211, 211, 211);
     font-size:16px;
     margin-right:0.5vw;
 }
