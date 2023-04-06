@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { fetchUser } from '../../store/users';
+import { getUser } from '../../store/users';
 import './reloginForm.css';
 
 const ReloginForm = ()=>{
@@ -9,8 +11,12 @@ const ReloginForm = ()=>{
     const sessionUser = useSelector(state => state.session.user);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [errors, setErrors] = useState([`The email you entered isn’t connected to an account. Find your account and log in`]);
-    
+    const [errors, setErrors] = useState([`The email you entered isn’t connected to an account. Find your account and log in.`]);
+    const user = useSelector(getUser(1))
+
+    useEffect(()=>{
+        dispatch(fetchUser(1))
+    },[dispatch])
     if (sessionUser) return <Redirect to="/"/>;
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,7 +34,7 @@ const ReloginForm = ()=>{
     }
     const handleDemoClick = (e)=>{
         e.preventDefault()
-        dispatch(sessionActions.login({email:'test@test.com',password:'password'}))
+        dispatch(sessionActions.login({email:user.email,password:'password'}))
     }
 
     
@@ -43,14 +49,13 @@ const ReloginForm = ()=>{
             <div className='reloginwindow'>
 
             <div class = 'formwindow'>
+            <p>Log into Spacebook</p>
             <form className="login" onSubmit = {handleSubmit}>
-            <ul className = 'reloginErrors'>
-                {/* {errors.map(error => <li key={error}>▲{error}</li>)} */}
-            </ul>
+            
                 <div className='emailErrors'>
                 <input id ='erroremail' type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
                 placeholder = 'Email' required/>
-                    {errors.map(error => <p key={error}>▲{error}</p>)}
+                    {errors.map(error => <div key={error}><i className="fa-solid fa-triangle-exclamation"></i> {error}</div>)}
                 </div>
 
         
@@ -62,12 +67,12 @@ const ReloginForm = ()=>{
             <button id="submit" type="submit">Log In</button>
             </form>
                 <div id ='otherButtons'>
-                <button id ='demo' onClick={handleDemoClick}>Demo User</button>
+                <button id ='reDemo' onClick={handleDemoClick}>Demo User</button>
                 </div>
             </div>
         </div>
-        <div className='footer'></div>
         </div>
+        <div className='refooter'></div>
             
         </>
     )

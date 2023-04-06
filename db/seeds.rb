@@ -19,24 +19,26 @@ ApplicationRecord.transaction do
     User.create!(
       email: 'test@test.com', 
       password: 'password',
-      first_name: 'test',
-      last_name: 'me',
+      first_name: 'Test',
+      last_name: 'Wong',
       birthday: Date.parse('01-01-2001'),
-      gender: 'male'
+      gender: 'Male',
+      about_me:Faker::JapaneseMedia::StudioGhibli.quote+ "\n" + Faker::JapaneseMedia::StudioGhibli.quote
 
       
     )
   
     # More users
     10.times do 
-      name = Faker::Space.unique
+      name = Faker::Space.unique()
       User.create!({
         email: Faker::Internet.unique.email(name:name),
         password: 'password',
-        first_name:name,
-        last_name:'planet',
+        first_name: Faker::Name.first_name,
+        last_name:Faker::Space.planet,
         birthday:Date.today-rand(4745..36500),
-        gender: ['male','female','custom'].sample
+        gender: ['Male','Female','Custom'].sample,
+        about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
       }) 
     end
   

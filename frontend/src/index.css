@@ -48,3 +48,20 @@ table {
 	border-spacing: 0;
 }
 
+button:hover{
+	cursor:pointer;
+}
+
+button:active{
+	
+	/* transition:ease-in-out; */
+	transform: scale(0.95);
+}
+
+div, p,h1,h2,h3,h4{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+::placeholder{
+	opacity:0.6
+}

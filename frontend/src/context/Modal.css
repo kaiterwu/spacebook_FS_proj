@@ -35,9 +35,24 @@
     height:36px;
     font-size: 16px;
     border:none;
+    margin-bottom:20px;
   }
 
-  #closeModal{
+  #create-button:hover{
+    background-color: #33a41f;
+  }
+
+  .fa-xmark{
     border:none;
-    margin-left:400px;
+    /* margin-left:400px; */
+    position:relative;
+    left:93%;
+    /* right:10px; */
+    top:10px;
+    color:grey;
+    font-size:20px;
+  }
+
+  .fa-xmark:hover{
+    cursor:pointer;
   }

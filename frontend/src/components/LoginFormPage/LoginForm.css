@@ -29,12 +29,15 @@ body{
     justify-content:none;
     align-items: center;
     width: 350px;
-    height:320px;
+    /* height:320px; */
     border: black solid 0px;
     border-radius:6px;
     box-shadow: 0px 4px 8px 2px  rgb(205, 205, 205);
     row-gap:15px;
     flex-shrink: 0%;
+    padding-top:15px;
+
+    /* max-height:290px; */
    
 }
 
@@ -52,6 +55,7 @@ body{
     flex-direction: column;
     row-gap: 10px;
     align-items:center;
+    /* padding-bottom:-10px; */
 
 }
 
@@ -62,8 +66,15 @@ body{
     height:36px;
     font-size: 16px;
     border:none;
+    /* margin-bottom:15px; */
+    /* padding:bottom 10px; */
+    
 
 }
+
+#demo:hover{
+    background-color: #33a41f;
+  }
 
 
 
@@ -89,7 +100,7 @@ body{
     /* padding-left:50px; */
     /* margin-left:50px; */
     box-sizing: border-box;
-    padding-left: 20px;
+    padding-left: 12px;
     
 
 }
@@ -122,10 +133,11 @@ body{
     border:none;
 }
 
-.login button:hover{
-    background-color: white;
-    color:blue;
+#submit:hover{
+    background-color: #1460c3;
 }
+
+
 
 .footer {
     position: fixed;

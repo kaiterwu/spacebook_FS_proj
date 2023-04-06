@@ -34,7 +34,8 @@ const ProfileButton = ({user}) => {
     }
 
     const handleClick = ()=>{ 
-      history.replace(`/users/${user.id}`)
+      // debugger
+      history.push(`/users/${user.id}`)
     }
 
     return (
@@ -47,9 +48,9 @@ const ProfileButton = ({user}) => {
           </button>
           {showMenu && (
             <ul className="profile-dropdown">
-              <li id ="firstli" onClick={handleClick}>{`${user.firstName}`}</li>
-              <li>{user.email}</li>
-              <li id ="logout'" onClick={logout}>Logout</li>
+              <li id ="firstli" onClick={handleClick}> <i className="fa-solid fa-user-circle" /> {`${user.firstName}`}</li>
+              {/* <li>{user.email}</li> */}
+              <li id ="logout" onClick={logout}><i className="fa-solid fa-door-open"></i> Log Out</li>
             </ul>
           )}
         </div>
