@@ -54,14 +54,14 @@ const ReloginForm = ()=>{
             
                 <div className='emailErrors'>
                 <input id ='erroremail' type="text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
-                placeholder = 'Email' required/>
+                placeholder = 'Email'/>
                     {errors.map(error => <div key={error}><i className="fa-solid fa-triangle-exclamation"></i> {error}</div>)}
                 </div>
 
         
             
                 <input id='rePassword' type = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}
-                placeholder = "Password" required/>
+                placeholder = "Password"/>
             
     
             <button id="submit" type="submit">Log In</button>
