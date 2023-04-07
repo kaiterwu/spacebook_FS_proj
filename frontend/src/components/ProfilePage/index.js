@@ -6,6 +6,7 @@ import { useEffect } from "react"
 import './ProfilePage.css'
 import FormModal from "../Modals/formModal"
 import { fetchUser } from "../../store/users"
+import PostsModal from "../Modals/postModal"
 
 
 const getBirthday = (str)=>{
@@ -22,10 +23,7 @@ const ProfilePage = ()=>{
     
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
-        commentButton = <div id = 'createPost'>
-        <div id = "postIcon"><img alt = 'avatar' src = {user.avatar}/></div>
-        <button>What's on your mind?</button>
-    </div>
+        commentButton =<PostsModal/>
     }
 
     console.log('rendering profile page')

@@ -46,7 +46,7 @@ const ProfileButton = () => {
     if(sessionUser.avatar){
       avatar = <img alt ='profile' id = 'avataricon' src = {user.avatar}/>
     }else{
-      avatar = <i className="fa-solid fa-user-circle" />
+      avatar = <i className="fa-solid fa-user-circle placeAvatar" />
     }
 
     return (

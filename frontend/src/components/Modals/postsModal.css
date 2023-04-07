@@ -1,0 +1,35 @@
+#postsModalb{
+    width:32vw;
+    /* margin: 0 1vw; */
+    height:3vw;
+    border:none;
+    display:flex;
+    align-items:center;
+    border-radius:20px;
+    background-color:rgb(228, 228, 228);
+    color:grey;
+    font-size:1.4vw;
+    padding-left:1.3vw;
+    margin-right:1.5vw;
+}
+
+#postsModalb:hover{
+    background-color: rgb(216, 216, 216);
+}
+#postsModalb:active{
+    transform:none;
+}
+
+#createPost{
+    margin-top:2vw;
+    background-color: white;
+    width:40vw;
+    height:6vw;
+    border-radius:10px;
+    background-color: white;
+    border:1px solid rgb(213, 213, 213);
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}

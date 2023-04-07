@@ -25,6 +25,12 @@
     width:4vw;
 }
 
+#firstli i{
+    height:4vw;
+    width:4vw;
+    font-size:4.2vw;
+}
+
 #smallavatar{
     border-radius:100%;
     overflow:hidden;
@@ -32,6 +38,9 @@
     height:4vw;
     width:4vw;
     margin-right:1vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-dropdown li{
