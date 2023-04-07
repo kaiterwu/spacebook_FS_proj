@@ -18,11 +18,11 @@ function PhotoModal(props) {
     let buttonText;
     let modalClass;
     if (props.text === 'Profile'){
-        buttonText = <i class="fa-solid fa-camera"></i>
+        buttonText = <i className="fa-solid fa-camera"></i>
         modalClass = 'profilephotoModal'
         
     }else{
-        buttonText = <div><i class="fa-solid fa-camera"></i> Edit Cover Photo</div>
+        buttonText = <div><i className="fa-solid fa-camera"></i> Edit Cover Photo</div>
         modalClass = 'coverPhotoModal'
        
     }

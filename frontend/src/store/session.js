@@ -1,6 +1,5 @@
 import csrfFetch from "./csrf";
 
-
 const RECEIVE_USER = 'session/receiveUser'
 const REMOVE_USER = 'session/removeUser'
 

@@ -32,7 +32,6 @@ const ProfilePage = ()=>{
 
     }
 
-    console.log('rendering profile page')
     useEffect(()=>{
         dispatch(fetchUser(userId))
     },[userId,dispatch])
@@ -50,7 +49,7 @@ const ProfilePage = ()=>{
     if (user.cover){
         coverPhoto = <img alt = 'avatar' id = 'coverphoto' src = {user.cover}/>
     }else{
-        coverPhoto = <i class="fa-solid fa-panorama coverimage"></i>
+        coverPhoto = <i className="fa-solid fa-panorama coverimage"></i>
     }
     return(
         <>
