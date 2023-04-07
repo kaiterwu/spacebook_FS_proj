@@ -62,7 +62,7 @@
 .names input{
     /* width:400px; */
     height:32px;
-    width:157px;
+    width:160px;
 }
 
 #aboutMeText{
@@ -153,11 +153,21 @@
 .signupErrors{
     margin-bottom:1vw;
     min-height:1vw;
+    margin-top:1vw;
 }
 
 .signup button{
     margin-bottom: 1vw;
     font-family:Arial, Helvetica, sans-serif
 }
+.signup input,#emailInput,#passInput,#aboutMeText{
+    /* border:1px solid red; */
+    box-sizing:border-box;
+    padding-left:10px;
+}
 
-
+#aboutMeContain>div, #firstnameHead>div,#lastnameHead>div,#emailInputcontain>div{
+    font-size:10px;
+    color:rgb(92, 92, 92);
+    margin-bottom:2px;
+}

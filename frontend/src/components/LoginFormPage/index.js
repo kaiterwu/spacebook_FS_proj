@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import FormModal from '../FormModal';
+import FormModal from '../Modals/formModal';
 import './LoginForm.css';
 import { useHistory } from 'react-router-dom';
 import { fetchUser } from '../../store/users';

@@ -42,7 +42,17 @@ function SignupFormPage(props){
     const currentMonth = monthNow
     const currentDayDay = currentDay.getDate().toString()
     const currentYear = currentDay.getFullYear().toString()
-
+    
+    let firstNameHead;
+    let lastNameHead;
+    let emailHead;
+    let aboutMeHead;
+    if (sessionUser){
+        firstNameHead = <div>First Name</div>
+        lastNameHead = <div>Last Name</div>
+        emailHead = <div>Email</div>
+        aboutMeHead = <div>About me</div>
+    }
     if (!userId){
         bigSign = 'Sign up'
         smallSign = "It's quick and easy."
@@ -55,16 +65,21 @@ function SignupFormPage(props){
     }else{
         bigSign = 'Edit Profile'
         smallSign = "Customize your info"
-        passInput = <textarea id = 'aboutMeText' value = {aboutMe} onChange = {(e)=>setAboutMe(e.target.value)} placeholder="Tell us about yourself"></textarea>
+        passInput =
+        <div id ="aboutMeContain">
+            {aboutMeHead}
+            <textarea id = 'aboutMeText' value = {aboutMe} onChange = {(e)=>setAboutMe(e.target.value)} placeholder="Tell us about yourself"></textarea>
+
+        </div>
         buttonText = 'Edit your Info'
         defaultDay = birthDay
         defaultMonth = birthMonth
         defaultYear = birthYear
     }
-
-
-
-   
+    
+    
+    
+    
 
     const [month,setMonth] = useState(defaultMonth+1)
     const [day,setDay] = useState(defaultDay)
@@ -148,7 +163,7 @@ function SignupFormPage(props){
             
         }
         
-        // debugger
+        //headers
     return(
         <>
         <div className = 'signupWindow'>
@@ -162,16 +177,24 @@ function SignupFormPage(props){
                 {errors.map(error => <li key={error}><i className="fa-solid fa-triangle-exclamation"></i> {error}</li>)}
             </ul>
                 <div className="names">
-                <input type = "text" value = {firstName} onChange = {(e)=>setFirstName(e.target.value)}
-                placeholder = 'First name'/>
+                    <div id = 'firstnameHead'>
+                        {firstNameHead}
+                        <input type = "text" value = {firstName} onChange = {(e)=>setFirstName(e.target.value)}
+                        placeholder = 'First name'/>
+                    </div>
+                    <div id = 'lastnameHead'>
+                        {lastNameHead}
+                        <input type = "text" value = {lastName} onChange = {(e)=>setLastName(e.target.value)}
+                        placeholder = 'Last name'/>
+                    </div>
 
-                <input type = "text" value = {lastName} onChange = {(e)=>setLastName(e.target.value)}
-                placeholder = 'Last name'/>
 
                 </div>
-                <input type = "text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
-                placeholder = 'Email' id = 'emailInput'/>
-           
+                <div id = "emailInputcontain">
+                    {emailHead}
+                    <input type = "text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
+                    placeholder = 'Email' id = 'emailInput'/>
+                </div>
                 {passInput}
 
                 <label id ='bday' htmlFor = 'birthday'>Birthday</label>

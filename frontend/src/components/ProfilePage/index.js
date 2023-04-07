@@ -1,10 +1,12 @@
 
 import { useSelector,useDispatch } from "react-redux"
-import { fetchUser,getUser } from "../../store/users"
+import { getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
 import './ProfilePage.css'
-import FormModal from "../FormModal"
+import FormModal from "../Modals/formModal"
+import { fetchUser } from "../../store/users"
+
 
 const getBirthday = (str)=>{
     let date = new Date(str)
@@ -17,15 +19,15 @@ const ProfilePage = ()=>{
     const sessionUser = useSelector(state =>state.session.user);
     let editButton;
     let commentButton;
-    // debugger
+    
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
         commentButton = <div id = 'createPost'>
-        <i className="fa-solid fa-user-circle" />
+        <div id = "postIcon"><img alt = 'avatar' src = {user.avatar}/></div>
         <button>What's on your mind?</button>
     </div>
     }
-    // debugger
+
     console.log('rendering profile page')
     useEffect(()=>{
         dispatch(fetchUser(userId))
@@ -34,10 +36,10 @@ const ProfilePage = ()=>{
     let coverPhoto;
     
     if (!user) return null 
-    // debugger
+   
     if (user.avatar){
-        profilePhoto = <img id = "avatar" src = {user.avatar}/>
-        coverPhoto = <img id = 'coverphoto' src = {user.cover}/>
+        profilePhoto = <img alt = 'avatar' id = "avatar" src = {user.avatar}/>
+        coverPhoto = <img alt = 'avatar' id = 'coverphoto' src = {user.cover}/>
     }else{
         profilePhoto = <i className="fa-solid fa-user-circle mainphoto" />
         coverPhoto = <i class="fa-solid fa-panorama coverimage"></i>
@@ -66,12 +68,18 @@ const ProfilePage = ()=>{
                 </div>
                 <div id = "basicInfo">
                     <h2>Basic Info</h2>
-                    <div><i className="fa-regular fa-envelope"></i> Email</div>
-                    <p>{user.email}</p>
-                    <div><i className="fa-solid fa-cake-candles"></i> Birthday</div>
-                    <p>{getBirthday(user?.birthday)}</p>
-                    <div><i className="fa-solid fa-transgender"></i>Gender</div>
-                    <p>{user.gender}</p>
+                        <div>
+                            <div><i className="fa-solid fa-cake-candles"></i> Birthday:</div>
+                            <p>{getBirthday(user?.birthday)}</p>
+                        </div>
+                        <div>
+                            <div><i className="fa-regular fa-envelope"></i> Email:</div>
+                            <p>{user.email}</p>
+                        </div>
+                        <div>
+                            <div><i className="fa-solid fa-transgender"></i>Gender:</div>
+                            <p>{user.gender}</p>
+                        </div>
                 </div>
             </div>
             <div className = 'posts'>

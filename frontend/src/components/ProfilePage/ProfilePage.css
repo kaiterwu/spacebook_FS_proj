@@ -37,13 +37,16 @@
     height:3vw;
     /* width:10vw; */
     border:none;
-    font-size:1.0vw;
+    font-size:1.2vw;
     font-weight:bolder;
     font-family:Arial, Helvetica, sans-serif;
     padding:1vw;
     background-color: rgb(218, 218, 218);
     width:12vw;
     border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 #editProfile:hover{
@@ -67,7 +70,7 @@
     height:100vw;
     display:flex;
     justify-content: space-between;
-    margin: 0px 10vw;
+    margin: 0px 15vw
 }
 
 .bio{
@@ -75,7 +78,7 @@
     /* margin-left:10vw; */
     width: 30vw;
     border:1px solid rgb(213, 213, 213);
-    max-height: 50vw;
+    height:fit-content;
     border-radius:10px;
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
@@ -90,26 +93,26 @@
     border:1px solid rgb(213, 213, 213);
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
     border-radius:10px;
-    font-size:2vw;
-    min-height:20vw;
+    font-size:1.5vw;
+    /* min-height; */
     /* font-weight:bolder; */
     
 }
 
 #aboutMe p{
     /* margin-top: 10px; */
-    font-size:1.2vw;
+    font-size:1vw;
     font-weight:none;
     /* word-spacing:5px; */
     line-height:2vw;
-    padding-top:2vw;
+    padding-top:1vw;
     
 }
 
 #aboutMe h2{
     font-weight:bolder;
     border-bottom:1px solid rgb(225, 225, 225);
-    padding-bottom:10px;
+    padding-bottom:5px;
 }
 
 #basicInfo{
@@ -120,39 +123,40 @@
     box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
     border-radius:10px;
     max-height:20vw;
-    
-    
 }
 
 #basicInfo h2{
     border-bottom:1px solid rgb(228, 228, 228);
-    padding-bottom:10px;
-    font-size:2vw;
+    padding-bottom:5px;
+    font-size:1.5vw;
     font-weight:bolder;
-    margin-bottom:2vw;
+    margin-bottom:1vw;
 }
 
-#basicInfo div{
-    font-size:1.5vw;
+#basicInfo>div{
+    font-size:1vw;
     color:grey;
-    margin-top: 1vw;
+    /* margin-top: 1vw; */
     font-weight:bolder;
+    display:flex;
+    margin-bottom:1vw;
+    align-items:center;
     
 }
 
 #basicInfo p{
-    padding-left:1vw;
-    padding-top:1vw;
     font-size:1vw;
     color:black;
-    margin-left:0.8vw;
+    margin-left:0.3vw;
+    font-weight:lighter
     /* border-bottom:1px solid rgb(213, 213, 213); */
 }
 .posts{
     display:flex;
     flex-direction: column;
     align-items:center;
-    width:47vw;
+    width:40vw;
+    margin-left:2vw
 }
 #createPost{
     margin-top:2vw;
@@ -169,7 +173,7 @@
 }
 
 #createPost button{
-    width:88%;
+    width:40vw;
     /* margin: 0 1vw; */
     height:60%;
     border:none;
@@ -178,8 +182,9 @@
     border-radius:20px;
     background-color:rgb(228, 228, 228);
     color:grey;
-    
     font-size:1.4vw;
+    padding-left:1.3vw;
+    margin-right:1.5vw;
 }
 
 #createPost button:hover{
@@ -210,7 +215,7 @@
 #avatar{
     
     /* border-radius:50%; */
-    max-width: 30vw;
+    max-width: 12vw;
     max-height:20vw;
     z-index:-10;
     position:relative;
@@ -266,5 +271,26 @@
 }
 
 #coverphoto{
-    height:54vw;
+    height:45vw;
+    /* width:80vw; */
 }
+
+#postIcon{
+    height:4vw;
+    width:4vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:100%;
+    margin-right:1vw;
+    margin-left:1vw;
+    /* border:solid 1px red; */
+}
+
+#postIcon img{
+    height:4vw;
+    width:4vw;
+}
+
+

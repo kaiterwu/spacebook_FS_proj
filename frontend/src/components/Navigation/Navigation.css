@@ -16,13 +16,29 @@
     justify-content: center;
     border:none;
     background-color: rgb(206, 206, 206);
+    overflow:hidden;
     
+}
+
+#firstli img{
+    height:4vw;
+    width:4vw;
+}
+
+#smallavatar{
+    border-radius:100%;
+    overflow:hidden;
+    border:1px rgb(190, 190, 190) solid;
+    height:4vw;
+    width:4vw;
+    margin-right:1vw;
 }
 
 .profile-dropdown li{
     /* border:1px solid grey; */
     color:black;
-    padding:10px;
+    
+    padding: 5px 10px;
     font-size:15px;
     width:80px;
     list-style-type:none;
@@ -46,7 +62,7 @@
     /* height:200px; */
     right:15px;
     top:50px;
-    box-shadow:0 1px 6px 1px rgb(212, 212, 212);
+    box-shadow:0 1px 4px 0.1px rgb(145, 145, 145);
    
 }
 
@@ -118,6 +134,9 @@ h1:hover{
     /* border:1px solid rgb(213 213 213); */
     border-radius:10px;
     box-shadow: 0 0.5px 4px 1px rgb(172, 172, 172);
+    display:flex;
+    align-items:center;
+    
 }
 
 .fa-door-open{
@@ -130,5 +149,10 @@ h1:hover{
 
 #logout{
     font-size:14px;
+}
+
+#avataricon{
+    height:40px;
+    width:40px;
 }
 
