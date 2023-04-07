@@ -48,7 +48,7 @@ const ReloginForm = ()=>{
         </div>
             <div className='reloginwindow'>
 
-            <div class = 'formwindow'>
+            <div className = 'formwindow'>
             <p>Log into Spacebook</p>
             <form className="login" onSubmit = {handleSubmit}>
             
