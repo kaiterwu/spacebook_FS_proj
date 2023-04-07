@@ -44,7 +44,7 @@ export  const fetchUsers = () => async(dispatch)=>{
 
 export const editUser = user => async dispatch =>{
     
-    const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;
+    const {firstName,lastName,email,password,gender,birthday,aboutMe,avatar,cover} = user;
     const res = await csrfFetch(`/api/users/${user.id}`,{
         method: 'PATCH',
         body: JSON.stringify({
@@ -56,7 +56,9 @@ export const editUser = user => async dispatch =>{
                 password,
                 gender,
                 birthday,
-                aboutMe
+                aboutMe,
+                avatar,
+                cover,
             }
         })
         
@@ -70,6 +72,19 @@ export const editUser = user => async dispatch =>{
     restoreSession()
     
     return res
+}
+
+export const editPhotos = (user,formData) => async dispatch =>{
+    const response = await csrfFetch(`/api/users/${user.id}`,{
+        method: 'PATCH',
+        body: formData
+    });
+        const data = await response.json()
+        dispatch(receiveProfile(data.user))
+        dispatch(receiveUser(data.user))
+        storeCurrentUser(data.user)
+        restoreSession()
+    
 }
 
 const usersReducer = (state={},action)=>{

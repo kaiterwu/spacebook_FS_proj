@@ -95,7 +95,7 @@
     height:56px;
     position: sticky;
     position: -webkit-sticky;
-    z-index: 1;
+    z-index: 2;
     box-shadow:0 0 4px 1px rgb(189, 189, 189)
     
     

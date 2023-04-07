@@ -43,9 +43,13 @@ const ProfilePage = ()=>{
    
     if (user.avatar){
         profilePhoto = <img alt = 'avatar' id = "avatar" src = {user.avatar}/>
-        coverPhoto = <img alt = 'avatar' id = 'coverphoto' src = {user.cover}/>
     }else{
         profilePhoto = <i className="fa-solid fa-user-circle mainphoto" />
+    }
+
+    if (user.cover){
+        coverPhoto = <img alt = 'avatar' id = 'coverphoto' src = {user.cover}/>
+    }else{
         coverPhoto = <i class="fa-solid fa-panorama coverimage"></i>
     }
     return(

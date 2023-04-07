@@ -34,7 +34,7 @@
 
 #editProfile{
     margin-top:3vw;
-    margin-right:1.9vw;
+    margin-right:2.7vw;
     height:3vw;
     /* width:10vw; */
     border:none;
@@ -68,7 +68,7 @@
 }
 #photoAndName{
     margin-bottom:6vw;
-    z-index:2;
+    z-index:1;
 }
 
 
@@ -229,11 +229,11 @@
 .coverPhoto{
     height:30vw;
     background-color: rgb(205, 205, 205);
-    margin: 0px 9vw;    
+    margin: 0px 10vw;    
     border-bottom-left-radius: 6.5px;
     border-bottom-right-radius:6.5px;
     display:flex;
-    align-items:center;
+    /* align-items:center; */
     justify-content: center;
     overflow:hidden;
     position:relative
@@ -241,11 +241,11 @@
 }
 
 .coverimage{
-    font-size:32vw;
+    font-size:30vw;
 }
 
 #coverphoto{
-    height:45vw;
+    height:50vw;
     /* width:80vw; */
 }
 

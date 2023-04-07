@@ -3,14 +3,15 @@
     flex-direction:column;
     align-items:center;
     justify-content: center;
-    background-color: #42b72a;
+    background-color: rgb(206, 206, 206);
+    margin-top:10px;
     margin-bottom:10px;
     width:fit-content;
-    border-radius: 10px;
-    padding:10px;
-    color:white;
+    border-radius: 4px;
+    padding:5px;
+    color:rgb(0, 0, 0);
     font-weight:bolder;
-    font-size:15px;
+    font-size:10px;
 }
 
 #photoForm{
@@ -18,8 +19,9 @@
     min-height:300px;
     display:flex;
     flex-direction:column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    /* overflow:hidden; */
 
 }
 
@@ -29,7 +31,7 @@
 
 #labels:hover{
     cursor:pointer;
-    background-color: #33a41f;
+    background-color: rgb(188, 188, 188);
 }
 
 #labels:active{
@@ -46,13 +48,61 @@
 #submitProfilePhoto{
     background-color: #42b72a;
     color:white;
-    font-size:15px;
+    font-size:20px;
     font-weight:bolder;
     border:none;
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 5px 10px;
     width:fit-content;
 }
+
+#submitProfilePhoto:hover{
+    background-color:#33a41f
+}
+
+#previewProfilePhoto{
+    height:150px;
+    /* margin: 0 40px; */
+}
+
+#previewCoverPhoto{
+    height:300px;
+}
+
+#coverContainer{
+    /* width:400px; */
+    /* padding: 0 30px; */
+    margin: 0 60px;
+    height:180px;
+    width:480px;
+    display:flex;
+    justify-content: center;
+    overflow:hidden;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius:6.5px;
+    box-shadow: 0 0 10px 1px rgb(193, 193, 193);
+}
+
+#profileContainer{
+    height:150px;
+    width:150px;
+    border-radius:100%;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    box-shadow: 0 0 10px 1px rgb(193, 193, 193);
+}
+
+.photoErrors{
+    height:10px;
+    padding-bottom:10px;
+}
+
+.photoErrors li {
+    color:red;
+    font-style: italic;
+}
+
 
 
 

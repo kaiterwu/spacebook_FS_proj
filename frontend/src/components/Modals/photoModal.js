@@ -17,7 +17,6 @@ function PhotoModal(props) {
 }
     let buttonText;
     let modalClass;
-    let editPhoto;
     if (props.text === 'Profile'){
         buttonText = <i class="fa-solid fa-camera"></i>
         modalClass = 'profilephotoModal'
@@ -35,7 +34,7 @@ function PhotoModal(props) {
         <button onClick={handleClick}>{buttonText}</button>
         {showModal && (
             <Modal className = 'signup' onClose={() => setShowModal(false)}>
-                <PhotoForm text = {props.text}/>
+                <PhotoForm setShowModal = {setShowModal} text = {props.text}/>
             </Modal>
         )}
         </div>
