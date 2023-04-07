@@ -34,6 +34,7 @@
 
 #editProfile{
     margin-top:3vw;
+    margin-right:1.9vw;
     height:3vw;
     /* width:10vw; */
     border:none;
@@ -61,7 +62,13 @@
     /* position:absolute; */
     font-weight:bolder;
     /* margin-left:-1vw; */
+    /* margin-bottom:6vw; */
+    margin-top:3vw;
+    
+}
+#photoAndName{
     margin-bottom:6vw;
+    z-index:2;
 }
 
 
@@ -229,6 +236,7 @@
     align-items:center;
     justify-content: center;
     overflow:hidden;
+    position:relative
    
 }
 

@@ -7,6 +7,7 @@ import './ProfilePage.css'
 import FormModal from "../Modals/formModal"
 import { fetchUser } from "../../store/users"
 import PostsModal from "../Modals/postModal"
+import PhotoModal from "../Modals/photoModal"
 
 
 const getBirthday = (str)=>{
@@ -20,10 +21,15 @@ const ProfilePage = ()=>{
     const sessionUser = useSelector(state =>state.session.user);
     let editButton;
     let commentButton;
+    let editProfilePhoto;
+    let editCoverPhoto;
     
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
         commentButton =<PostsModal/>
+        editProfilePhoto= <PhotoModal text = {'Profile'}/>
+        editCoverPhoto = <PhotoModal text = {'Cover'}/>
+
     }
 
     console.log('rendering profile page')
@@ -49,12 +55,16 @@ const ProfilePage = ()=>{
         <section className="topHalf">
             <div className ='coverPhoto'>
                 {coverPhoto}
+                {editCoverPhoto}
             </div>
             <div className ='nameButtons'>
                 <div id = 'profileinfo'>
                     <div id = 'profilephoto'> {profilePhoto}</div>
-                    <p id = 'profileName'>{user.firstName} {user.lastName}</p>
-                </div>
+                        <div id ='photoAndName'>
+                        <p id = 'profileName'>{user.firstName} {user.lastName}</p>
+                        {editProfilePhoto}
+                        </div>
+                    </div>
                 {editButton}
             </div>
         </section>

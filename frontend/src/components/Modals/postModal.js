@@ -33,7 +33,7 @@ function PostsModal() {
         <button id ="postsModalb" onClick={handleClick}>What's on your mind, {sessionUser.firstName}?</button>
         {showModal && (
             <Modal className = 'signup' onClose={() => setShowModal(false)}>
-            
+                <h1>Put posts content here</h1>
             </Modal>
         )}
         </div>
