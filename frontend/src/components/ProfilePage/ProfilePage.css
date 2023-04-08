@@ -178,7 +178,7 @@
     margin-top:1vw;
     background-color: white;
     width:inherit;
-    border-radius:10px;
+    border-radius:8px;
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     border:1px solid rgb(213, 213, 213);
@@ -188,6 +188,7 @@
     align-items:center;
     font-size:1.5vw;
     padding-top:1vw;
+    
     /* min-height:40px; */
 
 }
@@ -195,8 +196,12 @@
 #postsHeader p{
     width:inherit;
     border-bottom:1px solid rgb(213, 213, 213);
-    padding-left:1vw;
+    /* padding-left:1vw; */
     margin-bottom:1vw;
+    display:flex;
+    justify-content: center;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 
