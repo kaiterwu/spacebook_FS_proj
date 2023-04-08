@@ -65,3 +65,8 @@ div, p,h1,h2,h3,h4{
 ::placeholder{
 	opacity:0.6
 }
+
+*{
+	
+	transition:ease-out 0.2s
+}

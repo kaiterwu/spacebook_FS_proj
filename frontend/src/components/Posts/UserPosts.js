@@ -11,7 +11,7 @@ const UserPosts = (props)=>{
     const posts = useSelector(getPosts)
     const userId = props.user.id
 
-    const userPosts = Object.values(posts)
+    const userPosts = Object.values(posts).reverse()
     const sessionUser = useSelector(state =>state.session.user);
     const sessionUserId = sessionUser.id
     const loggedInUser = useSelector(getUser(sessionUserId))
@@ -31,7 +31,7 @@ const UserPosts = (props)=>{
     return(
         <>
             {userPosts.map(post=>
-                <div className="userPostsContainer">
+                <div key = {post.id} className="userPostsContainer">
                     <div id = 'postsContent'>
                         <div>
                             <div id = 'postIcon'>{profilePhoto}</div>
@@ -39,6 +39,9 @@ const UserPosts = (props)=>{
                         <p>{props.user.firstName} {props.user.lastName}</p>
                     </div>
                     <p id = "postsBody">{post.body}</p>
+                    <div id = 'postsPhotoContainer'>
+                       
+                    </div>
                     <div id = 'likeComment'>
                         <p><i className="fa-regular fa-thumbs-up"></i> Like</p>
                         <p><i className="fa-regular fa-message"></i> Comment</p>

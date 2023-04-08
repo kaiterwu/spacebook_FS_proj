@@ -1,5 +1,5 @@
 #postsModalb{
-    width:32vw;
+    width:33vw;
     /* margin: 0 1vw; */
     height:3vw;
     border:none;
@@ -10,7 +10,7 @@
     color:grey;
     font-size:1.4vw;
     padding-left:1.3vw;
-    margin-right:1.5vw;
+    /* margin-right:1.5vw; */
 }
 
 #postsModalb:hover{
@@ -30,7 +30,7 @@
     border:1px solid rgb(213, 213, 213);
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     display:flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items:center;
 }
 

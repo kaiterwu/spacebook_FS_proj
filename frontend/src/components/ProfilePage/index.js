@@ -22,13 +22,13 @@ const ProfilePage = ()=>{
     const sessionUser = useSelector(state =>state.session.user);
 
     let editButton;
-    let commentButton;
+    let createPostButton;
     let editProfilePhoto;
     let editCoverPhoto;
     
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
-        commentButton =<PostsModal/>
+        createPostButton =<PostsModal type = {'Create'} user = {user}/>
         editProfilePhoto= <PhotoModal text = {'Profile'}/>
         editCoverPhoto = <PhotoModal text = {'Cover'}/>
 
@@ -96,9 +96,9 @@ const ProfilePage = ()=>{
                 </div>
             </div>
             <div className = 'posts'>
-                    {commentButton}
+                    {createPostButton}
                 <div id = "postsHeader">
-                   <p>Posts <i className="fa-regular fa-clipboard"></i></p>
+                   <p><i className="fa-regular fa-clipboard"></i> Posts</p>
                 </div>
                 <div className= 'postsContainer'>
                     <UserPosts user= {user}/>

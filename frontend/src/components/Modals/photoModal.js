@@ -29,15 +29,13 @@ function PhotoModal(props) {
   
   return (
     <>
-    <div id = ''>
-        <div className={modalClass}>
+    <div className={modalClass}>
         <button onClick={handleClick}>{buttonText}</button>
         {showModal && (
             <Modal className = 'signup' onClose={() => setShowModal(false)}>
                 <PhotoForm setShowModal = {setShowModal} text = {props.text}/>
             </Modal>
         )}
-        </div>
     </div>
     </>
   );

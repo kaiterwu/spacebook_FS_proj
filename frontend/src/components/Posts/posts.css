@@ -27,7 +27,17 @@
     font-size:1vw;
     padding:1vw;
     margin: 0 1vw;
+    /* border-bottom:1px solid rgb(213, 213, 213); */
+}
+
+#postsPhotoContainer{
+    /* width:inherit; */
+    margin: 0 1vw;
     border-bottom:1px solid rgb(213, 213, 213);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
 }
 
 #likeComment{
@@ -82,9 +92,101 @@
     border-radius:20px;
     border:none;
     background-color: rgb(222, 222, 222);
-    width:83%;
+    width:85%;
     box-sizing:border-box;
     padding-left:1vw;
     font-size:1vw;
     height:2.5vw;
+}
+
+.formPostsContainer{
+    width:400px;
+}
+
+#formpostIcon{
+    height:40px;
+    width:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:100%;
+    margin-right:10px;
+    /* margin-left:1vw; */
+    font-size:4vw;
+    /* border:solid 1px red; */
+}
+
+#formpostIcon img{
+    height:40px;
+    width:40px;
+}
+
+#formpostsContent{
+    padding:16px;
+    display:flex;
+    flex-direction: column;
+    row-gap:16px;
+    
+}
+
+#formpostsName{
+    display:flex;
+    align-items:center;
+    /* padding:0 10px; */
+ 
+}
+
+#formpostsName p{
+    font-size:15px;
+    font-weight:bolder;
+    margin-left:-5px;
+}
+
+#formPostsHeader{
+    font-size:20px;
+    font-weight: bolder;
+    display:flex;
+    justify-content: center;
+    border-bottom:1px solid rgb(213, 213, 213);
+    padding-bottom:10px;
+}
+
+#postBody{
+    font-size:15px;
+    border:none;
+    box-sizing: border-box;
+    resize:none;
+    /* overflow:hidden; */
+}
+
+#postBody:focus{
+    outline:none;
+}
+
+#formPostButton{
+    font-size: 15px;
+    font-weight:bolder;
+    border:none;
+    padding: 5px;
+    background-color: #42b72a;
+    color:white;
+}
+
+#formPostButton:hover{
+background-color: #33a41f;
+}
+
+#submitPostPhoto{
+    width:30%;
+    align-self:center;
+    font-size:10px;
+    font-weight:bolder;
+    border:none;
+    padding:5px;
+    background-color: rgb(225, 225, 225);
+}
+
+#submitPostPhoto:hover{
+    background-color: rgb(200, 200, 200);
 }
