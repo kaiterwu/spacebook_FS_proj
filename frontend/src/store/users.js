@@ -44,7 +44,7 @@ export  const fetchUsers = () => async(dispatch)=>{
 
 export const editUser = user => async dispatch =>{
     
-    const {firstName,lastName,email,password,gender,birthday,aboutMe,avatar,cover} = user;
+    const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;
     const res = await csrfFetch(`/api/users/${user.id}`,{
         method: 'PATCH',
         body: JSON.stringify({
@@ -56,9 +56,7 @@ export const editUser = user => async dispatch =>{
                 password,
                 gender,
                 birthday,
-                aboutMe,
-                avatar,
-                cover,
+                aboutMe
             }
         })
         

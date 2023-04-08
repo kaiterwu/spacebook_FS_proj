@@ -15,6 +15,7 @@ ApplicationRecord.transaction do
     ApplicationRecord.connection.reset_pk_sequence!('users')
   
     puts "Creating users..."
+    puts "Creating posts..."
     # Create one user with an easy to remember username, email, and password:
     User.create!(
       email: 'test@test.com', 
@@ -41,6 +42,36 @@ ApplicationRecord.transaction do
         about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
       }) 
     end
+
+    10.times do 
+      Post.create!({
+        body:Faker::JapaneseMedia::OnePiece.unique.quote,
+        user_id: 1
+      })
+    end
+
+    10.times do 
+      Post.create!({
+      body: Faker::Movies::LordOfTheRings.unique.quote,
+      user_id: rand(2..10)
+      })
+    end 
+
+    10.times do 
+      Post.create!({
+      body: Faker::Quote.fortune_cookie,
+      user_id: rand(2..10)
+      })
+    end 
+
+    10.times do 
+      Post.create!({
+      body: Faker::Quote.unique.famous_last_words,
+      user_id: rand(2..10)
+      })
+    end 
+
+    
   
     puts "Done!"
   end

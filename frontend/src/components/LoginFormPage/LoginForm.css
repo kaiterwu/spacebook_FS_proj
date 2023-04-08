@@ -9,6 +9,7 @@ body{
 .LoginPage{
     display:flex;
     justify-content:space-evenly;
+    flex-wrap: wrap;
     align-items:center;
     margin-top:40px;
 }

@@ -1,0 +1,90 @@
+.postsContainer{
+    width:inherit;
+}
+.userPostsContainer{
+    margin-top:1vw;
+    background-color: white;
+    width:inherit;
+    border-radius:10px;
+    background-color: white;
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
+    border:1px solid rgb(213, 213, 213);
+    padding: 1vw 0;
+}
+
+#postsContent{
+    display:flex;
+    align-items:center;
+}
+
+#postsContent p{
+    font-size:1vw;
+    font-weight:bolder;
+    margin-left:-0.5vw;
+}
+
+#postsBody{
+    font-size:1vw;
+    padding:1vw;
+    margin: 0 1vw;
+    border-bottom:1px solid rgb(213, 213, 213);
+}
+
+#likeComment{
+    font-size:1vw;
+    /* padding: 1vw 0; */
+    display:flex;
+    justify-content: space-evenly;
+    font-weight:bolder;
+    color:rgb(117, 117, 117);
+    border-bottom:1px solid rgb(213, 213, 213);
+    margin: 0 1vw;
+}
+
+#likeComment p{
+    padding: 0.5vw ;
+    margin: 0.5vw;
+    border-radius:5px;
+}
+
+#likeComment p:hover{
+    background-color:rgb(216, 216, 216);
+    cursor:pointer;
+
+}
+
+#replyIcon{
+    height:3vw;
+    width:3vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:100%;
+    margin-right:1vw;
+    margin-left:1vw;
+    font-size:4vw;
+    /* border:solid 1px red; */
+}
+
+#replyIcon img{
+    height:3vw;
+    width:3vw;
+}
+
+#replyContainer{
+    margin-top:1vw;
+    display:flex;
+    align-items:center;
+}
+
+#replyContainer input{
+    border-radius:20px;
+    border:none;
+    background-color: rgb(222, 222, 222);
+    width:83%;
+    box-sizing:border-box;
+    padding-left:1vw;
+    font-size:1vw;
+    height:2.5vw;
+}

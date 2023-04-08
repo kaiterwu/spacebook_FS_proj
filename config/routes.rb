@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create,:show,:index,:update]
+    resources :posts, only: [:create,:show,:index,:update]
     resource :session, only: [:show, :create, :destroy]
+
+    get '/user-posts/:id', to: 'posts#user_posts', as: 'post_entries'
   end
 
   post 'api/test', to: 'application#test'

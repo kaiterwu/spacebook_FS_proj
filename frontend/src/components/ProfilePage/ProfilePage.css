@@ -9,7 +9,7 @@
 }
 
 .topHalf{
-    width:100%;
+    max-width:100%;
     height:45vw;
     display:flex;
     flex-direction:column;
@@ -81,7 +81,7 @@
 }
 
 .bio{
-    margin-top:2vw;
+    margin-top:1vw;
     /* margin-left:10vw; */
     width: 30vw;
     border:1px solid rgb(213, 213, 213);
@@ -163,7 +163,7 @@
     flex-direction: column;
     align-items:center;
     width:40vw;
-    margin-left:2vw
+    margin-left:1vw
 }
 
 
@@ -172,24 +172,40 @@
     font-size:3vw;
 }
 
-.postsContainer{
-    margin-top:2vw;
+
+
+#postsHeader{
+    margin-top:1vw;
     background-color: white;
     width:inherit;
-    height:40vw;
     border-radius:10px;
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     border:1px solid rgb(213, 213, 213);
-    
-    
+    display:flex;
+    font-weight:bolder;
+    justify-content:flex-start;
+    align-items:center;
+    font-size:1.5vw;
+    padding-top:1vw;
+    /* min-height:40px; */
+
 }
+
+#postsHeader p{
+    width:inherit;
+    border-bottom:1px solid rgb(213, 213, 213);
+    padding-left:1vw;
+    margin-bottom:1vw;
+}
+
+
 
 #avatar{
     
     /* border-radius:50%; */
-    max-width: 12vw;
-    max-height:20vw;
+    /* max-width: 12vw; */
+    max-height:12vw;
     z-index:-10;
     position:relative;
     /* margin:auto; */
@@ -259,6 +275,7 @@
     border-radius:100%;
     margin-right:1vw;
     margin-left:1vw;
+    font-size:4vw;
     /* border:solid 1px red; */
 }
 

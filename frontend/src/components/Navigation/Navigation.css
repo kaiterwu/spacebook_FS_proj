@@ -21,22 +21,22 @@
 }
 
 #firstli img{
-    height:4vw;
-    width:4vw;
+    height:30px;
+    width:30px;
 }
 
 #firstli i{
-    height:4vw;
-    width:4vw;
-    font-size:4.2vw;
+    height:30px;
+    width:30px;
+    font-size:30px;
 }
 
 #smallavatar{
     border-radius:100%;
     overflow:hidden;
     border:1px rgb(190, 190, 190) solid;
-    height:4vw;
-    width:4vw;
+    height:30px;
+    width:30px;
     margin-right:1vw;
     display:flex;
     align-items: center;

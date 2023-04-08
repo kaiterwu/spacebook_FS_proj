@@ -3,11 +3,12 @@ import { useSelector,useDispatch } from "react-redux"
 import { getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
-import './ProfilePage.css'
 import FormModal from "../Modals/formModal"
 import { fetchUser } from "../../store/users"
 import PostsModal from "../Modals/postModal"
 import PhotoModal from "../Modals/photoModal"
+import UserPosts from "../Posts/UserPosts"
+import './ProfilePage.css'
 
 
 const getBirthday = (str)=>{
@@ -19,6 +20,7 @@ const ProfilePage = ()=>{
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
     const sessionUser = useSelector(state =>state.session.user);
+
     let editButton;
     let commentButton;
     let editProfilePhoto;
@@ -95,8 +97,11 @@ const ProfilePage = ()=>{
             </div>
             <div className = 'posts'>
                     {commentButton}
+                <div id = "postsHeader">
+                   <p>Posts <i className="fa-regular fa-clipboard"></i></p>
+                </div>
                 <div className= 'postsContainer'>
-
+                    <UserPosts user= {user}/>
                 </div>
 
             </div>

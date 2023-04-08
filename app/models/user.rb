@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :cover
 
+  has_many :posts
+
   def self.find_by_email(email,password)
     if URI::MailTo::EMAIL_REGEXP.match?(email)
       user = User.find_by(email:email)

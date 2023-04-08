@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as sessionActions from './store/session'
 import * as userActions from './store/users'
+import * as postActions from './store/posts'
 import csrfFetch from './store/csrf';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions
   // window.benchActions = benchActions;
   window.userActions = userActions
+  window.postActions = postActions
 }
 
 function Root() {
