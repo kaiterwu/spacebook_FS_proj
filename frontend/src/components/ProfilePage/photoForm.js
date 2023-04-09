@@ -77,7 +77,7 @@ const PhotoForm = (props)=>{
     if (photoUrl) preview = <img id ={previewPhoto} src={photoUrl} alt="" />;
     return(
         <>
-        <i class={removePhoto} onClick={handleRemove}/>
+        <i className={removePhoto} onClick={handleRemove}/>
         <form id = "photoForm" onSubmit={handleSubmit}>
         <ul className = 'photoErrors'>
              {errors.map(error => <li key={error}><i className="fa-solid fa-triangle-exclamation"></i> {error}</li>)}

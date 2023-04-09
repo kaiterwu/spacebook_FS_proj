@@ -29,13 +29,20 @@ function PostsModal(props) {
       avatar = <i className="fa-solid fa-user-circle" />
     }
 
-  let containerId,icon,buttonId,buttonContainerId,formType
+  let containerId,icon,buttonContainerId,formType,button
   if (props.type === 'Create'){
     containerId = 'createPost'
     icon = <div id = "postIcon">{avatar}</div>
     buttonContainerId = 'postsModal'
-    buttonId = 'postsModalb'
+    button =  <button id ='postsModalb' onClick={handleClick}>What's on your mind, {sessionUser.firstName}?</button>
     formType = <PostsForm setShowModal={setShowModal} type = {props.type} user = {props.user}/>
+  }else{
+    formType = <PostsForm setShowModal={setShowModal} type = {props.type} user = {props.user} post = {props.post}/>
+    button = <button id ='editPostButton' onClick={handleClick}>
+                   <div>
+                      <i className="fa-solid fa-pen"></i> Edit Post
+                   </div>
+              </button>
   }
 
 
@@ -44,7 +51,7 @@ function PostsModal(props) {
     <div id = {containerId}>
         {icon}
         <div className={buttonContainerId}>
-        <button id ={buttonId} onClick={handleClick}>What's on your mind, {sessionUser.firstName}?</button>
+        {button}
         {showModal && (
             <Modal className = 'signup' onClose={() => setShowModal(false)}>
               {formType}

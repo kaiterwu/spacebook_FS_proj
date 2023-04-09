@@ -95,6 +95,7 @@ export const updatePost = post =>async(dispatch)=>{
     if(response.ok){
         const post = await response.json()
         dispatch(receivePost(post))
+        return post
     }
 }
 
@@ -105,6 +106,19 @@ export const editPostPhoto = (post,formData)=> async dispatch =>{
         method: 'PATCH',
         body: formData
     });
+    const data = await response.json()
+    dispatch(receivePost(data))
+}
+
+export const removePostPhoto = post => async(dispatch)=>{
+    const response = await csrfFetch(`/api/posts/${post.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+            post:{
+                photo:null
+            }
+        })
+    })
     const data = await response.json()
     dispatch(receivePost(data))
 }

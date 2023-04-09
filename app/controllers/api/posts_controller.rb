@@ -35,6 +35,12 @@ class Api::PostsController < ApplicationController
 
     end 
 
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        head :no_content # return header only
+    end
+
     private
 
     def post_params

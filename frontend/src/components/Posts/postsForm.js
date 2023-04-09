@@ -1,19 +1,19 @@
-import { createPost, editPostPhoto, getPost, updatePost } from "../../store/posts";
-import { useDispatch,useSelector } from "react-redux";
+import { createPost, editPostPhoto, updatePost,removePostPhoto } from "../../store/posts";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 const PostsForm = (props)=>{
     const dispatch = useDispatch()
     const user = props.user 
     const formType = props.type
-    const [body,setBody] = useState('')
-    let post = useSelector(getPost(props.postId))
-
+    let post = props.post
     
     
-
+    
+    
     let profilePhoto;
-
+    let initialPhoto
+    
     if (user.avatar){
         profilePhoto = <img alt = 'avatar'src = {props.user.avatar}/>
     }else{
@@ -28,8 +28,12 @@ const PostsForm = (props)=>{
             body:'',
             userId:user.id
         }
+    }else{
+        header = 'Edit Post'
+        buttonText = 'Save'
+        initialPhoto = props.post.photo
     }
-    let initialPhoto
+    const [body,setBody] = useState(post.body)
     const [photoFile,setPhotoFile] = useState(initialPhoto)
     const [photoUrl,setPhotoUrl] = useState(initialPhoto)
 
@@ -52,7 +56,7 @@ const PostsForm = (props)=>{
         setPhotoUrl('')
     }
     if (photoUrl){
-        removeButton = <i onClick={handleRemove} class = 'fa-solid fa-xmark removePostsPhoto '/>
+        removeButton = <i onClick={handleRemove} className = 'fa-solid fa-xmark removePostsPhoto '/>
         preview = <img id ='previewPostPhoto'src={photoUrl} alt="" />;
     } 
     
@@ -60,8 +64,16 @@ const PostsForm = (props)=>{
         e.preventDefault()
         post = {...post,body}
         const formData = new FormData()
-        if (props.postId){
-            dispatch(updatePost(post)).then(()=>{props.setShowModal(false)})
+        if (props.post){
+            if(photoFile){
+                formData.append('post[photo]',photoFile);
+                dispatch(updatePost(post)).then(post=>{
+                    dispatch(editPostPhoto(post,formData))
+                }).then(()=>{props.setShowModal(false)})
+            }else{
+                dispatch(updatePost(post))
+                dispatch(removePostPhoto(post)).then(()=>{props.setShowModal(false)})
+            }
         }else{
             if(photoFile){
                 formData.append('post[photo]',photoFile);
