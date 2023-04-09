@@ -21,6 +21,7 @@ function App() {
     <>
     {/* <h1>Spacebook?</h1> */}
     <Navigation/>
+    <div id ="appBody">
     <Switch>
     <Route exact path ='/'>
       {splashPage}
@@ -33,6 +34,7 @@ function App() {
       </Route>
       <Route path = '/users/:userId' component = {ProfilePage}/>
     </Switch>
+    </div>
     </>
 
   );

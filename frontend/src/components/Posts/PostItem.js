@@ -1,12 +1,28 @@
+import { useSelector } from "react-redux";
+import { getUser,fetchUser } from "../../store/users";
 import PostOptions from "./PostOptions";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+
+
 export const PostItem = (props)=>{
+    const dispatch = useDispatch()
     let profilePhoto;
     let sessionProfilePhoto;
     let postsPhoto
     let optionsDropdown
+
+    let post = props.post
+    let user = useSelector(getUser(post.userId))
+
+    useEffect(()=>{
+        dispatch(fetchUser(post.userId))
+    },[dispatch,post.userId])
+
+    if (!user) return null 
     
-    if (props.user.avatar){
-        profilePhoto = <img alt = 'avatar'src = {props.user.avatar}/>
+    if (user.avatar){
+        profilePhoto = <img alt = 'avatar'src = {user.avatar}/>
     }else{
         profilePhoto = <i className="fa-solid fa-user-circle" />
     }
@@ -17,29 +33,29 @@ export const PostItem = (props)=>{
         sessionProfilePhoto= <i className="fa-solid fa-user-circle" />
     }
     let displayPhoto;
-    if (props.post.photo){
-        postsPhoto = <img id ='postsPhoto' alt = 'avatar'src = {props.post.photo}/>
+    if (post.photo){
+        postsPhoto = <img id ='postsPhoto' alt = 'avatar'src = {post.photo}/>
         displayPhoto = 'postsPhotoContainer'
     }else{
         <img id ='postsPhoto' alt = 'avatar'src = {props.sessionUser.avatar}/>
         displayPhoto = 'hiddenPhoto'
     }
 
-    if (props.sessionUser.id === props.user.id){
-        optionsDropdown = <PostOptions user = {props.sessionUser} post = {props.post}/>
+    if (props.sessionUser.id === user.id){
+        optionsDropdown = <PostOptions user = {props.sessionUser} post = {post}/>
     }
     
 
     return(
-        <div key = {props.post.id} className="userPostsContainer">
+        <div key = {post.id} className="userPostsContainer">
                     <div id = 'postsContent'>
                         <div>
                             <div id = 'postIcon'>{profilePhoto}</div>
                         </div>
-                        <p>{props.user.firstName} {props.user.lastName}</p>
+                        <p>{user.firstName} {user.lastName}</p>
                     {optionsDropdown}
                     </div>
-                    <p id = "postsBody">{props.post.body}</p>
+                    <p id = "postsBody">{post.body}</p>
                     <div id = {displayPhoto}>
                         {postsPhoto}
                     </div>

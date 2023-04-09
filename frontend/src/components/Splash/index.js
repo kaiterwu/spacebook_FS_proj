@@ -1,5 +1,6 @@
 
 import PostsModal from "../Modals/postModal"
+import AllPosts from "../Posts/AllPosts"
 import './splash.css'
 // import { fetchUsers } from "../../store/users"
 // import { useEffect } from "react"
@@ -13,9 +14,12 @@ const FrontSplash = ()=>{
 
     return(
         <>
+        <div className="splashContainer">
         <section className="splashFront">
             <PostsModal type = {"Create"}/>
+            <AllPosts/>
         </section>
+        </div>
         </>
     )
 }

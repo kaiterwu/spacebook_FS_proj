@@ -6,6 +6,7 @@
 #profilepage{
     display:flex;
     flex-direction: column;
+    height:auto
 }
 
 .topHalf{
@@ -74,10 +75,13 @@
 
 .bottomHalf{
     
-    height:100vw;
+    height:auto;
     display:flex;
     justify-content: space-between;
-    margin: 0px 15vw
+    margin: 0px 15vw;
+    /* overflow:auto; */
+    /* position:relative; */
+    /* overflow:hidden */
     
 }
 
@@ -91,7 +95,7 @@
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
     position:sticky;
-    top:70px;
+    top:66px;
 }
 
 #basicInfo{

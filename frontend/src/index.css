@@ -71,3 +71,11 @@ div, p,h1,h2,h3,h4{
 	transition:ease-out 0.2s
 }
 
+#appBody{
+	position:relative;
+	/* overflow:scroll; */
+}
+
+body{
+	/* overflow:hidden; */
+}
