@@ -1,7 +1,6 @@
 import { createPost, editPostPhoto, getPost, updatePost } from "../../store/posts";
 import { useDispatch,useSelector } from "react-redux";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const PostsForm = (props)=>{
     const dispatch = useDispatch()
@@ -46,9 +45,18 @@ const PostsForm = (props)=>{
         
     }
     let preview = null;
-    if (photoUrl) preview = <img id ='previewPostPhoto' src={photoUrl} alt="" />;
+    let removeButton
+    const handleRemove = (e)=>{
+        e.preventDefault();
+        setPhotoFile('')
+        setPhotoUrl('')
+    }
+    if (photoUrl){
+        removeButton = <i onClick={handleRemove} class = 'fa-solid fa-xmark removePostsPhoto '/>
+        preview = <img id ='previewPostPhoto'src={photoUrl} alt="" />;
+    } 
     
-    const handleClick = (e)=>{
+    const handleClick = (e) =>{
         e.preventDefault()
         post = {...post,body}
         const formData = new FormData()
@@ -57,26 +65,24 @@ const PostsForm = (props)=>{
         }else{
             if(photoFile){
                 formData.append('post[photo]',photoFile);
-                // dispatch(createPost(post)).then(dispatch(editPostPhoto(post,formData)))
-                // .then(()=>{props.setShowModal(false)})
                 dispatch(createPost(post)).then(post=>{
-                    debugger
                     dispatch(editPostPhoto(post,formData))
-
-                })
+                }).then(()=>{props.setShowModal(false)})
             }else{
-
                 dispatch(createPost(post)).then(()=>{props.setShowModal(false)})
-                
             }
         }
     }
+
+    
+
     let submitButton = <button id = "invalidSubmitButton">{buttonText}</button>
     if (body){
         submitButton =  <button id = "formPostButton" onClick={handleClick}>{buttonText}</button>
     }
     return(
         <>  
+                {removeButton}
             <div className="formPostsContainer">
                 {/* <h1>{props.type}</h1> */}
                 <h1 id = 'formPostsHeader'>{header}</h1>

@@ -37,6 +37,7 @@
     display:flex;
     justify-content: center;
     align-items:center;
+    padding-bottom:2vw;
 
 }
 
@@ -224,7 +225,7 @@ background-color: #33a41f;
 #postsFormPhotoContainer{
     display:flex;
     justify-content: center;
-    background-color:rgb(214, 214, 214);
+    background-color:rgb(255, 255, 255);
 }
 
 #postsPhotoContainer{
@@ -234,4 +235,20 @@ background-color: #33a41f;
 #postsPhoto{
     max-height:30vw;
     max-width:30vw;
+}
+
+.removePostsPhoto{
+    font-size:30px;
+    position:absolute;
+    top:170px;
+    right:40px;
+    background-color: rgb(201, 201, 201);
+    padding:3px;
+    padding: 0 3px;
+    border-radius: 100%;
+    
+}
+
+.removePostsPhoto:hover{
+    background-color: rgb(168,168,168);
 }
