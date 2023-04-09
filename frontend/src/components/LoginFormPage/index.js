@@ -23,7 +23,6 @@ function LoginFormPage(){
     const user = useSelector(getUser(1))
 
     if (sessionUser) return <Redirect to="/"/>;
-    // debugger
     
     const handleSubmit = (e) => {
         e.preventDefault();

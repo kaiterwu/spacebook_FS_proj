@@ -71,7 +71,7 @@
     justify-content:center;
     overflow:hidden;
     border-radius:100%;
-    margin-right:1vw;
+    margin-right:0.5vw;
     margin-left:1vw;
     font-size:4vw;
     /* border:solid 1px red; */
@@ -80,6 +80,10 @@
 #replyIcon img{
     height:3vw;
     width:3vw;
+}
+
+#replyIcon i{
+    font-size:3vw;
 }
 
 #replyContainer{
@@ -177,6 +181,23 @@
 background-color: #33a41f;
 }
 
+#invalidSubmitButton{
+    font-size: 15px;
+    font-weight:bolder;
+    border:none;
+    padding: 5px;
+    background-color: #dadbda;
+    color:white;
+}
+
+#invalidSubmitButton:active{
+    transform:none;
+}
+
+#invalidSubmitButton:hover{
+    cursor:not-allowed;
+}
+
 #submitPostPhoto{
     width:30%;
     align-self:center;
@@ -185,8 +206,32 @@ background-color: #33a41f;
     border:none;
     padding:5px;
     background-color: rgb(225, 225, 225);
+    border-radius:5px;
+    display:flex;
+    justify-content: center;
 }
 
 #submitPostPhoto:hover{
     background-color: rgb(200, 200, 200);
+    cursor:pointer;
+}
+
+#previewPostPhoto{
+    max-height:300px;
+    max-width:300px;
+}
+
+#postsFormPhotoContainer{
+    display:flex;
+    justify-content: center;
+    background-color:rgb(214, 214, 214);
+}
+
+#postsPhotoContainer{
+    background-color: rgb(255, 255, 255);
+}
+
+#postsPhoto{
+    max-height:30vw;
+    max-width:30vw;
 }

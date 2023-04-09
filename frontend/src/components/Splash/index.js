@@ -14,7 +14,7 @@ const FrontSplash = ()=>{
     return(
         <>
         <section className="splashFront">
-            <PostsModal/>
+            <PostsModal type = {"Create"}/>
         </section>
         </>
     )

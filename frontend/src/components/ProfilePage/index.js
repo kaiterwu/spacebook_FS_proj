@@ -16,10 +16,12 @@ const getBirthday = (str)=>{
     return date.toUTCString().slice(4,16)
 }
 const ProfilePage = ()=>{
+    const sessionUser = useSelector(state =>state.session.user);
+    const loggedInId = sessionUser.id
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
-    const sessionUser = useSelector(state =>state.session.user);
+    const loggedInUser = useSelector(getUser(loggedInId))
 
     let editButton;
     let createPostButton;
@@ -28,7 +30,7 @@ const ProfilePage = ()=>{
     
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
-        createPostButton =<PostsModal type = {'Create'} user = {user}/>
+        createPostButton =<PostsModal type = {'Create'} user = {loggedInUser}/>
         editProfilePhoto= <PhotoModal text = {'Profile'}/>
         editCoverPhoto = <PhotoModal text = {'Cover'}/>
 
@@ -101,7 +103,7 @@ const ProfilePage = ()=>{
                    <p><i className="fa-regular fa-clipboard"></i> Posts</p>
                 </div>
                 <div className= 'postsContainer'>
-                    <UserPosts user= {user}/>
+                    <UserPosts user= {user} sessionUser = {loggedInUser}/>
                 </div>
 
             </div>

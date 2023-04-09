@@ -22,6 +22,7 @@
     justify-content: space-around;
     align-items: center;
     /* overflow:hidden; */
+    
 
 }
 
@@ -103,6 +104,32 @@
     font-style: italic;
 }
 
+.removeProfile{
+    background-color: rgb(201, 201, 201);
+    border-radius:100%;
+    font-size:25px;
+    color:rgb(94, 94, 94);
+    position:absolute;
+    padding:3px;
+    padding: 0 3px;
+    top:80px;
+    left:200px;
+}
+
+.removeProfile:hover,.removeCover:hover{
+    background-color: rgb(168, 168, 168);
+}
+
+.removeCover{
+   position:absolute;
+   background-color: rgb(201, 201, 201);
+    border-radius:100%;
+   font-size:30px;
+   right:55px;
+   top:40px;
+   padding:10px;
+   padding: 0 5px;
+}
 
 
 

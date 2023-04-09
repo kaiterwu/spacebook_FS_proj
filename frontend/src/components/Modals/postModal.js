@@ -35,7 +35,7 @@ function PostsModal(props) {
     icon = <div id = "postIcon">{avatar}</div>
     buttonContainerId = 'postsModal'
     buttonId = 'postsModalb'
-    formType = <PostsForm type = {props.type} user = {props.user}/>
+    formType = <PostsForm setShowModal={setShowModal} type = {props.type} user = {props.user}/>
   }
 
 

@@ -64,9 +64,33 @@ export const fetchPost = postId =>async(dispatch)=>{
 }
 
 export const createPost = post =>async(dispatch)=>{
+    const {body,userId} = post
     const response = await csrfFetch(`/api/posts`,{
         method: 'POST',
-        body: JSON.stringify(post)
+        body: JSON.stringify({
+            post:{
+                body,
+                userId
+            }
+        })
+    })
+    if(response.ok){
+        const post = await response.json()
+        dispatch(receivePost(post))
+        return post 
+    }
+}
+
+export const updatePost = post =>async(dispatch)=>{
+    const {body,userId} = post
+    const response = await csrfFetch(`/api/posts/${post.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+            post:{
+                body,
+                userId
+            }
+        })
     })
     if(response.ok){
         const post = await response.json()
@@ -74,15 +98,15 @@ export const createPost = post =>async(dispatch)=>{
     }
 }
 
-export const updatePost = post =>async(dispatch)=>{
+
+
+export const editPostPhoto = (post,formData)=> async dispatch =>{
     const response = await csrfFetch(`/api/posts/${post.id}`,{
         method: 'PATCH',
-        body: JSON.stringify(post)
-    })
-    if(response.ok){
-        const post = await response.json()
-        dispatch(receivePost(post))
-    }
+        body: formData
+    });
+    const data = await response.json()
+    dispatch(receivePost(data))
 }
 
 export const deletePost = postId =>async(dispatch)=>{

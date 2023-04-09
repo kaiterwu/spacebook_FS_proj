@@ -1,6 +1,7 @@
 #postsModalb{
     width:33vw;
     /* margin: 0 1vw; */
+    margin-left:-0.5vw;
     height:3vw;
     border:none;
     display:flex;

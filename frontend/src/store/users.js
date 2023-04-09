@@ -16,7 +16,6 @@ export const receiveUsers = users =>({
 
 
 export const getUser = userId => state =>{
-    // debugger
     if (state.users){
         return state.users[userId]
     }else{
@@ -29,10 +28,8 @@ export const getUser = userId => state =>{
 export const fetchUser = userId => async(dispatch)=>{
     const res = await csrfFetch (`/api/users/${userId}`)
     const data = await res.json()
-    // debugger
         dispatch(receiveProfile(data.user))
         return res 
-        // debugger 
 }
 
 export  const fetchUsers = () => async(dispatch)=>{
@@ -63,7 +60,6 @@ export const editUser = user => async dispatch =>{
     });
 
     let userData = await res.json()
-    // debugger
     dispatch(receiveProfile(userData.user))
     dispatch(receiveUser(userData.user))
     storeCurrentUser(userData.user)
@@ -71,6 +67,48 @@ export const editUser = user => async dispatch =>{
     
     return res
 }
+
+export const removeAvatar = user => async dispatch =>{
+    const response = await csrfFetch(`/api/users/${user.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+            user:{
+            
+               avatar:null
+            }
+        })
+        
+    });
+
+    const data = await response.json()
+        dispatch(receiveProfile(data.user))
+        dispatch(receiveUser(data.user))
+        storeCurrentUser(data.user)
+        restoreSession()
+    
+    
+}
+export const removeCover = user => async dispatch =>{
+    const response = await csrfFetch(`/api/users/${user.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+            user:{
+            
+               cover:null
+            }
+        })
+        
+    });
+
+    const data = await response.json()
+        dispatch(receiveProfile(data.user))
+        dispatch(receiveUser(data.user))
+        storeCurrentUser(data.user)
+        restoreSession()
+    
+    
+}
+
 
 export const editPhotos = (user,formData) => async dispatch =>{
     const response = await csrfFetch(`/api/users/${user.id}`,{

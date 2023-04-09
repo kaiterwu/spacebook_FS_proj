@@ -39,7 +39,6 @@ const ProfileButton = () => {
     if (!user) return null 
 
     const handleClick = ()=>{ 
-      // debugger
       history.push(`/users/${user.id}`)
     }
     let avatar;
