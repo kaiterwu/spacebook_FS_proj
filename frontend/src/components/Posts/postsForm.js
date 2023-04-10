@@ -1,21 +1,27 @@
 import { createPost, editPostPhoto, updatePost,removePostPhoto } from "../../store/posts";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getUser } from "../../store/users";
 
 const PostsForm = (props)=>{
     const dispatch = useDispatch()
-    const user = props.user 
-    const formType = props.type
     let post = props.post
+    let formType = props.type
+    const sessionUser = useSelector(state =>state.session.user);
+    const userId = sessionUser.id
+    const user = useSelector(getUser(userId))
+
     
     
     
     
     let profilePhoto;
     let initialPhoto
+ 
     
     if (user.avatar){
-        profilePhoto = <img alt = 'avatar'src = {props.user.avatar}/>
+        profilePhoto = <img alt = 'avatar'src = {user.avatar}/>
     }else{
         profilePhoto = <i className="fa-solid fa-user-circle" />
     }
@@ -26,7 +32,7 @@ const PostsForm = (props)=>{
         buttonText = 'Post'
         post = {
             body:'',
-            userId:user.id
+            userId:user?.id
         }
     }else{
         header = 'Edit Post'
@@ -103,7 +109,7 @@ const PostsForm = (props)=>{
                         
                         <div id = 'formpostIcon'>{profilePhoto}</div>
                         
-                        <p>{props.user.firstName} {props.user.lastName}</p>
+                        <p>{user.firstName} {user.lastName}</p>
                     </div>
                         <textarea id = "postBody" value = {body} placeholder="What's on your mind?" 
                         onChange={(e)=>setBody(e.target.value)}/>

@@ -89,7 +89,7 @@
 
 #replyIcon img{
     height:3vw;
-    width:3vw;
+    /* width:3vw; */
 }
 
 #replyIcon i{
@@ -133,7 +133,7 @@
 
 #formpostIcon img{
     height:40px;
-    width:40px;
+    /* width:40px; */
 }
 
 #formpostsContent{

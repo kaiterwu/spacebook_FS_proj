@@ -22,7 +22,7 @@
 
 #firstli img{
     height:30px;
-    width:30px;
+    /* width:30px; */
 }
 
 #firstli i{
@@ -162,7 +162,7 @@ h1:hover{
 
 #avataricon{
     height:40px;
-    width:40px;
+    /* width:40px; */
 }
 
 .placeAvatar{

@@ -22,8 +22,12 @@ function PostsModal(props) {
       e.preventDefault();
       setShowModal(true);
     }
+
+    // if(!sessionUser) return null
+    // if (!user) return null
+
     let avatar;
-    if(sessionUser.avatar){
+    if(sessionUser?.avatar){
       avatar = <img alt = 'avatar' src = {user?.avatar}/>
     }else{
       avatar = <i className="fa-solid fa-user-circle" />

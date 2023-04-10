@@ -15,6 +15,17 @@ function SignupFormPage(props){
     const monthNow = (currentDay.getMonth())
     const dispatch = useDispatch()
     let sessionUser = useSelector(state => state.session.user)
+
+    let firstNameHead;
+    let lastNameHead;
+    let emailHead;
+    let aboutMeHead;
+    if (sessionUser){
+        firstNameHead = <div>First Name</div>
+        lastNameHead = <div>Last Name</div>
+        emailHead = <div>Email</div>
+        aboutMeHead = <div>About me</div>
+    }
     if (!sessionUser){
         sessionUser = {
             aboutMe: '',
@@ -43,16 +54,6 @@ function SignupFormPage(props){
     const currentDayDay = currentDay.getDate().toString()
     const currentYear = currentDay.getFullYear().toString()
     
-    let firstNameHead;
-    let lastNameHead;
-    let emailHead;
-    let aboutMeHead;
-    if (sessionUser){
-        firstNameHead = <div>First Name</div>
-        lastNameHead = <div>Last Name</div>
-        emailHead = <div>Email</div>
-        aboutMeHead = <div>About me</div>
-    }
     if (!userId){
         bigSign = 'Sign up'
         smallSign = "It's quick and easy."
