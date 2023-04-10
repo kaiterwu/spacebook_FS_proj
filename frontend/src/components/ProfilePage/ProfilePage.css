@@ -295,6 +295,10 @@
     /* border:solid 1px red; */
 }
 
+#postIcon:hover{
+    cursor:pointer;
+}
+
 #postIcon img{
     height:4vw;
     width:4vw;

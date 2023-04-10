@@ -26,6 +26,11 @@
     margin-left:-0.5vw;
 }
 
+#postsContent p:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
 #postsBody{
     font-size:1vw;
     padding:1vw;

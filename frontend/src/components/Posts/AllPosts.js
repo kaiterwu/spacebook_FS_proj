@@ -4,7 +4,7 @@ import {  fetchPosts,getPosts } from "../../store/posts"
 import { getUser } from "../../store/users"
 import PostItem from "./PostItem"
 import './posts.css'
-import {fetchUser} from "../../store/users"
+import {fetchUser,fetchUsers} from "../../store/users"
 
 
 
@@ -20,6 +20,7 @@ const AllPosts = ()=>{
     useEffect(()=>{
         dispatch(fetchPosts())
         dispatch(fetchUser(sessionUser.id))
+        dispatch(fetchUsers())
     },[dispatch,sessionUser.id])
 
     

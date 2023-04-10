@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { getUser,fetchUser } from "../../store/users";
+import { getUser } from "../../store/users";
 import PostOptions from "./PostOptions";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 
 
 export const PostItem = (props)=>{
-    const dispatch = useDispatch()
+    const history = useHistory()
     let profilePhoto;
     let sessionProfilePhoto;
     let postsPhoto
@@ -15,9 +15,6 @@ export const PostItem = (props)=>{
     let post = props.post
     let user = useSelector(getUser(post.userId))
 
-    useEffect(()=>{
-        dispatch(fetchUser(post.userId))
-    },[dispatch,post.userId])
 
     if (!user) return null 
     
@@ -45,14 +42,17 @@ export const PostItem = (props)=>{
         optionsDropdown = <PostOptions user = {props.sessionUser} post = {post}/>
     }
     
+    const redirectShow = (userId)=>{
+        history.push(`/users/${userId}`)
+    }
 
     return(
         <div key = {post.id} className="userPostsContainer">
                     <div id = 'postsContent'>
                         <div>
-                            <div id = 'postIcon'>{profilePhoto}</div>
+                            <div onClick={()=>redirectShow(post.userId)} id = 'postIcon'>{profilePhoto}</div>
                         </div>
-                        <p>{user.firstName} {user.lastName}</p>
+                        <p onClick={()=>redirectShow(post.userId)}>{user.firstName} {user.lastName}</p>
                     {optionsDropdown}
                     </div>
                     <p id = "postsBody">{post.body}</p>
