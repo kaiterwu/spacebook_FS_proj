@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import ReloginForm from './components/LoginFormPage/relogin';
 import ProfilePage from './components/ProfilePage/index.js'
 import FrontSplash from './components/Splash';
+import ScrollTop from './components/Splash/scrollToTop';
 // import BenchIndexPage from './components/BenchIndexPage';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
     {/* <h1>Spacebook?</h1> */}
+    <ScrollTop/>
     <Navigation/>
     <div id ="appBody">
     <Switch>
