@@ -14,13 +14,19 @@ class Api::UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
+    @user = User.includes(:friends).find(params[:id])
     render :show
   end 
 
   def index
     @users = User.all 
     render :index 
+  end 
+
+  def user_friends 
+    @user = User.find(params[:id])
+    @users = @user.friends 
+    render :index; 
   end 
 
   def update

@@ -12,14 +12,9 @@ const PostsForm = (props)=>{
     const userId = sessionUser.id
     const user = useSelector(getUser(userId))
 
-    
-    
-    
-    
     let profilePhoto;
     let initialPhoto
  
-    
     if (user.avatar){
         profilePhoto = <img alt = 'avatar'src = {user.avatar}/>
     }else{

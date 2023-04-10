@@ -3,5 +3,8 @@
         json.extract! user,:id,:email,:birthday,:gender,:first_name,:last_name,:about_me
         json.avatar user.avatar.attached? ? user.avatar.url : nil
         json.cover user.cover.attached? ? user.cover.url : nil
+        json.friends do
+            json.array! user.friends.ids
+          end
     end 
 end 

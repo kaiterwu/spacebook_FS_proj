@@ -33,6 +33,8 @@ class User < ApplicationRecord
   has_one_attached :cover
 
   has_many :posts
+  has_many :friendships , dependent: :destroy
+  has_many :friends, through: :friendships
 
   def self.find_by_email(email,password)
     if URI::MailTo::EMAIL_REGEXP.match?(email)
