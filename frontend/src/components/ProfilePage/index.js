@@ -87,8 +87,11 @@ const ProfilePage = ()=>{
                 <div id = 'profileinfo'>
                     <div id = 'profilephoto'> {profilePhoto}</div>
                         <div id ='photoAndName'>
-                        <p id = 'profileName'>{user.firstName} {user.lastName}</p>
-                        {editProfilePhoto}
+                             <div id = 'friendHeaderContainer'>
+                                <p id = 'profileName'>{user.firstName} {user.lastName}</p>
+                                <h1>{allFriends.length} friends</h1>
+                                {editProfilePhoto}
+                             </div>
                         </div>
                     </div>
                 {editButton}

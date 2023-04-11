@@ -37,17 +37,19 @@
 
 .profilephotoModal button{
     /* position:absolute; */
-    border-radius: 50px;
+    border-radius: 1.5vw;
     font-size:2vw;
    
     background-color: rgb(213, 213, 213);
     border:none;
+    /* margin-top:1vw; */
     
 }
 
 .profilephotoModal{
-    margin-left:-3.5vw;
+    margin-left:-5vw;
     /* margin-top:5vw; */
+    /* position:absolute; */
     
 }
 
