@@ -9,7 +9,6 @@ import PostComments from "../Comments/PostComments";
 export const PostItem = (props)=>{
     const history = useHistory()
     let profilePhoto;
-    let sessionProfilePhoto;
     let postsPhoto
     let optionsDropdown
 
@@ -27,11 +26,7 @@ export const PostItem = (props)=>{
         profilePhoto = <i className="fa-solid fa-user-circle" />
     }
 
-    if (props.sessionUser.avatar){
-        sessionProfilePhoto= <img alt = 'avatar'src = {props.sessionUser.avatar}/>
-    }else{
-        sessionProfilePhoto= <i className="fa-solid fa-user-circle" />
-    }
+   
     let displayPhoto;
     if (post.photo){
         postsPhoto = <img id ='postsPhoto' alt = 'avatar'src = {post.photo}/>
