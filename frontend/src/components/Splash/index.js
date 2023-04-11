@@ -11,8 +11,6 @@ import './splash.css'
 //comments on the splash page. 
 
 const FrontSplash = ()=>{
-
-
     return(
         <>
         <div className="splashContainer">

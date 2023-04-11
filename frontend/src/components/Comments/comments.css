@@ -1,0 +1,46 @@
+#commentsContainer{
+    margin-top:1vw;
+    display:flex;
+}
+
+#commentBubble{
+    display:flex;
+    flex-direction:column;
+    border-radius:1.5vw;
+    padding:1vw;
+    font-size:1vw;
+    background-color: rgb(222, 222, 222);
+}
+
+#commentBubble h1{
+    font-weight: bolder;
+    margin-bottom:0.25vw
+}
+
+#commentslike{
+    font-size:1vw;
+    color:rgb(117, 117, 117);
+    margin-left: 1vw;
+    margin-top:0.25vw;
+    
+    
+}
+
+#commentIcon{
+    height:3vw;
+    width:3vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border-radius:100%;
+    margin-right:0.5vw;
+    margin-left:1vw;
+    font-size:4vw;
+    margin-top:0.5vw;
+}
+
+#commentIcon img{
+    height:3vw;
+    align-self:center;
+}

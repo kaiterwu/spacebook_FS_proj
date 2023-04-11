@@ -4,12 +4,14 @@ import session from './session';
 import users from './users'
 import posts from './posts'
 import friends from './friends'
+import comments from './comments'
 
 export const rootReducer = combineReducers({
     session,
     users,
     posts,
-    friends
+    friends,
+    comments
 })
 
 let enhancer; 

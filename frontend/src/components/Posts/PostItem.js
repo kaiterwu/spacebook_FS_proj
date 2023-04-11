@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { getUser } from "../../store/users";
 import PostOptions from "./PostOptions";
 import { useHistory } from "react-router-dom";
+import PostComments from "../Comments/PostComments";
 
 
 
@@ -14,6 +15,7 @@ export const PostItem = (props)=>{
 
     let post = props.post
     let user = useSelector(getUser(post.userId))
+
 
 
     if (!user) return null 
@@ -60,15 +62,7 @@ export const PostItem = (props)=>{
                     <div id = {displayPhoto}>
                         {postsPhoto}
                     </div>
-                    <div id = 'likeComment'>
-                        <p><i className="fa-regular fa-thumbs-up"></i> Like</p>
-                        <p><i className="fa-regular fa-message"></i> Comment</p>
-                        
-                    </div>
-                    <div id = 'replyContainer'>
-                        <div id = 'replyIcon'>{sessionProfilePhoto}</div>
-                        <input placeholder ='Write a comment'></input>
-                    </div>
+                   <PostComments post = {post} sessionUser ={props.sessionUser}/>
                 </div>
     )
 

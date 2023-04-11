@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { fetchUserPosts,getPosts } from "../../store/posts"
+import { fetchComments } from "../../store/comments"
 import PostItem from "./PostItem"
 import './posts.css'
 
@@ -16,6 +17,7 @@ const UserPosts = (props)=>{
 
     useEffect(()=>{
         dispatch(fetchUserPosts(userId))
+        dispatch(fetchComments())
     },[dispatch,userId])
 
     return(

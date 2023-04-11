@@ -4,7 +4,7 @@ import { getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
 import FormModal from "../Modals/formModal"
-import { fetchUser } from "../../store/users"
+import { fetchUser,fetchUsers } from "../../store/users"
 import PostsModal from "../Modals/postModal"
 import PhotoModal from "../Modals/photoModal"
 import UserPosts from "../Posts/UserPosts"
@@ -55,7 +55,7 @@ const ProfilePage = ()=>{
     }
 
     useEffect(()=>{
-        dispatch(fetchUser(userId))
+        dispatch(fetchUsers())
     },[userId,dispatch])
 
     let profilePhoto;

@@ -16,6 +16,9 @@ class Api::PostsController < ApplicationController
 
     def index 
         @posts = Post.all 
+        # @comments = []
+        # @posts.each {|post|@comments << post.comments}
+        # @comments = @comments.flatten
         render :index 
     end 
 
@@ -31,6 +34,9 @@ class Api::PostsController < ApplicationController
     def user_posts 
         @user = User.find(params[:id])
         @posts = @user.posts 
+        # @comments = []
+        # @posts.each {|post|@comments << post.comments}
+        # @comments = @comments.flatten
         render :index
 
     end 

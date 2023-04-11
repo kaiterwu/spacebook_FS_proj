@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/user-posts/:id', to: 'posts#user_posts', as: 'post_entries'
     get '/user-friends/:id', to: 'users#user_friends', as: 'user_friends'
     delete '/delete-friends/', to: 'friendships#destroy', as: 'destroy_friends'
+    get '/post-comments/:id', to:'comments#post_comments', as: 'post_comments'
   end
 
   post 'api/test', to: 'application#test'
