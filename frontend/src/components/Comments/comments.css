@@ -9,7 +9,7 @@
     border-radius:1.5vw;
     padding:1vw;
     font-size:1vw;
-    background-color: rgb(222, 222, 222);
+    background-color: #f0f2f5;
 }
 
 #commentBubble h1{
@@ -43,4 +43,53 @@
 #commentIcon img{
     height:3vw;
     align-self:center;
+}
+
+#commentOptionsB{
+
+    border:none;
+    border-radius:100%;
+    background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:1.2vw;
+    height:2vw;
+    width:2vw;
+    margin-top:1vw;
+    margin-left:0.5vw;
+    position:relative;
+}
+
+#commentOptionsB:hover{
+    background-color:rgb(222, 222, 222);
+}
+
+#commentOptions{
+    background-color: white;
+    border-radius:0.5vw;
+    height:5vw;
+    width:10vw;
+    /* position:absolute; */
+    /* right:12vw;
+    top:28vw; */
+    /* top:340px; */
+    right:100;
+    z-index:5;
+    margin-left: 0.5vw;
+    box-shadow:0 1px 4px 0.1px rgb(145, 145, 145);
+}
+
+#editCommentInput{
+    width:30vw;
+    border:none;
+    border-radius:1.5vw;
+    padding:1vw 0;
+    padding-left:1vw;
+    font-size:1.5vw;
+    background-color: #f0f2f5;
+}
+
+#editCommentInput:focus{
+    outline:none;
 }

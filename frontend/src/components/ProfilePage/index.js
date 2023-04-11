@@ -4,7 +4,7 @@ import { getUser } from "../../store/users"
 import { useParams } from "react-router"
 import { useEffect } from "react"
 import FormModal from "../Modals/formModal"
-import { fetchUser,fetchUsers } from "../../store/users"
+import { fetchUsers } from "../../store/users"
 import PostsModal from "../Modals/postModal"
 import PhotoModal from "../Modals/photoModal"
 import UserPosts from "../Posts/UserPosts"
@@ -29,7 +29,6 @@ const ProfilePage = ()=>{
     const loggedInUser = useSelector(getUser(loggedInId))
     const friendsArr = allFriends.map(friend => friend.id)
 
-    // debugger
     let editButton;
     let createPostButton;
     let editProfilePhoto;

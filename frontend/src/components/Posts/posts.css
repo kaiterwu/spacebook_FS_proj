@@ -105,12 +105,18 @@
 #replyContainer input{
     border-radius:20px;
     border:none;
-    background-color: rgb(222, 222, 222);
+    background-color: #f0f2f5;
     width:86%;
     box-sizing:border-box;
     padding-left:1vw;
-    font-size:1vw;
-    height:2.5vw;
+    font-size:1.5vw;
+    height:3vw;
+   
+    
+}
+
+#replyContainer input:focus{
+    outline:none;
 }
 
 .formPostsContainer{
