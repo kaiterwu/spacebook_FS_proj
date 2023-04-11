@@ -76,17 +76,25 @@
 .bottomHalf{
     
     height:auto;
+    min-height:50vw;
     display:flex;
     justify-content: space-between;
     margin: 0px 15vw;
     /* overflow:auto; */
     /* position:relative; */
     /* overflow:hidden */
+    position:relative;
     
 }
 
-.bio{
+#leftContainer{
+   
     margin-top:1vw;
+    margin-right:1vw;
+}
+
+.bio{
+    /* margin-top:1vw; */
     /* margin-left:10vw; */
     width: 30vw;
     border:1px solid rgb(213, 213, 213);
@@ -94,8 +102,8 @@
     border-radius:10px;
     background-color: white;
     box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
-    position:sticky;
-    top:66px;
+    /* position:sticky;
+    top:66px; */
 }
 
 #basicInfo{
@@ -165,6 +173,64 @@
     font-weight:lighter
     /* border-bottom:1px solid rgb(213, 213, 213); */
 }
+
+#leftContainer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:sticky;
+    top:66px;
+    
+    
+}
+
+#friendsContainer{
+    margin-top:1vw;
+    /* margin-left:10vw; */
+    width: 28vw;
+    border:1px solid rgb(213, 213, 213);
+    /* height:200px; */
+    border-radius:10px;
+    background-color: white;
+    box-shadow: 0 0.5px 3px 1px rgb(228, 228, 228);
+    position:sticky;
+    top:66px;
+    padding:1vw;
+
+}
+
+#ontainer{
+    /* width: 28vw; */
+    border:1px solid rgb(213, 213, 213);
+    box-shadow: 0 0.5px 0.5px 0.5px rgb(228, 228, 228);
+    /* height:200px; */
+    border-radius:10px;
+    background-color: white;
+    padding:1vw;
+    display:flex;
+    flex-direction:column;
+    
+    
+
+
+}
+
+#profilefriendHeaders{
+    padding-bottom:1vw;
+    border-bottom:1px solid rgb(213, 213, 213);
+}
+
+#profilefriendHeaders h1{
+    font-size:1.5vw;
+    font-weight:bolder;
+}
+
+#profilefriendHeaders h2{
+    font-size: 1vw;
+    color:grey;
+    margin-top:0.5vh;
+}
+
 .posts{
     display:flex;
     flex-direction: column;

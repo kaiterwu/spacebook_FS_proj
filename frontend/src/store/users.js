@@ -39,6 +39,8 @@ export  const fetchUsers = () => async(dispatch)=>{
     return res
 }
 
+
+
 export const editUser = user => async dispatch =>{
     
     const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;

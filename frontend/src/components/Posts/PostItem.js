@@ -17,7 +17,6 @@ export const PostItem = (props)=>{
 
 
     if (!user) return null 
-    if (!user.avatar) return null
     if (!props.sessionUser) return null 
     
     if (user.avatar){

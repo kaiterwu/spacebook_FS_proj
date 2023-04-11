@@ -118,19 +118,19 @@
       about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
     )
 
-    User.first(10).each_with_index do |user,i|
-      user.avatar.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
-        filename: "avatar_#{i+1}.jpg"
-      )
-    end
+    # User.first(10).each_with_index do |user,i|
+    #   user.avatar.attach(
+    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
+    #     filename: "avatar_#{i+1}.jpg"
+    #   )
+    # end
 
-    User.first(10).each_with_index do |user,i|
-      user.cover.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
-        filename: "cover_#{i+1}.jpg"
-      )
-    end
+    # User.first(10).each_with_index do |user,i|
+    #   user.cover.attach(
+    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
+    #     filename: "cover_#{i+1}.jpg"
+    #   )
+    # end
 
 
     
@@ -176,12 +176,12 @@
       })
     end 
 
-    Post.all.each_with_index do |post,i|
-      post.photo.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{i+1}.jpg"),
-        filename: "rand_#{i}"
-      )
-    end 
+    # Post.all.each_with_index do |post,i|
+    #   post.photo.attach(
+    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{i+1}.jpg"),
+    #     filename: "rand_#{i}"
+    #   )
+    # end 
 
     
   

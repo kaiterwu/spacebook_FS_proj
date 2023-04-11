@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create,:show,:index,:update]
     resources :posts, only: [:create,:show,:index,:update,:destroy]
-    resources :friendships, only:[:create,:destroy]
+    resources :friendships, only:[:create]
     resource :session, only: [:show, :create, :destroy]
 
     get '/user-posts/:id', to: 'posts#user_posts', as: 'post_entries'
     get '/user-friends/:id', to: 'users#user_friends', as: 'user_friends'
+    delete '/delete-friends/', to: 'friendships#destroy', as: 'destroy_friends'
   end
 
   post 'api/test', to: 'application#test'

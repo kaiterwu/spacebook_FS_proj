@@ -18,9 +18,10 @@ function PostsModal(props) {
     const userId = sessionUser.id
     const user = useSelector(getUser(userId))
 
-    const handleClick = (e)=>{
+    const handleClick = async (e)=>{
       e.preventDefault();
       setShowModal(true);
+     
     }
 
     // if(!sessionUser) return null

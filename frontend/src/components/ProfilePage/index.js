@@ -8,7 +8,10 @@ import { fetchUser } from "../../store/users"
 import PostsModal from "../Modals/postModal"
 import PhotoModal from "../Modals/photoModal"
 import UserPosts from "../Posts/UserPosts"
+import ProfileFriends from "../Friends/profileFriends"
+import AddFriend from "../Friends/addFriends"
 import './ProfilePage.css'
+import RemoveFriendModal from "../Modals/removeFriendModal"
 
 
 const getBirthday = (str)=>{
@@ -21,12 +24,20 @@ const ProfilePage = ()=>{
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
+    const friends = useSelector(state => state.friends)
+    const allFriends = Object.values(friends)
     const loggedInUser = useSelector(getUser(loggedInId))
+    const friendsArr = allFriends.map(friend => friend.id)
 
+    // debugger
     let editButton;
     let createPostButton;
     let editProfilePhoto;
     let editCoverPhoto;
+
+
+    
+ 
     
     if (sessionUser.id === parseInt(userId)){
         editButton = <FormModal/>
@@ -34,11 +45,19 @@ const ProfilePage = ()=>{
         editProfilePhoto= <PhotoModal text = {'Profile'}/>
         editCoverPhoto = <PhotoModal text = {'Cover'}/>
 
+    }else{
+        if (friendsArr.includes(loggedInId)){
+            
+            editButton = <RemoveFriendModal userId = {sessionUser.id} friendId = {user?.id}/>
+        }else{
+            editButton = <AddFriend userId = {sessionUser.id} friendId = {user?.id}/>
+        }
     }
 
     useEffect(()=>{
         dispatch(fetchUser(userId))
     },[userId,dispatch])
+
     let profilePhoto;
     let coverPhoto;
     
@@ -76,6 +95,7 @@ const ProfilePage = ()=>{
             </div>
         </section>
         <section className = 'bottomHalf'>
+            <div id = 'leftContainer'>
             <div className = 'bio'>
                 <div id = 'aboutMe'>
                     <h2><i className="fa-regular fa-address-card"></i> About Me</h2>
@@ -95,6 +115,16 @@ const ProfilePage = ()=>{
                             <div><i className="fa-solid fa-transgender"></i>Gender:</div>
                             <p>{user.gender}</p>
                         </div>
+                </div>
+            </div>
+                <div id = 'friendsContainer'>
+                <div id = 'innerfriendsContainer'>
+                    <div id = 'profilefriendHeaders'>
+                        <h1>Friends</h1>
+                        <h2>{allFriends.length} friends</h2>
+                    </div>
+                    <ProfileFriends user = {user}/>
+                </div>
                 </div>
             </div>
             <div className = 'posts'>
