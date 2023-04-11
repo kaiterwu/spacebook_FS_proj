@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create,:show,:index,:update]
     resources :posts, only: [:create,:show,:index,:update,:destroy]
     resources :friendships, only:[:create]
+    resources :comments, only:[:create,:index,:show,:update,:destroy]
     resource :session, only: [:show, :create, :destroy]
 
     get '/user-posts/:id', to: 'posts#user_posts', as: 'post_entries'
