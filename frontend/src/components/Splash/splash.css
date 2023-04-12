@@ -54,3 +54,20 @@
     margin-bottom:0.5vw;
     color:grey;
 }
+
+#shortcutsContainer{
+    display:flex;
+    flex-direction: column;
+    row-gap:0.5vw;
+}
+
+#shortcutsContainer p{
+    padding:1vw;
+    color:grey;
+    border-radius:1vw;
+}
+
+#shortcutsContainer *:hover{
+    cursor:pointer;
+    background-color: rgb(203, 203, 203);
+}  
