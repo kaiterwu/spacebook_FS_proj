@@ -27,7 +27,14 @@
     border:1px solid rgb(213, 213, 213); */
     padding:1vw;
     height:fit-content;
+    background-color: rgba(255, 255, 255, 0.4)
+    
 }
+
+
+
+
+
 
 #innerlinksContainer,#innercontactsContainer{
     display:flex;
@@ -43,8 +50,16 @@
     
 }
 
+#innercontactsContainer{
+    max-height:28vw;
+    overflow:auto;
+    /* overflow-y:scroll;  */
+    /* padding-right:2vw; */
+}
 
-
+#innercontactsContainer::-webkit-scrollbar-track {
+   background-color: rgb(0, 0, 0) !important
+}
 
 #innercontactsContainer h1, #innerlinksContainer h1{
     font-weight:bolder;

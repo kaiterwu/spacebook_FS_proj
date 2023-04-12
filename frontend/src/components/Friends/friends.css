@@ -51,6 +51,8 @@
     display:flex;
     flex-direction:column;
     row-gap:0.5vw;
+    /* height:20vw;
+    overflow:scroll; */
 }
 
 .splashFriendsContainer{
@@ -58,7 +60,7 @@
     align-items:center;
     border-radius:1vw;
     padding:0.5vw;
-    position:relative;
+
 }
 
 .splashFriendsContainer:hover{
@@ -76,20 +78,22 @@
     align-items:center;
     overflow:hidden;
     font-size:3vw;
-    position:relative;
 }
 
 #greenBubble{
     background-color: rgb(3, 218, 3);
-    border:0.3vw solid #f0f2f5;
+    border:0.3vw solid #ffffff;
     border-radius:100%;
-    right:20.5vw;
-    top:2.5vw;
+    top:1.9vw;
+    left:1.9vw;
     width:0.7vw;
     height:0.7vw;;;
     position:absolute;
     z-index:2;
-    
+}
+
+#greenBubbleContainer{
+    position:relative;
 }
 
 #circleFriendsPhoto img{
@@ -101,6 +105,7 @@
     font-size:1.5vw;
     margin-left:0.5vw;
     column-gap:0.5vw;
+    position:relative;
 }
 
 #removeFriendModal{

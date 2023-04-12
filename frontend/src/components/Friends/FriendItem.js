@@ -33,9 +33,12 @@ const FriendItem = (props)=>{
 
     return(
         <div onClick={()=>redirectShow(friend.id)} className = {friendsContainer}>
-                {greenBubble}
-            <div id = {friendsPhoto}>
-                {profilePhoto}
+                {/* {greenBubble} */}
+            <div id = 'greenBubbleContainer'>
+                <div id = {friendsPhoto}>
+                    {profilePhoto}
+                    {greenBubble}
+                </div>
             </div>
             <div id = {friendsName}>
                 <p>{friend.firstName}</p><p>{friend.lastName}</p>
