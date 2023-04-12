@@ -4,6 +4,7 @@ import CommentItem from "./commentItem"
 import { useState } from "react"
 import { createComment} from "../../store/comments"
 import { useDispatch } from "react-redux"
+import { useRef } from "react"
 
 
 const PostComments = (props)=>{
@@ -12,6 +13,12 @@ const PostComments = (props)=>{
     let sessionProfilePhoto;
     const sessionUser = props.sessionUser 
     let comment;
+
+    const inputRef = useRef(null);
+
+    const handleRefClick = () => {
+    inputRef.current.focus();
+  };
 
     if (sessionUser.avatar){
         sessionProfilePhoto= <img alt = 'avatar'src = {sessionUser.avatar}/>
@@ -47,8 +54,8 @@ const PostComments = (props)=>{
     return(
         <>
          <div id = 'likeComment'>
-            <p><i className="fa-regular fa-thumbs-up"></i> Like</p>
-            <p><i className="fa-regular fa-message"></i> Comment</p>
+            <p ><i className="fa-regular fa-thumbs-up"></i> Like</p>
+            <p onClick={handleRefClick}><i className="fa-regular fa-message"></i> Comment</p>
                         
             </div>
             <div id ="CommentsContainer"> 
@@ -59,7 +66,7 @@ const PostComments = (props)=>{
             </div>
                 <form onSubmit = {handleSubmit} id = 'replyContainer'>
                     <div id = 'replyIcon'>{sessionProfilePhoto}</div>
-                    <input placeholder ='Write a comment' value ={newComment} 
+                    <input ref = {inputRef} placeholder ='Write a comment' value ={newComment} 
                     onChange={handleChange} onKeyDown={enterKey}/>
                 </form>
 
