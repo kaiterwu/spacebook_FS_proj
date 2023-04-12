@@ -6,21 +6,20 @@ import { useState } from "react"
 import { updateComment } from "../../store/comments"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
+import { useHistory } from "react-router-dom"
 
 const CommentItem = (props)=>{
     let comment = props.comment
     const user = useSelector(getUser(comment.userId))
     const sessionUser = useSelector(state =>state.session.user);
     const dispatch = useDispatch()
+    const history = useHistory()
 
     let bubbleDisplay;
     let formDisplay;
-
-
-
-
     let avatarPhoto;
     let commentOptions;
+
     const [newComment,setNewComment] = useState(comment.body)
     const [display,setDisplay] = useState(false)
 
@@ -73,10 +72,10 @@ const CommentItem = (props)=>{
     return(
         <>
             <div id = 'commentsContainer'>
-                <div id = 'commentIcon'>{avatarPhoto}</div>
+                <div id = 'commentIcon' onClick={()=>{history.push(`/users/${user?.id}`)}}>{avatarPhoto}</div>
                     <div id ={bubbleDisplay}>
                         <div id = 'commentBubble'>
-                            <h1>{user.firstName} {user.lastName}</h1>
+                            <h1 onClick={()=>{history.push(`/users/${user?.id}`)}}>{user.firstName} {user.lastName}</h1>
                             <p>{comment.body}</p>
                         </div>
                     <p id = 'commentslike'>Like</p>

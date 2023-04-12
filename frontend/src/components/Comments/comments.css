@@ -10,11 +10,17 @@
     padding:1vw;
     font-size:1vw;
     background-color: #f0f2f5;
+    max-width:29vw;
 }
 
 #commentBubble h1{
     font-weight: bolder;
     margin-bottom:0.25vw
+}
+
+#commentBubble h1:hover{
+    text-decoration: underline;
+    cursor:pointer
 }
 
 #commentslike{
@@ -38,6 +44,10 @@
     margin-left:1vw;
     font-size:4vw;
     margin-top:0.5vw;
+}
+
+#commentIcon:hover{
+    cursor:pointer;
 }
 
 #commentIcon img{

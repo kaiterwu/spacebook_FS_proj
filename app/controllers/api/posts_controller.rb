@@ -32,11 +32,11 @@ class Api::PostsController < ApplicationController
     end 
 
     def user_posts 
-        @user = User.find(params[:id])
-        @posts = @user.posts 
-        # @comments = []
-        # @posts.each {|post|@comments << post.comments}
-        # @comments = @comments.flatten
+        # @user = User.find(params[:id])
+        user_id = params[:id]
+        # @posts = @user.posts 
+        allposts = Post.all
+        @posts = Post.joins(:comments).where("posts.user_id = ? OR comments.user_id = ?", user_id, user_id).distinct
         render :index
 
     end 

@@ -18,6 +18,7 @@ const PostComments = (props)=>{
 
     const handleRefClick = () => {
     inputRef.current.focus();
+    inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
   };
 
     if (sessionUser.avatar){
@@ -66,7 +67,7 @@ const PostComments = (props)=>{
             </div>
                 <form onSubmit = {handleSubmit} id = 'replyContainer'>
                     <div id = 'replyIcon'>{sessionProfilePhoto}</div>
-                    <input ref = {inputRef} placeholder ='Write a comment' value ={newComment} 
+                    <input ref = {inputRef} placeholder ='Write a comment...' value ={newComment} 
                     onChange={handleChange} onKeyDown={enterKey}/>
                 </form>
 
