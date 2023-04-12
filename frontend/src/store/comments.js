@@ -29,12 +29,8 @@ export const getComments = state =>{
 }
 
 export const getPostComments = postId => state =>{
-    const commentArr = state.posts[postId].comments
-    if (commentArr.length){
-        return commentArr.map(id =>state.comments[id])
-    }else{
-        return []
-    }
+    const commentArr = Object.values(state.comments).filter(comment =>comment.postId === postId)
+    return commentArr 
 }
 
 export const getComment = commentId => state =>{
@@ -90,7 +86,7 @@ export const createComment = comment =>async(dispatch)=>{
 
 export const updateComment = comment =>async(dispatch)=>{
     const {body,userId,postId} = comment 
-    const response = await csrfFetch(`/api/comments`,{
+    const response = await csrfFetch(`/api/comments/${comment.id}`,{
         method: 'PATCH',
         body: JSON.stringify({
             comment:{

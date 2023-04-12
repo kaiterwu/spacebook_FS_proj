@@ -14,7 +14,7 @@ function RemoveFriendModal(props){
     <div id = 'unfriendTag'>
         <div>
             <i className ="fa-solid fa-user"></i>
-            <i class="fa-solid fa-check"></i>
+            <i className="fa-solid fa-check"></i>
         </div> 
         <div>Friends</div>
     </div>

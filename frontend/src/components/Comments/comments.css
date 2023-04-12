@@ -49,7 +49,7 @@
 
     border:none;
     border-radius:100%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     display:flex;
     justify-content: center;
     align-items:center;
@@ -58,7 +58,7 @@
     width:2vw;
     margin-top:1vw;
     margin-left:0.5vw;
-    position:relative;
+    /* position:relative; */
 }
 
 #commentOptionsB:hover{
@@ -67,29 +67,101 @@
 
 #commentOptions{
     background-color: white;
-    border-radius:0.5vw;
-    height:5vw;
-    width:10vw;
-    /* position:absolute; */
-    /* right:12vw;
-    top:28vw; */
-    /* top:340px; */
-    right:100;
-    z-index:5;
+    border-radius:1vw;
+    height:fit-content;
+    width:11vw;
+    position:absolute;
+    left:2.5vw;
+    bottom:2vw;
+    padding: 0 0.5vw;
+    z-index:1;
     margin-left: 0.5vw;
     box-shadow:0 1px 4px 0.1px rgb(145, 145, 145);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
 }
 
+#commentOptions li{
+    /* padding:0.5vw; */
+    border-radius:0.5vw;
+    margin:0.5vw;
+    display:flex;
+    /* justify-content: center; */
+    
+}
+#commentOptions li{
+    background-color: white;
+    width:inherit;
+}
+/* #commentOptions li:hover{
+    background-color: rgb(227, 227, 227);
+} */
+
+
+
+
 #editCommentInput{
+    margin-top:1vw;
     width:30vw;
     border:none;
     border-radius:1.5vw;
-    padding:1vw 0;
+    padding:0.5vw 0;
     padding-left:1vw;
-    font-size:1.5vw;
+    font-size:1vw;
     background-color: #f0f2f5;
+    
 }
 
 #editCommentInput:focus{
     outline:none;
+}
+
+#deleteCommentButton{
+    border:none;
+    /* font-weight:bolder; */
+    background-color: white;
+    font-size:1vw;
+    display:flex;
+    justify-content: flex-start;
+    column-gap:0.5vw;
+    width:inherit;
+}
+
+#deleteCommentButton:hover{
+    background-color:rgb(227,227,227)
+}
+
+#commentOptionsContainer{
+    position:relative;
+}
+
+#editCommentButton{
+    font-size:1vw;
+    border:none;
+    background-color: white;
+    /* width:18vw; */
+    display:flex;
+    justify-content: flex-start;
+    column-gap:0.5vw;
+}
+
+#editCommentButton:hover{
+    background-color:rgb(227,227,227)
+} 
+
+#hideCommentForm{
+    display:none;
+}
+
+#hideBubbleContainer{
+    display:none;
+}
+
+#showCommentForm p{
+    font-size:1vw;
+    margin-left:0.5vw;
+    margin-top:0.5vw;
+    color:rgb(162, 162, 162)
 }

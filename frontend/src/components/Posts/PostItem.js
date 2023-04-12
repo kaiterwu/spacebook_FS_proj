@@ -16,7 +16,6 @@ export const PostItem = (props)=>{
     let user = useSelector(getUser(post.userId))
 
 
-
     if (!user) return null 
     if (!props.sessionUser) return null 
     
@@ -43,6 +42,7 @@ export const PostItem = (props)=>{
     const redirectShow = (userId)=>{
         history.push(`/users/${userId}`)
     }
+
 
     return(
         <div key = {post.id} className="userPostsContainer">
