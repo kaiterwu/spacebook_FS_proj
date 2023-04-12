@@ -141,19 +141,19 @@
       about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
     )
 
-    # User.first(12).each_with_index do |user,i|
-    #   user.avatar.attach(
-    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
-    #     filename: "avatar_#{i+1}.jpg"
-    #   )
-    # end
+    User.first(12).each_with_index do |user,i|
+      user.avatar.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
+        filename: "avatar_#{i+1}.jpg"
+      )
+    end
 
-    # User.first(12).each_with_index do |user,i|
-    #   user.cover.attach(
-    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
-    #     filename: "cover_#{i+1}.jpg"
-    #   )
-    # end
+    User.first(12).each_with_index do |user,i|
+      user.cover.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
+        filename: "cover_#{i+1}.jpg"
+      )
+    end
 
     # 10.times do 
     #   name = Faker::Space.unique()
@@ -168,12 +168,6 @@
     #   }) 
     # end
 
-    5.times do 
-      Post.create!({
-        body:Faker::JapaneseMedia::OnePiece.unique.quote,
-        user_id: 1
-      })
-    end
 
     10.times do 
       Post.create!({
@@ -203,12 +197,6 @@
       })
     end 
 
-    10.times do 
-      Post.create!({
-      body: Faker::JapaneseMedia::StudioGhibli.unique.quote,
-      user_id: rand(1..12)
-      })
-    end 
 
     # users = (1..12).to_a
     # posts = (1..55).to_a   
@@ -217,7 +205,7 @@
       Comment.create!({
         body: Faker::Quote.unique.yoda,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -225,7 +213,7 @@
       Comment.create!({
         body: Faker::Quote.unique.robin,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -233,7 +221,7 @@
       Comment.create!({
         body: Faker::Quote.unique.most_interesting_man_in_the_world,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -241,7 +229,7 @@
       Comment.create!({
         body: Faker::Quote.unique.matz,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -249,7 +237,7 @@
       Comment.create!({
         body: Faker::Quote.unique.famous_last_words,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -257,7 +245,7 @@
       Comment.create!({
         body: Faker::JapaneseMedia::StudioGhibli.quote,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -265,7 +253,7 @@
       Comment.create!({
         body: Faker::JapaneseMedia::OnePiece.unique.quote,
         user_id: rand(1..12),
-        post_id: rand(1..55),
+        post_id: rand(1..40),
       })
     end
 
@@ -327,6 +315,14 @@
   
 end 
 
+20.times do 
+  a = Faker::Number.unique.between(from: 1, to: 40)
+  post = Post.find_by(id:a)
+  post.photo.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{a}.jpg"),
+        filename: "rand_#{a}"
+  )
+end 
 
     # Post.all.each_with_index do |post,i|
     #   post.photo.attach(
