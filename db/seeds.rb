@@ -14,6 +14,9 @@
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('posts')
+    ApplicationRecord.connection.reset_pk_sequence!('comments')
+    ApplicationRecord.connection.reset_pk_sequence!('friendships')
   
     puts "Creating users..."
     puts "Creating posts..."
@@ -206,6 +209,9 @@
       user_id: rand(1..12)
       })
     end 
+
+    # users = (1..12).to_a
+    # posts = (1..55).to_a   
 
     10.times do
       Comment.create!({

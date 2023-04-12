@@ -12,8 +12,8 @@ class Friendship < ApplicationRecord
     validates :user_id,:friend_id,presence: true 
     validates_uniqueness_of :user_id, :scope => [:friend_id]
     validate :cannot_add_self
-    belongs_to :user 
-    belongs_to :friend, class_name: 'User'
+    belongs_to :user
+    belongs_to :friend, class_name: 'User', dependent: :destroy 
 
     def cannot_add_self
         errors.add(:friend_id, 'You cannot add yourself as a friend.') if user_id == friend_id
