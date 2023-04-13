@@ -23,7 +23,7 @@
     text-decoration: underline;
     cursor:pointer
 }
-#commentBubble p{
+#commentBubble div{
     line-height:1.2vw;
 }
 

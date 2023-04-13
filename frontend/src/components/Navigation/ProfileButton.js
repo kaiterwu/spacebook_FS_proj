@@ -9,6 +9,8 @@ const ProfileButton = () => {
     const dispatch = useDispatch();
     const [showMenu,setShowMenu] = useState(false)
     const sessionUser = useSelector(state =>state.session.user);
+  
+ 
     let history = useHistory()
     const user = useSelector(getUser(sessionUser.id))
 

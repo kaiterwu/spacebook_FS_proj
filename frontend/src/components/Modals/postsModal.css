@@ -55,8 +55,11 @@
 
 .coverPhotoModal{
     position:absolute;
-    right:2.5vw;
-    top:26.5vw;
+    /* right:2.5vw; */
+    left:calc(81.3%);
+    /* top:26.5vw; */
+    top:calc(85%);
+    z-index:1
 }
 
 .coverPhotoModal button{

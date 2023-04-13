@@ -28,7 +28,7 @@ function PostsModal(props) {
     // if (!user) return null
 
     let avatar;
-    if(sessionUser?.avatar){
+    if(user?.avatar){
       avatar = <img alt = 'avatar' src = {user?.avatar}/>
     }else{
       avatar = <i className="fa-solid fa-user-circle" />

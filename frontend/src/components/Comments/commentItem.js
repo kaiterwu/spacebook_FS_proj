@@ -110,7 +110,7 @@ const CommentItem = (props)=>{
                     <div id ={bubbleDisplay}>
                         <div id = 'commentBubble'>
                             <h1 onClick={()=>{history.push(`/users/${user?.id}`)}}>{user.firstName} {user.lastName}</h1>
-                            <p>{comment.body}{likesCounter}</p>
+                            <div>{comment.body}{likesCounter}</div>
                             
                         </div>
                     {likesButton}

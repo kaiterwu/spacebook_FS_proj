@@ -333,7 +333,7 @@ end
   end 
   Faker::UniqueGenerator.clear
 
-  40.times do
+  50.times do
     a = Faker::Number.unique.between(from: 1, to: 70)
     comment =Comment.find_by(id:a)
     b = rand(1..12)
