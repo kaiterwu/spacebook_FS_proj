@@ -21,6 +21,7 @@
     puts "Creating users..."
     puts "Creating posts..."
     puts "making comments and friends..."
+    puts 'attaching images and making likes...'
     # Create one user with an easy to remember username, email, and password:
     User.create!(
       email: 'test@test.com', 
@@ -141,19 +142,19 @@
       about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
     )
 
-    # User.first(12).each_with_index do |user,i|
-    #   user.avatar.attach(
-    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
-    #     filename: "avatar_#{i+1}.jpg"
-    #   )
-    # end
+    User.first(12).each_with_index do |user,i|
+      user.avatar.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
+        filename: "avatar_#{i+1}.jpg"
+      )
+    end
 
-    # User.first(12).each_with_index do |user,i|
-    #   user.cover.attach(
-    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
-    #     filename: "cover_#{i+1}.jpg"
-    #   )
-    # end
+    User.first(12).each_with_index do |user,i|
+      user.cover.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
+        filename: "cover_#{i+1}.jpg"
+      )
+    end
 
     # 10.times do 
     #   name = Faker::Space.unique()
@@ -315,14 +316,45 @@
   
 end 
 
-# 20.times do 
-#   a = Faker::Number.unique.between(from: 1, to: 40)
-#   post = Post.find_by(id:a)
-#   post.photo.attach(
-#         io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{a}.jpg"),
-#         filename: "rand_#{a}"
-#   )
-# end 
+
+  30.times do 
+    a = Faker::Number.unique.between(from: 1, to: 40)
+    post =Post.find_by(id:a)
+    b = rand(1..12)
+    user_ids = (1..b).to_a
+    user_ids.each do |user_id|
+      Like.create!(
+        user_id:user_id,
+        likeable_id:a,
+        likeable_type:'Post'
+      )
+    end 
+
+  end 
+  Faker::UniqueGenerator.clear
+
+  40.times do
+    a = Faker::Number.unique.between(from: 1, to: 70)
+    comment =Comment.find_by(id:a)
+    b = rand(1..12)
+    user_ids = (1..b).to_a
+    user_ids.each do |user_id|
+      Like.create!(
+        user_id:user_id,
+        likeable_id:a,
+        likeable_type:'Comment'
+      )
+    end 
+  end
+  Faker::UniqueGenerator.clear
+20.times do 
+  a = Faker::Number.unique.between(from: 1, to: 40)
+  post = Post.find_by(id:a)
+  post.photo.attach(
+        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{a}.jpg"),
+        filename: "rand_#{a}"
+  )
+end 
 
     # Post.all.each_with_index do |post,i|
     #   post.photo.attach(
