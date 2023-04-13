@@ -11,6 +11,7 @@
     font-size:1vw;
     background-color: #f0f2f5;
     max-width:29vw;
+    position:relative;
 }
 
 #commentBubble h1{
@@ -28,8 +29,24 @@
     color:rgb(117, 117, 117);
     margin-left: 1vw;
     margin-top:0.25vw;
-    
-    
+}
+
+#commentslike:hover{
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+#commentsunlike{
+    font-size:1vw;
+    color:#1877f2;
+    margin-left: 1vw;
+    margin-top:0.25vw;
+    font-weight:bolder;
+}
+
+#commentsunlike:hover{
+    cursor:pointer;
+    text-decoration:underline;
 }
 
 #commentIcon{
@@ -175,3 +192,28 @@
     margin-top:0.5vw;
     color:rgb(162, 162, 162)
 }
+
+#commentlikesContainer{
+    background-color: white;
+    display:flex;
+    align-items:center;
+    column-gap:0.3vw;
+    width:fit-content;
+    padding: 0.2vw 0.4vw;
+    border-radius:1vw;
+    position:absolute;
+    left:calc(100% - 1.2vw);
+    top:calc(100% - 1vw);
+    /* transform: translatex(90%); */
+    color:rgb(160,160,160);
+    box-shadow: 0 0 0.1vw 0.1vw rgb(217, 217, 217);
+}
+
+#commentlikesContainer i{
+    background-color:#1877f2;
+    color:white;
+    padding:0.3vw;
+    font-size:0.75vw;
+    border-radius:100%;
+}
+

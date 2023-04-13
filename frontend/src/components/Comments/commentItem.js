@@ -7,6 +7,8 @@ import { updateComment } from "../../store/comments"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
+import { getCommentLikes,deleteLike,createLike } from "../../store/likes"
+
 
 const CommentItem = (props)=>{
     let comment = props.comment
@@ -14,6 +16,38 @@ const CommentItem = (props)=>{
     const sessionUser = useSelector(state =>state.session.user);
     const dispatch = useDispatch()
     const history = useHistory()
+    const commentLikes = useSelector(getCommentLikes(comment?.id))
+    let likesCounter;
+
+    if(commentLikes.length){
+        likesCounter = <div id = "commentlikesContainer">
+        <i className="fa-solid fa-thumbs-up"></i> {commentLikes.length} 
+        </div>
+    }
+
+    const likesBool = commentLikes.some((like) => like.userId === sessionUser.id )
+    const userLike = commentLikes.find((like) => like.userId === sessionUser.id)
+
+    const handleUnlikeClick = ()=>{
+        dispatch(deleteLike(userLike.id))
+    }
+
+    const handleLikeClick = ()=>{
+        let like = {
+            userId: sessionUser.id,
+            likeableId: comment.id,
+            likeableType: 'Comment'
+        }
+        dispatch(createLike(like))
+    }
+    
+    let likesButton
+    if (likesBool){
+        likesButton = <p onClick={handleUnlikeClick} id ="commentsunlike" >Like</p>
+    }else{
+        likesButton = <p onClick={handleLikeClick} id ="commentslike"> Like</p>
+    }
+
 
     let bubbleDisplay;
     let formDisplay;
@@ -76,9 +110,10 @@ const CommentItem = (props)=>{
                     <div id ={bubbleDisplay}>
                         <div id = 'commentBubble'>
                             <h1 onClick={()=>{history.push(`/users/${user?.id}`)}}>{user.firstName} {user.lastName}</h1>
-                            <p>{comment.body}</p>
+                            <p>{comment.body}{likesCounter}</p>
+                            
                         </div>
-                    <p id = 'commentslike'>Like</p>
+                    {likesButton}
                      </div>
                         <form id = {formDisplay}>
                             <input onKeyDown={enterKey} onChange={handleChange}
