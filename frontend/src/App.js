@@ -25,9 +25,6 @@ function App() {
     <Navigation/>
     <div id ="appBody">
     <Switch>
-    <Route exact path ='/'>
-      {splashPage}
-    </Route>
       <Route path="/login">
         <LoginFormPage />
       </Route>
@@ -35,6 +32,9 @@ function App() {
         <ReloginForm/>
       </Route>
       <Route path = '/users/:userId' component = {ProfilePage}/>
+    <Route  path ='/'>
+      {splashPage}
+    </Route>
     </Switch>
     </div>
     </>
