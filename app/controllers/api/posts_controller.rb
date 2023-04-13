@@ -36,7 +36,7 @@ class Api::PostsController < ApplicationController
         user_id = params[:id]
         # @posts = @user.posts 
         allposts = Post.all
-        @posts = Post.joins(:comments).where("posts.user_id = ? OR comments.user_id = ?", user_id, user_id).distinct
+        @posts = Post.left_outer_joins(:comments).where("posts.user_id = ? OR comments.user_id = ?", user_id, user_id).distinct
         render :index
 
     end 

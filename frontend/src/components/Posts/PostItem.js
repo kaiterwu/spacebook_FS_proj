@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import { getUser } from "../../store/users";
-import PostOptions from "./PostOptions";
 import { useHistory } from "react-router-dom";
+import { getPostLikes } from "../../store/likes";
 import PostComments from "../Comments/PostComments";
+import PostOptions from "./PostOptions";
 
 
 
@@ -13,7 +14,20 @@ export const PostItem = (props)=>{
     let optionsDropdown
 
     let post = props.post
+    const sessionUser = useSelector(state =>state.session.user);
     let user = useSelector(getUser(post.userId))
+    let postLikes = useSelector(getPostLikes(post.id))
+    let likesCounter;
+
+    if (postLikes.length){
+        likesCounter = <div id = "likescounterContainer">
+        <i className="fa-solid fa-thumbs-up"></i> {postLikes.length} 
+        </div>
+    }
+
+    const likesBool = postLikes.some((like) => like.userId === sessionUser.id )
+    const userLike = postLikes.find((like) => like.userId === sessionUser.id)
+
 
 
     if (!user) return null 
@@ -57,7 +71,12 @@ export const PostItem = (props)=>{
                     <div id = {displayPhoto}>
                         {postsPhoto}
                     </div>
-                   <PostComments post = {post} sessionUser ={props.sessionUser}/>
+                        <div id = "likesContainer">
+                            {likesCounter}
+                        </div>
+                   <PostComments post = {post} sessionUser ={props.sessionUser} likesBool = {likesBool}
+                    userLike = {userLike}
+                   />
                 </div>
     )
 

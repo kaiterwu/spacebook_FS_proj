@@ -5,13 +5,15 @@ import users from './users'
 import posts from './posts'
 import friends from './friends'
 import comments from './comments'
+import likes from './likes'
 
 export const rootReducer = combineReducers({
     session,
     users,
     posts,
     friends,
-    comments
+    comments,
+    likes
 })
 
 let enhancer; 

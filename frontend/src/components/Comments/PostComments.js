@@ -5,30 +5,52 @@ import { useState } from "react"
 import { createComment} from "../../store/comments"
 import { useDispatch } from "react-redux"
 import { useRef } from "react"
+import { createLike,deleteLike } from "../../store/likes"
 
 
 const PostComments = (props)=>{
-    const comments = useSelector(getPostComments(props.post.id))
+    const post = props.post
+    const userLike = props.userLike
+    const comments = useSelector(getPostComments(post.id))
     const dispatch = useDispatch()
-    let sessionProfilePhoto;
     const sessionUser = props.sessionUser 
+    const likesBool = props.likesBool
+    let sessionProfilePhoto;
     let comment;
+    
+    const handleUnlikeClick = ()=>{
+        dispatch(deleteLike(userLike.id))
+    }
 
-    const inputRef = useRef(null);
-
-    const handleRefClick = () => {
-    inputRef.current.focus();
-    inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  };
-
+    const handleLikeClick = ()=>{
+        let like = {
+            userId: sessionUser.id,
+            likeableId: post.id,
+            likeableType: 'Post'
+        }
+        dispatch(createLike(like))
+    }
+    
+    let likesButton
+    if (likesBool){
+       likesButton = <p onClick={handleUnlikeClick} id ="buttonAfterLike"><i className="fa-solid fa-thumbs-up"></i> Like</p>
+    }else{
+        likesButton = <p onClick={handleLikeClick} ><i className="fa-regular fa-thumbs-up"></i> Like</p>
+    }
+    
     if (sessionUser.avatar){
         sessionProfilePhoto= <img alt = 'avatar'src = {sessionUser.avatar}/>
     }else{
         sessionProfilePhoto= <i className="fa-solid fa-user-circle" />
     }
-
+    
     const [newComment,setNewComment] = useState('')
-
+    
+    const inputRef = useRef(null);
+    const handleRefClick = () => {
+    inputRef.current.focus();
+    inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  };
     const handleChange = (e)=>{
         setNewComment(e.target.value)
     }
@@ -55,7 +77,7 @@ const PostComments = (props)=>{
     return(
         <>
          <div id = 'likeComment'>
-            <p ><i className="fa-regular fa-thumbs-up"></i> Like</p>
+            {likesButton}
             <p onClick={handleRefClick}><i className="fa-regular fa-message"></i> Comment</p>
                         
             </div>

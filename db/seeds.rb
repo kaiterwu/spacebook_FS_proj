@@ -141,19 +141,19 @@
       about_me: Faker::Quote.fortune_cookie + Faker::Quote.fortune_cookie
     )
 
-    User.first(12).each_with_index do |user,i|
-      user.avatar.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
-        filename: "avatar_#{i+1}.jpg"
-      )
-    end
+    # User.first(12).each_with_index do |user,i|
+    #   user.avatar.attach(
+    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/avatar_pictures/avatar_#{i+1}.jpg"),
+    #     filename: "avatar_#{i+1}.jpg"
+    #   )
+    # end
 
-    User.first(12).each_with_index do |user,i|
-      user.cover.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
-        filename: "cover_#{i+1}.jpg"
-      )
-    end
+    # User.first(12).each_with_index do |user,i|
+    #   user.cover.attach(
+    #     io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/cover_pictures+/cover_#{i+1}.jpg"),
+    #     filename: "cover_#{i+1}.jpg"
+    #   )
+    # end
 
     # 10.times do 
     #   name = Faker::Space.unique()
@@ -315,14 +315,14 @@
   
 end 
 
-20.times do 
-  a = Faker::Number.unique.between(from: 1, to: 40)
-  post = Post.find_by(id:a)
-  post.photo.attach(
-        io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{a}.jpg"),
-        filename: "rand_#{a}"
-  )
-end 
+# 20.times do 
+#   a = Faker::Number.unique.between(from: 1, to: 40)
+#   post = Post.find_by(id:a)
+#   post.photo.attach(
+#         io:URI.open("https://spacebook23-seeds.s3.amazonaws.com/random_pics/rand_#{a}.jpg"),
+#         filename: "rand_#{a}"
+#   )
+# end 
 
     # Post.all.each_with_index do |post,i|
     #   post.photo.attach(

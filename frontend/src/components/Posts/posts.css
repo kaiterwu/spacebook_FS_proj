@@ -34,10 +34,10 @@
 #postsBody{
     font-size:1vw;
     padding:1vw;
-    padding-bottom:2vw;
     margin: 0 1vw;
     /* border-bottom:1px solid rgb(213, 213, 213); */
 }
+
 
 #postsPhotoContainer{
     /* width:inherit; */
@@ -45,8 +45,32 @@
     display:flex;
     justify-content: center;
     align-items:center;
-    padding-bottom:2vw;
 
+}
+
+#likesContainer{
+    /* padding:1vw; */
+    padding-left: 1vw;
+    height:2vw;
+}
+
+#likescounterContainer{
+    font-size:1vw;
+    color:rgb(160,160,160);
+    display:flex;
+    align-items:center;
+    column-gap:0.3vw;
+    /* height:2vw; */
+
+}
+
+#likescounterContainer i{
+    background-color: #1877f2;
+    color:white;
+    border-radius:100%;
+    padding:0.3vw;
+    font-size:0.75vw;
+    margin-left:1vw;
 }
 
 #likeComment{
@@ -55,10 +79,10 @@
     display:flex;
     justify-content: space-evenly;
     font-weight:bolder;
-    color:rgb(117, 117, 117);
+    color:rgb(160, 160, 160);
     border-top:1px solid rgb(213, 213, 213);
     border-bottom:1px solid rgb(213, 213, 213);
-    margin: 0 1vw;
+    margin: 0 2vw;
 }
 
 #likeComment p{
@@ -71,6 +95,10 @@
     background-color:rgb(216, 216, 216);
     cursor:pointer;
 
+}
+
+#buttonAfterLike{
+color:#1877f2
 }
 
 #replyIcon{
@@ -245,6 +273,9 @@ background-color: #33a41f;
 
 #postsPhotoContainer{
     background-color: rgb(255, 255, 255);
+    display:flex;
+    flex-direction:column;
+    /* justify-content: center;; */
 }
 
 #postsPhoto{

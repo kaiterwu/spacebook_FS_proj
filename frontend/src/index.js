@@ -8,6 +8,7 @@ import * as sessionActions from './store/session'
 import * as userActions from './store/users'
 import * as postActions from './store/posts'
 import * as commentActions from './store/comments'
+import * as likeActions from './store/likes'
 import csrfFetch from './store/csrf';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.userActions = userActions
   window.postActions = postActions
   window.commentActions = commentActions
+  window.likeActions = likeActions
 }
 
 function Root() {
