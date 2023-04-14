@@ -25,7 +25,36 @@ Using rails with jbuilder, normaled backend data is formed as JSON responses whi
 
 Spacebook matches the basic uses of Facebook. Users are able to post posts, make comments, and edit their profiles. Logged in users are able to edit and delete the following: profile photo, cover photo, comments, and posts that belong to them. Logged in users can also add and remove other users as friends.  Thunk action creators (thunk is a middleware provided in react redux) were used to fetch data from the backend and parse it to a response in the components. Below is an example of a thunk action creator used to edit a user's information 
 
-# ![Alt text](read_me_images/codesnippet_editUser.png)
+<!-- # ![Alt text](read_me_images/codesnippet_editUser.png) -->
+```export const editUser = user => async dispatch =>{
+    
+    const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;
+    const res = await csrfFetch(`/api/users/${user.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({
+            user:{
+            
+                firstName,
+                lastName,
+                email,
+                password,
+                gender,
+                birthday,
+                aboutMe
+            }
+        })
+        
+    });
+
+    let userData = await res.json()
+    dispatch(receiveProfile(userData.user))
+    dispatch(receiveUser(userData.user))
+    storeCurrentUser(userData.user)
+    restoreSession()
+    
+    return res
+}
+```
 
 ## <u>Timeline</u>
 
