@@ -23,10 +23,34 @@ Using rails with jbuilder, normaled backend data is formed as JSON responses whi
 
 ## <u>Features</u>
 
-Spacebook matches the basic uses of Facebook. Users are able to post posts, make comments, and edit their profiles. Logged in users are able to edit and delete the following: profile photo, cover photo, comments, and posts that belong to them. Logged in users can also add and remove other users as friends.  Thunk action creators (thunk is a middleware provided in react redux) were used to fetch data from the backend and parse it to a response in the components. Below is an example of a thunk action creator used to edit a user's information 
+### Commenting
+# ![Alt text](read_me_images/commenting.gif)
+
+### Liking 
+# ![Alt text](read_me_images/liking.gif)
+
+### Create Post 
+# ![Alt text](read_me_images/create_post.gif)
+
+### Edit/Remove Post 
+# ![Alt text](read_me_images/editing_creating_post.gif)
+
+### Friending 
+# ![Alt text](read_me_images/friending.gif)
+
+### Search Bar 
+# ![Alt text](read_me_images/searchbar.gif)
+
+### Changing Photos 
+# ![Alt text](read_me_images/changeprofilepic.gif)
+# ![Alt text](read_me_images/changecoverpic.gif)
+
+
+Spacebook matches the basic uses of Facebook. Users are able to post posts, make comments, and edit their profiles. Logged in users are able to edit and delete the following: profile photo, cover photo, comments, and posts that belong to them. Logged in users can also add and remove other users as friends.  Thunk action creators (thunk is a middleware provided in react redux) were used to fetch data from the backend and parse it to a response in the components. Below is an example of a thunk action creator used to edit a user's information.
 
 <!-- # ![Alt text](read_me_images/codesnippet_editUser.png) -->
-```export const editUser = user => async dispatch =>{
+``` javascript 
+export const editUser = user => async dispatch =>{
     
     const {firstName,lastName,email,password,gender,birthday,aboutMe} = user;
     const res = await csrfFetch(`/api/users/${user.id}`,{
@@ -54,6 +78,62 @@ Spacebook matches the basic uses of Facebook. Users are able to post posts, make
     
     return res
 }
+```
+## Root Reducer Code 
+```javascript
+import {createStore,combineReducers,applyMiddleware,compose} from 'redux'
+import thunk from 'redux-thunk'
+import session from './session';
+import users from './users'
+import posts from './posts'
+import friends from './friends'
+import comments from './comments'
+import likes from './likes'
+
+export const rootReducer = combineReducers({
+    session,
+    users,
+    posts,
+    friends,
+    comments,
+    likes
+})
+
+let enhancer; 
+
+if (process.env.NODE_ENV === 'production') {
+    enhancer = applyMiddleware(thunk);
+  } else {
+    const logger = require('redux-logger').default;
+    const composeEnhancers =
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    enhancer = composeEnhancers(applyMiddleware(thunk, logger));
+  }
+
+const configureStore = (preloadedState) =>{
+    return createStore(rootReducer,preloadedState,enhancer);
+};
+
+export default configureStore
+```
+## Example of Reducer(posts)
+```javascript
+const postsReducer = (state={},action) =>{
+    switch(action.type){
+        case RECEIVE_POSTS:
+            return {...action.posts}
+        case RECEIVE_POST:
+            return {...state,[action.post.id]:action.post}
+        case REMOVE_POST:
+            const newState = {...state}
+            delete newState[action.postId]
+            return newState 
+        default:
+            return state 
+    }
+}
+
+export default postsReducer
 ```
 
 ## <u>Timeline</u>
