@@ -14,6 +14,7 @@ const SearchList = ()=>{
     const history = useHistory()
     const ref = useRef(null)
     const resultsRef = useRef(null)
+   
 
 
     
@@ -75,7 +76,7 @@ const SearchList = ()=>{
 
     useEffect(() => {
         const handleKeyPress = event => {
-            if (event.key === 'Enter') {
+            if (event.key === 'Enter' && document.activeElement === ref.current ) {
               event.preventDefault();
               if (resultsRef.current) {
                 const firstResult = resultsRef.current.firstChild;
