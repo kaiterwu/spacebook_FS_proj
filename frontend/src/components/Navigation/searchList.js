@@ -89,10 +89,10 @@ const SearchList = ()=>{
         document.addEventListener('keydown', handleKeyPress);
         return () => document.removeEventListener('keydown', handleKeyPress);
       },);
-
+      if (!sessionUser) return null
       function isFriend(sessionUser,userId){
         let showFriend;
-        const friendArr = sessionUser.friends
+        const friendArr = sessionUser?.friends
         if (friendArr.includes(userId)){
             showFriend = <div id ='friendTag'>Friend</div>
         }else if(sessionUser.id === userId){
