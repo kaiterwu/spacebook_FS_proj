@@ -81,7 +81,7 @@ const SearchList = ()=>{
               if (resultsRef.current) {
                 const firstResult = resultsRef.current.firstChild;
                 if (firstResult) {
-                const userId = firstResult.getAttribute('userId');
+                const userId = firstResult.getAttribute('userid');
                 handleClick(userId)
               }
             }
@@ -113,7 +113,7 @@ const SearchList = ()=>{
                     <ul ref = {resultsRef} id ={nameList} >
                         {filteredUsers.map(user =>(
                             
-                            <li id = 'searchQuery' key = {user.id} userId = {user.id}
+                            <li id = 'searchQuery' key = {user.id} userid = {user.id}
                             onClick={()=>handleClick(user?.id)}>
                                 <div id = 'searchNamePic'>
                                     {userAvatar(user)} 
