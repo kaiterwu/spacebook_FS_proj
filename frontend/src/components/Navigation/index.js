@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { useHistory } from 'react-router-dom';
+import SearchList from './searchList';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { fetchUsers } from '../../store/users';
@@ -18,7 +19,10 @@ const Navigation = ()=>{
     if(sessionUser){
         sessionLinks = (
             <div className = 'navlink'>
-            <div id='logo' onClick={()=>history.replace('/')}>S</div>
+            <div id = "searchAndLogo">
+                <div id='logo' onClick={()=>history.replace('/')}>S</div>
+                <SearchList/>
+            </div>
             <ProfileButton id ='profile' user = {sessionUser}/>
             </div>
         )

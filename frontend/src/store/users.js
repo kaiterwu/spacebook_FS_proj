@@ -23,6 +23,15 @@ export const getUser = userId => state =>{
     }
 }
 
+export const getUsers = state =>{
+    if (state.users){
+        return Object.values(state.users)
+    }else{
+        return []
+    }
+}
+
+
 //thunk action creator 
 
 export const fetchUser = userId => async(dispatch)=>{

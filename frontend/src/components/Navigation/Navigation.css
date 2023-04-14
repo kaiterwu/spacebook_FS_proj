@@ -95,7 +95,7 @@
     height:56px;
     position: sticky;
     position: -webkit-sticky;
-    z-index: 2;
+    z-index: 3;
     box-shadow:0 0 4px 1px rgb(189, 189, 189)
     
     
@@ -170,3 +170,78 @@ h1{
     background-color: white;
 }
 
+#hidenameList{
+    display:none;
+}
+
+#nameList{
+    /* border: 1px solid red; */
+    background-color: white;
+    /* box-shadow:5px 5px 3px 3px rgb(183, 183, 183); */
+    border-bottom:1px solid rgb(210, 210, 210);
+    border-right:1px solid rgb(210, 210, 210);
+    z-index: 2;
+    /* border-bottom-left-radius: 1vw; */
+    /* border-bottom-right-radius: 1vw; */
+    min-height:10vw;
+    max-height:26vw;
+    position:absolute;
+    min-width:26vw;
+    padding:1vw;
+    left:0%;
+    top:calc(56px);
+    overflow-y:auto;
+    
+  
+}
+
+#searchInput{
+  border-radius:20px;
+  padding:0 1vw;
+  font-size: 1.5vw;
+  background-color: #f0f2f5;
+  /* width:86%; */
+  border:none;  
+  height:3vw;
+}
+
+#searchInput:focus{
+    outline:none;
+}
+
+#searchAndLogo{
+    display:flex;
+    align-items:center;
+    column-gap:1vw;
+    /* position:relative; */
+
+}
+
+#searchNamePic{
+    display:flex;
+    align-items: center;
+    font-size:1.5vw;
+}
+
+#searchQuery{
+    display:flex;
+    align-items:center;
+    column-gap:0.5vw;
+    font-size:1.5vw;
+    padding:0.5vw;
+    /* border-bottom:1px solid rgb(210, 210, 210); */
+}
+#searchQuery:hover{
+    background-color: rgb(238, 238, 238);
+    cursor:pointer;
+    padding-left:1.5vw;
+    border-radius:1vw;
+    
+}
+
+#friendTag{
+    color:rgb(201, 201, 201);
+    font-size:1.5vw;
+    margin-left:1vw;
+    /* font-style:italic; */
+}

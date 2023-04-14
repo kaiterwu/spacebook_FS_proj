@@ -9,6 +9,10 @@
 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    user_ids = User.pluck(:id)
+    Friendship.where(user_id: user_ids).delete_all
+    # User.delete_all
+
     User.destroy_all
   
     puts "Resetting primary keys..."
