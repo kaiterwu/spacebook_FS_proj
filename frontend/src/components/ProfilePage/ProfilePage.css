@@ -284,6 +284,7 @@
 #postsHeader p{
     width:inherit;
     border-bottom:1px solid rgb(213, 213, 213);
+    padding-bottom:0.5vw;
     /* padding-left:1vw; */
     margin-bottom:1vw;
     display:flex;
@@ -388,8 +389,8 @@
     /* width:4vw; */
 }
 
-#postIcon i{
-    font-size:4vw;
-}
+/* #postIcon i{
+    font-size:3.5vw;
+} */
 
 
