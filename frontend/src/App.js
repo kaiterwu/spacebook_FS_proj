@@ -12,11 +12,13 @@ import ScrollTop from './components/Splash/scrollToTop';
 function App() {
   const loggedIn = useSelector(state=>state.session.user);
   let splashPage = <FrontSplash/>
+  let redirect;
 
   if (!loggedIn){
     splashPage = (
       <Redirect to = '/login'/>
     )
+    // redirect = <Redirect to = '/'/>
   }
   return (
     <>

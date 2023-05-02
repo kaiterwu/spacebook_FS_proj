@@ -72,7 +72,20 @@ function LoginFormPage(){
         </div>
         <p> <b>Create a page</b> for any astral body. </p>
         </div>
-        <div className='footer'></div>
+        <div className='footer'>
+        <div id ='footerText'>
+            <h1>
+                Socials: GitHub LinkedIn WellFound Porfolio Weather App
+            </h1>
+            <p>
+                Facebook 
+                App Academy 
+            </p>
+            <p>Technologies: Ruby Rails(Ruby on Rails) PostgreSql JavaScript React.js Redux.js AWS(S3) HTML5 CSS3  </p>
+            <p>Kaiter Wu <i className="fa-regular fa-copyright"></i> 2023</p>
+
+        </div>
+        </div>
         </div>
         </>
     );
