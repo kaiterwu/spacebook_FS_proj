@@ -59,6 +59,8 @@ const ProfilePage = ()=>{
 
     let profilePhoto;
     let coverPhoto;
+    let coverStyle;
+    let blurLayerStyle;
     
     if (!user) return null 
    
@@ -70,14 +72,51 @@ const ProfilePage = ()=>{
 
     if (user.cover){
         coverPhoto = <img alt = 'avatar' id = 'coverphoto' src = {user.cover}/>
+        coverStyle = {
+            maxWidth: "100%",
+            height:"45vw",
+            display:"flex",
+            flexDirection: "column",
+            backgroundImage:`url(${user.cover})`,
+            backgroundSize:"cover",
+            borderBottom:"1px solid rgb(213, 213, 213)",
+            position:"relative",
+            zIndex:"0"
+            // filter: "blur(10px)"
+        };
+         blurLayerStyle = {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            // filter: "blur(5px) opacity(100%) ",
+            // backgroundImage:`url(${user.cover})`,
+            backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1),white)",
+            zIndex: "-1",
+            
+          };
     }else{
         coverPhoto = <i className="fa-solid fa-panorama coverimage"></i>
+        coverStyle = {
+            maxWidth: "100%",
+            height:"45vw",
+            display:"flex",
+            flexDirection: "column",
+            backgroundImage:"linear-gradient(rgb(148, 148, 148),white,white)",
+            borderBottom:"1px solid rgb(213, 213, 213)",
+            position:"relative"
+        };
     }
+    
+    
     return(
         <>
         <div id = 'profilepage'>
 
-        <section className="topHalf">
+        <section style = {coverStyle}>
+            <div style = {blurLayerStyle}></div>
             <div className ='coverPhoto'>
                 {coverPhoto}
                 {editCoverPhoto}

@@ -14,7 +14,7 @@
     height:45vw;
     display:flex;
     flex-direction:column;
-    background-image:linear-gradient(rgb(148, 148, 148),white,white);
+    /* background-image:linear-gradient(rgb(148, 148, 148),white,white); */
     border-bottom:1px solid rgb(213, 213, 213);
     
     
@@ -375,6 +375,7 @@
     margin-right:1vw;
     margin-left:1vw;
     font-size:4vw;
+    text-align: center;
     /* border:solid 1px red; */
 }
 
