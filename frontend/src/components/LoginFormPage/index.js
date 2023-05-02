@@ -74,12 +74,16 @@ function LoginFormPage(){
         </div>
         <div className='footer'>
         <div id ='footerText'>
-            <h1>
-                Socials: GitHub LinkedIn WellFound Porfolio Weather App
-            </h1>
-            <p>
-                Facebook 
-                App Academy 
+            <div id = "socialLinks">
+                Socials: <a target ="_blank" href = "https://github.com/kaiterwu">GitHub</a> 
+                <a target = "_blank" href = "https://www.linkedin.com/in/kaiter-wu-7ba70a62/">LinkedIn</a>
+                <a target = "_blank" href = "https://wellfound.com/u/kaiter-wu">WellFound </a>
+                <a target = "_blank" href = "https://kaiterwu.xyz/">Portfolio</a>
+                <a target = "_blank" href = "https://kaiterwu.github.io/Cycle_js_proj/">Cycle</a>
+            </div>
+            <p id = "outerLinks">
+                <a target = "_blank" href = "https://www.facebook.com/">Facebook</a>
+                <a target = "_blank" href = "https://www.appacademy.io/">App Academy </a>
             </p>
             <p>Technologies: Ruby Rails(Ruby on Rails) PostgreSql JavaScript React.js Redux.js AWS(S3) HTML5 CSS3  </p>
             <p>Kaiter Wu <i className="fa-regular fa-copyright"></i> 2023</p>

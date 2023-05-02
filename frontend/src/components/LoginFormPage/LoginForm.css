@@ -155,15 +155,32 @@ body{
     justify-content: center;
  }
  .footer p{
-    color:rgb(117, 117, 117);
+    color:rgb(145, 145, 145);
     margin-top:1vw;
  }
 
- .footer h1{
-    color:rgb(117, 117, 117);
+ #socialLinks{
+    color:rgb(145, 145, 145);
     margin-top:2.5vw;
     border-bottom:1px solid rgb(202, 202, 202);
     padding-bottom:1vw;
+    display:flex;
+    column-gap:5px;
+ }
+
+ #outerLinks{
+    display:flex;
+    column-gap:5px;
+ }
+
+ #socialLinks a, #outerLinks a{
+    text-decoration:none;
+    color:rgb(145, 145, 145)
+    /* font-size:larger; */
+ }
+
+ #socialLinks a:hover, #outerLinks a:hover{
+    text-decoration: underline;
  }
 
 
