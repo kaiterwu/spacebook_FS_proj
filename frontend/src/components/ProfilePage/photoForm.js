@@ -24,14 +24,14 @@ const PhotoForm = (props)=>{
         photo = 'avatar'
         photoContainer = 'profileContainer'
         previewPhoto = 'previewProfilePhoto'
-        removePhoto = "fa-solid fa-xmark removeProfile"
+        // removePhoto = "fa-solid fa-xmark removeProfile"
     }else{
         label = 'Choose Cover Photo'
         initialPhoto = user.cover
         photo = 'cover'
         photoContainer = 'coverContainer'
         previewPhoto = 'previewCoverPhoto'
-        removePhoto = "fa-solid fa-xmark removeCover"
+        // removePhoto = "fa-solid fa-xmark removeCover"
     }
 
     const [photoFile,setPhotoFile] = useState(initialPhoto)
@@ -74,7 +74,20 @@ const PhotoForm = (props)=>{
     }
 
     let preview = null;
-    if (photoUrl) preview = <img id ={previewPhoto} src={photoUrl} alt="" />;
+    if (photoUrl) {
+        preview = <img id ={previewPhoto} src={photoUrl} alt="" />
+        if (props.text=== 'Profile'){
+            removePhoto = "fa-solid fa-xmark removeProfile"
+        }else{
+            removePhoto = "fa-solid fa-xmark removeCover"
+        }
+    }else{
+        if (props.text=== 'Profile'){
+            preview = <i className="fa-solid fa-user-circle previewProfile " />
+        }else{
+            preview = <i className="fa-solid fa-panorama previewCover"></i>
+        }
+    }
     return(
         <>
         <i className={removePhoto} onClick={handleRemove}/>
@@ -90,7 +103,7 @@ const PhotoForm = (props)=>{
                     {label}
                     <input className ="photoInput" type = 'file' onChange={handleFile} />
                 </label>
-                <button id ="submitProfilePhoto" type = "submit">Upload Photo</button>
+                <button id ="submitProfilePhoto" type = "submit">Change Photo</button>
             </div>
         </form>
 
