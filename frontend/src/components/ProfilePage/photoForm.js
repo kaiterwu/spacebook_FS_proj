@@ -24,14 +24,14 @@ const PhotoForm = (props)=>{
         photo = 'avatar'
         photoContainer = 'profileContainer'
         previewPhoto = 'previewProfilePhoto'
-        // removePhoto = "fa-solid fa-xmark removeProfile"
+        removePhoto = "fa-solid fa-xmark removeProfile"
     }else{
         label = 'Choose Cover Photo'
         initialPhoto = user.cover
         photo = 'cover'
         photoContainer = 'coverContainer'
         previewPhoto = 'previewCoverPhoto'
-        // removePhoto = "fa-solid fa-xmark removeCover"
+        removePhoto = "fa-solid fa-xmark removeCover"
     }
 
     const [photoFile,setPhotoFile] = useState(initialPhoto)
@@ -72,16 +72,17 @@ const PhotoForm = (props)=>{
         setPhotoFile('')
         setPhotoUrl('')
     }
-
+    let hideRemove;
     let preview = null;
     if (photoUrl) {
         preview = <img id ={previewPhoto} src={photoUrl} alt="" />
-        if (props.text=== 'Profile'){
-            removePhoto = "fa-solid fa-xmark removeProfile"
-        }else{
-            removePhoto = "fa-solid fa-xmark removeCover"
-        }
+        // if (props.text=== 'Profile'){
+        //     removePhoto = "fa-solid fa-xmark removeProfile"
+        // }else{
+        //     removePhoto = "fa-solid fa-xmark removeCover"
+        // }
     }else{
+        hideRemove = 'hideRemove'
         if (props.text=== 'Profile'){
             preview = <i className="fa-solid fa-user-circle previewProfile " />
         }else{
@@ -90,7 +91,7 @@ const PhotoForm = (props)=>{
     }
     return(
         <>
-        <i className={removePhoto} onClick={handleRemove}/>
+        <i className={`${removePhoto} ${hideRemove}`} onClick={handleRemove}/>
         <form id = "photoForm" onSubmit={handleSubmit}>
         <ul className = 'photoErrors'>
              {errors.map(error => <li key={error}><i className="fa-solid fa-triangle-exclamation"></i> {error}</li>)}

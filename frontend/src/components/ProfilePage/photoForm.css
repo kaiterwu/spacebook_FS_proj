@@ -70,6 +70,10 @@
     height:300px;
 }
 
+.hideRemove{
+    display:none;
+}
+
 #coverContainer{
     /* width:400px; */
     /* padding: 0 30px; */
@@ -86,7 +90,7 @@
 }
 
 .previewCover{
-    font-size:15vw;
+    font-size:150px;
     align-self: center;
 }
 
@@ -102,7 +106,7 @@
 }
 
 .previewProfile{
-    font-size:15vw;
+    font-size:150px;
 }
 
 .photoErrors{
