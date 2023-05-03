@@ -154,12 +154,21 @@ const usersReducer = (state={},action)=>{
         case RECEIVE_USERS:
             return{...action.users}
         case 'makeFriends':
-            nextState[action.userId].friends.push(action.friendId)
-            return nextState
+            return {
+                ...state,
+                [action.userId]: {
+                  ...state[action.userId],
+                  friends: [...state[action.userId].friends, action.friendId]
+                }
+              };
         case 'loseFriends':
-            let index = nextState[action.userId].friends.indexOf(action.friendId)
-            nextState[action.userId].friends.splice(index,1)
-            return nextState
+            return {
+                ...state,
+                [action.userId]: {
+                  ...state[action.userId],
+                  friends: state[action.userId].friends.filter(id => id !== action.friendId)
+                }
+              };
         default:
             return state 
     }

@@ -24,10 +24,10 @@ const ProfilePage = ()=>{
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
-    const friends = useSelector(state => state.friends)
-    const allFriends = Object.values(friends)
+    const friends = user.friends
+    // const allFriends = Object.values(friends)
     const loggedInUser = useSelector(getUser(loggedInId))
-    const friendsArr = allFriends.map(friend => friend.id)
+    // const friendsArr = allFriends.map(friend => friend.id)
 
     let editButton;
     let createPostButton;
@@ -45,7 +45,7 @@ const ProfilePage = ()=>{
         editCoverPhoto = <PhotoModal text = {'Cover'}/>
 
     }else{
-        if (friendsArr.includes(loggedInId)){
+        if (friends.includes(loggedInId)){
             
             editButton = <RemoveFriendModal userId = {sessionUser.id} friendId = {user?.id}/>
         }else{
@@ -128,7 +128,7 @@ const ProfilePage = ()=>{
                         <div id ='photoAndName'>
                              <div id = 'friendHeaderContainer'>
                                 <p id = 'profileName'>{user.firstName} {user.lastName}</p>
-                                <h1>{allFriends.length} friends</h1>
+                                <h1>{friends.length} friends</h1>
                                 {editProfilePhoto}
                              </div>
                         </div>
@@ -163,7 +163,7 @@ const ProfilePage = ()=>{
                 <div id = 'innerfriendsContainer'>
                     <div id = 'profilefriendHeaders'>
                         <h1>Friends</h1>
-                        <h2>{allFriends.length} friends</h2>
+                        <h2>{friends.length} friends</h2>
                     </div>
                     <ProfileFriends user = {user}/>
                 </div>
