@@ -24,7 +24,7 @@ const ProfilePage = ()=>{
     const dispatch = useDispatch()
     const {userId} = useParams()
     const user = useSelector(getUser(userId))
-    const friends = user.friends
+    const friends = user?.friends
     // const allFriends = Object.values(friends)
     const loggedInUser = useSelector(getUser(loggedInId))
     // const friendsArr = allFriends.map(friend => friend.id)
@@ -45,7 +45,7 @@ const ProfilePage = ()=>{
         editCoverPhoto = <PhotoModal text = {'Cover'}/>
 
     }else{
-        if (friends.includes(loggedInId)){
+        if (friends?.includes(loggedInId)){
             
             editButton = <RemoveFriendModal userId = {sessionUser.id} friendId = {user?.id}/>
         }else{

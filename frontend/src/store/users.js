@@ -146,8 +146,7 @@ export const editPhotos = (user,formData) => async dispatch =>{
     
 }
 
-const usersReducer = (state={},action)=>{
-    let nextState = {...state};   
+const usersReducer = (state={},action)=>{ 
     switch(action.type){
         case RECEIVE_USER:
             return {...state,[action.user.id]:action.user}

@@ -1,25 +1,27 @@
 import { useEffect } from "react"
 import { useDispatch,useSelector} from "react-redux"
-import { getFriends,fetchFriends } from "../../store/friends"
 import { fetchComments } from "../../store/comments"
 import FriendItem from "./FriendItem"
+import { getUsers,fetchUsers } from "../../store/users"
 
 
 const SplashFriends = (props)=>{
     const dispatch = useDispatch()
-    const profileFriends = useSelector(getFriends)
+    // const profileFriends = useSelector(getFriends)
+    const allUsers = useSelector(getUsers)
     const sessionUser = useSelector(state =>state.session.user);
+    const profileFriends = sessionUser?.friends.map(friendId => allUsers[friendId])
 
 
     useEffect(()=>{
-        dispatch(fetchFriends(sessionUser.id))
+        dispatch(fetchUsers())
         dispatch(fetchComments())
-    },[dispatch,sessionUser.id])
+    },[dispatch])
     return(
         <>
             <div className = 'splashFriendsProfile'>
                 {profileFriends.map(friend =><FriendItem
-                    key = {friend.id}
+                    key = {friend?.id}
                     friend = {friend}
                     type = {'splashPage'}
                 />)}
