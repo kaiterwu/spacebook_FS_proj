@@ -2,7 +2,10 @@
     display:flex;
     flex-wrap:wrap;
     /* align-self:center; */
-    column-gap:0.5vw;
+    column-gap:1vw;
+    /* align-items:flex-start; */
+    /* justify-content: space-between; */
+    margin-left:0.85vw;
 }
 
 .profileFriendsContainer{
@@ -165,6 +168,11 @@
     background-color:#33a41f
 }
 
+#outerouterFriends{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

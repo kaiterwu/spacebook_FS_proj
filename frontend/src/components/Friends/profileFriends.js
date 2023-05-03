@@ -13,14 +13,14 @@ const ProfileFriends = (props)=>{
         dispatch(fetchFriends(user.id))
     },[dispatch,user.id])
     return(
-        <>
-            <div className = 'outerFriendsProfile'>
-                {profileFriends.map(friend =><FriendItem
-                    key = {friend.id}
-                    friend = {friend}
-                    type = {'profilePage'}
-                />)}
-            </div>
+        <> 
+                <div className = 'outerFriendsProfile'>
+                    {profileFriends.map(friend =><FriendItem
+                        key = {friend.id}
+                        friend = {friend}
+                        type = {'profilePage'}
+                    />)}
+                </div>
         </>
     )
 }

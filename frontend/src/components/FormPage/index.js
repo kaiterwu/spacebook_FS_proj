@@ -69,7 +69,7 @@ function SignupFormPage(props){
         passInput =
         <div id ="aboutMeContain">
             {aboutMeHead}
-            <textarea id = 'aboutMeText' value = {aboutMe} onChange = {(e)=>setAboutMe(e.target.value)} placeholder="Tell us about yourself"></textarea>
+            <textarea maxLength={250} id = 'aboutMeText' value = {aboutMe} onChange = {(e)=>setAboutMe(e.target.value)} placeholder="Tell us about yourself"></textarea>
 
         </div>
         buttonText = 'Edit your Info'

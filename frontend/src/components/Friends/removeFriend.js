@@ -1,6 +1,7 @@
 import csrfFetch from "../../store/csrf"
 import { useDispatch } from "react-redux"
 import { receiveFriends } from "../../store/friends"
+import { removeFriendId } from "../../store/users"
 const RemoveFriend = (props)=>{
     const userId = props.userId
     const friendId = props.friendId
@@ -18,7 +19,9 @@ const RemoveFriend = (props)=>{
           })
            if (res.ok){
                let friends = await res.json()
+               dispatch(removeFriendId(userId,friendId))
                dispatch(receiveFriends(friends))
+              //  dispatch(removeFriendId(friendId,userId))
             
 
            }

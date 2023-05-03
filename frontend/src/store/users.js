@@ -14,6 +14,17 @@ export const receiveUsers = users =>({
     users
 })
 
+export const pushFriendId = (userId,friendId) =>({
+    type: 'makeFriends',
+    userId,
+    friendId
+})
+
+export const removeFriendId = (userId,friendId) =>({
+    type: 'loseFriends',
+    userId,
+    friendId
+})
 
 export const getUser = userId => state =>{
     if (state.users){
@@ -30,6 +41,7 @@ export const getUsers = state =>{
         return []
     }
 }
+
 
 
 //thunk action creator 
@@ -135,11 +147,19 @@ export const editPhotos = (user,formData) => async dispatch =>{
 }
 
 const usersReducer = (state={},action)=>{
+    let nextState = {...state};   
     switch(action.type){
         case RECEIVE_USER:
             return {...state,[action.user.id]:action.user}
         case RECEIVE_USERS:
             return{...action.users}
+        case 'makeFriends':
+            nextState[action.userId].friends.push(action.friendId)
+            return nextState
+        case 'loseFriends':
+            let index = nextState[action.userId].friends.indexOf(action.friendId)
+            nextState[action.userId].friends.splice(index,1)
+            return nextState
         default:
             return state 
     }
