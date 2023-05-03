@@ -158,7 +158,7 @@ const usersReducer = (state={},action)=>{
             return nextState
         case 'loseFriends':
             let index = nextState[action.userId].friends.indexOf(action.friendId)
-            nextState[action.userId].friends.splice(index,1)
+            delete nextState[action.userId].friends.splice(index,1)
             return nextState
         default:
             return state 
