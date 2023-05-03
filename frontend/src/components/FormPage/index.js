@@ -163,8 +163,13 @@ function SignupFormPage(props){
             }
             
         }
-        
-        //headers
+    let emailInputtext 
+    if (sessionUser.id === 1){
+        emailInputtext = <input id = 'demoEmailInput' type = "text" value = 'Cannot Change Demo Email' readOnly={true}/>
+    }else{
+       emailInputtext = <input type = "text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
+        placeholder = 'Email' id = 'emailInput'/>
+    }
     return(
         <>
         <div className = 'signupWindow'>
@@ -193,8 +198,7 @@ function SignupFormPage(props){
                 </div>
                 <div id = "emailInputcontain">
                     {emailHead}
-                    <input type = "text" value = {email} onChange = {(e)=>setEmail(e.target.value)}
-                    placeholder = 'Email' id = 'emailInput'/>
+                    {emailInputtext}
                 </div>
                 {passInput}
 

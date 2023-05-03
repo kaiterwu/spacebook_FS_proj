@@ -70,16 +70,30 @@
     height:96px;
 }
 
-#emailInput,#passInput{
+#emailInput,#passInput,#demoEmailInput{
     width:330px;
     height:32px;
 }
 
-#emailInput,#passInput,.names input,#aboutMeText{
+#emailInput,#passInput,.names input,#aboutMeText,#demoEmailInput{
     background-color: rgb(238, 237, 237);
     border:solid 1px rgb(176, 176, 176);
     border-radius:4px;
     
+}
+
+#demoEmailInput:hover{
+    cursor:not-allowed;
+}
+
+#demoEmailInput{
+    color:rgb(255, 0, 0);
+    font-style: italic;
+    opacity: 50%;
+}
+
+#demoEmailInput:focus{
+    outline:none;
 }
 
 
@@ -160,7 +174,7 @@
     margin-bottom: 1vw;
     font-family:Arial, Helvetica, sans-serif
 }
-.signup input,#emailInput,#passInput,#aboutMeText{
+.signup input,#emailInput,#passInput,#aboutMeText,#demoEmailInput{
     /* border:1px solid red; */
     box-sizing:border-box;
     padding-left:10px;
