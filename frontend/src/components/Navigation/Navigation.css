@@ -198,11 +198,11 @@ h1{
 #searchInput{
   border-radius:20px;
   padding:0 1vw;
-  font-size: 1.5vw;
+  font-size:18px;
   background-color: #f0f2f5;
   /* width:86%; */
   border:none;  
-  height:3vw;
+  height:40px;
 }
 
 #searchInput:focus{
